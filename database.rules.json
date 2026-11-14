@@ -1,0 +1,35 @@
+{
+  "rules": {
+    "rooms": {
+      "$room": {
+        ".read": "auth != null && data.child('hostUid').val() === auth.uid",
+        ".write": "auth != null && !data.exists() && newData.child('hostUid').val() === auth.uid && newData.child('public').child('code').val() === $room",
+        "public": {
+          ".read": "auth != null",
+          ".write": "auth != null && root.child('rooms').child($room).child('hostUid').val() === auth.uid"
+        },
+        "players": {
+          "$uid": {
+            ".read": "auth != null && (auth.uid === $uid || root.child('rooms').child($room).child('hostUid').val() === auth.uid)",
+            ".write": "auth != null && (root.child('rooms').child($room).child('hostUid').val() === auth.uid || (auth.uid === $uid && !data.exists() && root.child('rooms').child($room).child('public').child('status').val() === 'lobby' && newData.child('uid').val() === auth.uid && newData.child('name').isString() && newData.child('name').val().length <= 30))"
+          }
+        },
+        "claims": {
+          "$uid": {
+            ".read": "auth != null && (auth.uid === $uid || root.child('rooms').child($room).child('hostUid').val() === auth.uid)",
+            ".write": "auth != null && (root.child('rooms').child($room).child('hostUid').val() === auth.uid || (auth.uid === $uid && root.child('rooms').child($room).child('public').child('status').val() === 'playing' && newData.child('stageId').val() === root.child('rooms').child($room).child('public').child('stage').child('id').val()))"
+          }
+        },
+        "stages": {
+          ".write": "auth != null && root.child('rooms').child($room).child('hostUid').val() === auth.uid"
+        },
+        "winners": {
+          ".write": "auth != null && root.child('rooms').child($room).child('hostUid').val() === auth.uid"
+        },
+        "candidates": {
+          ".write": "auth != null && root.child('rooms').child($room).child('hostUid').val() === auth.uid"
+        }
+      }
+    }
+  }
+}
