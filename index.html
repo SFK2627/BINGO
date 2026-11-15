@@ -1054,6 +1054,203 @@ body[data-role="player"] .paper-card-top{font-size:clamp(9px,2vw,11px);font-weig
 body[data-role="player"] .paper-card-bottom{font-size:clamp(8px,1.8vw,10px);font-weight:900;letter-spacing:.02em;color:#4f5e73}
 body[data-role="player"] .paper-card-bottom span:first-child{color:#a43e48}
 body[data-role="player"][data-card-style="midnight"] .paper-card-top,body[data-role="player"][data-card-style="midnight"] .paper-card-bottom,body[data-role="player"][data-card-style="midnight"] .paper-card-bottom span:first-child{color:#f8df9a}
+
+/* V14 — card-first, truly compact phone focus: no duplicate info, no stacked action buttons */
+body.guest-focus #app{padding:7px 9px 9px!important;max-width:none}
+body.guest-focus .guest-layout{min-height:calc(100dvh - 16px);align-items:center}
+body.guest-focus .guest-main{max-width:620px}
+body.guest-focus .guest-card-panel{padding:0!important}
+body.guest-focus .focus-stage-header{
+ display:flex;align-items:center;justify-content:space-between;gap:9px;
+ padding:7px 10px;margin:0 auto 6px;min-height:43px;
+ max-width:min(95vw,620px);border-radius:11px;
+ box-shadow:none;
+}
+body.guest-focus .focus-stage-details{display:flex;align-items:center;flex-direction:row;min-width:0;gap:9px}
+body.guest-focus .focus-stage-header .focus-label{font-size:10px;white-space:nowrap;flex:0 0 auto;letter-spacing:.05em}
+body.guest-focus .focus-stage-header strong{font-size:clamp(15px,4.35vw,21px);font-weight:900;line-height:1.1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.guest-focus .focus-stage-header small{display:none}
+body.guest-focus .focus-stage-info{width:32px;height:32px;flex:0 0 32px;border-radius:9px;font-size:18px}
+body.guest-focus .guest-card-head.compact{display:block!important;max-width:min(95vw,620px);margin:0 auto 5px!important}
+body.guest-focus .guest-card-tools.compact{display:flex!important;align-items:center;justify-content:flex-end!important;gap:6px;flex-wrap:nowrap!important;width:100%}
+body.guest-focus .guest-card-tools.compact .pattern-info,
+body.guest-focus .guest-card-tools.compact .focus-enter{display:none!important}
+body.guest-focus .guest-card-tools.compact .icon-button{
+ flex:0 0 auto!important;min-width:36px;min-height:34px!important;padding:6px 10px!important;
+ display:inline-flex;align-items:center;justify-content:center;gap:5px;
+ line-height:1!important;font-size:15px!important;border-radius:9px;
+}
+body.guest-focus .guest-card-tools.compact .guest-action-word{display:none!important}
+body.guest-focus .guest-card-tools.compact .focus-claim{flex-basis:auto!important;min-width:42px;background:#ffe09c!important;color:#34244a!important;border-color:#e3bb60!important}
+body.guest-focus .guest-card-tools.compact .focus-exit{display:inline-flex!important}
+body.guest-focus .latest-strip.compact{max-width:min(95vw,620px);min-height:41px;grid-template-columns:auto 1fr auto;padding:7px 11px;margin:0 auto 6px;border-radius:11px}
+body.guest-focus .latest-strip.compact>span:first-child{font-size:9px;letter-spacing:.045em}
+body.guest-focus .latest-strip.compact>strong{font-size:clamp(20px,6vw,27px);line-height:1.1}
+body.guest-focus .latest-strip.compact>.right{font-size:10px}
+body.guest-focus .guest-card-wrap{max-width:min(95vw,620px)!important}
+body.guest-focus .paper-card{padding:6px 7px 7px!important;transform:none!important;box-shadow:0 4px 0 #d6c7a3,0 9px 22px #0003!important}
+body.guest-focus .paper-card-top{padding:1px 2px 5px;font-size:8px;letter-spacing:.055em}
+body.guest-focus .paper-card-bottom{padding:5px 2px 0;font-size:8px;letter-spacing:.025em}
+body.guest-focus .bingo-head{gap:3px!important;margin-bottom:4px!important}
+body.guest-focus .bingo-card{gap:3px!important}
+body.guest-focus .bingo-head span{height:clamp(32px,9vw,49px)!important;font-size:clamp(25px,7vw,37px)!important}
+body.guest-focus .square{font-size:clamp(16px,5.6vw,29px)!important;border-width:1.5px;border-radius:6px}
+body.guest-focus .square.free{font-size:clamp(9px,2.55vw,14px)!important}
+body.guest-focus .focus-prize-footer{max-width:min(95vw,620px);padding:8px 11px;margin:8px auto 0;min-height:39px;border-radius:11px}
+body.guest-focus .focus-prize-footer span{font-size:10px;letter-spacing:.035em}
+body.guest-focus .focus-prize-footer strong{font-size:clamp(16px,5vw,22px);line-height:1.1}
+body.guest-focus .standing-guest-status.compact{max-width:min(95vw,620px);margin:0 auto 5px!important;padding:7px 11px!important;flex-direction:row;align-items:center;justify-content:space-between;gap:7px}
+body.guest-focus .standing-guest-status.compact strong{font-size:11px}
+body.guest-focus .standing-guest-status.compact span{display:none}
+@media(min-width:721px){
+ body.guest-focus .guest-main{max-width:min(620px,calc((100dvh - 175px) * .78))!important}
+ body.guest-focus .guest-card-wrap{max-width:100%!important}
+ body.guest-focus .focus-stage-header,body.guest-focus .guest-card-head.compact,body.guest-focus .latest-strip.compact,body.guest-focus .focus-prize-footer{max-width:100%!important}
+}
+@media(max-width:390px){
+ body.guest-focus .focus-stage-header{padding:6px 9px;min-height:39px}
+ body.guest-focus .focus-stage-details{gap:6px}
+ body.guest-focus .focus-stage-header .focus-label{font-size:9px}
+ body.guest-focus .focus-stage-header strong{font-size:clamp(14px,4.2vw,18px)}
+ body.guest-focus .guest-card-tools.compact .icon-button{min-height:32px!important;min-width:32px;padding:5px 9px!important}
+ body.guest-focus .latest-strip.compact{min-height:37px}
+ body.guest-focus .focus-prize-footer{min-height:37px}
+}
+@media(max-height:690px) and (max-width:720px){
+ body.guest-focus .guest-layout{min-height:auto!important}
+ body.guest-focus .focus-stage-header{margin-bottom:3px}
+ body.guest-focus .guest-card-head.compact{margin-bottom:3px!important}
+ body.guest-focus .latest-strip.compact{margin-bottom:4px}
+ body.guest-focus .focus-prize-footer{margin-top:6px}
+}
+
+
+/* V14.1 winner popup readability + no-scroll fix */
+body.winner-open{overflow:hidden!important;height:100dvh}
+body.winner-open .shell{filter:blur(1.5px)}
+.winner-celebration{position:fixed!important;inset:0!important;overflow:auto!important;padding:18px!important;background:radial-gradient(ellipse at center,#131931f7 0%,#080b17fa 68%,#04060dfd 100%)!important;backdrop-filter:blur(5px)}
+.winner-announcement{max-width:min(700px,94vw)!important;max-height:calc(100dvh - 36px)!important;overflow:auto!important;padding:clamp(20px,3.2vh,34px) clamp(18px,3vw,28px)!important;border:2px solid #ffd37d!important;border-radius:30px!important;background:linear-gradient(160deg,#243552,#162239)!important;box-shadow:0 24px 95px #000b,0 0 90px #ffcf6a33!important}
+.winner-announcement .eyebrow{color:#7fe6ff!important}
+.winner-announcement h2{color:#ffe08d!important;text-shadow:0 2px 0 #6c4d18}
+.winner-announcement .winner-names{color:#ffffff!important}
+.winner-announcement p,.winner-announcement .tiny,.winner-status-note{color:#d9e4fb!important}
+.winner-announcement .prize-amount{display:flex;justify-content:center;align-items:baseline;gap:10px;margin:14px 0 10px;color:#ffd778!important}
+.winner-announcement .prize-amount strong{font-size:clamp(34px,5.2vw,60px)!important;line-height:1;color:#ffd778!important;text-shadow:0 2px 0 #7b5320}
+.winner-announcement .prize-amount small{font-size:clamp(12px,1.3vw,15px)!important;color:#fff2c8!important;letter-spacing:.04em}
+.winner-decisions{margin-top:18px!important;gap:12px!important}
+.winner-decisions .btn{min-height:62px!important;font-size:clamp(13px,1.25vw,17px)!important;font-weight:900!important;padding:12px 14px!important;border-width:1px!important}
+.winner-decisions .btn small{display:block;margin-top:4px;font-size:12px;line-height:1.2;color:inherit;opacity:.95}
+.winner-decisions .btn{background:linear-gradient(180deg,#1a7aae,#0f628b)!important;border-color:#5eb7eb!important;color:#fff!important}
+.winner-decisions .btn.danger{background:linear-gradient(180deg,#8d3046,#6d2437)!important;border-color:#ff8295!important;color:#fff!important}
+.winner-decisions .btn.secondary{background:#eef4fb!important;border-color:#a9bfd9!important;color:#103452!important}
+@media(max-width:700px){
+ .winner-celebration{padding:12px!important}
+ .winner-announcement{max-height:calc(100dvh - 24px)!important;border-radius:22px!important}
+ .winner-decisions{grid-template-columns:1fr!important}
+ .winner-decisions .btn{min-height:56px!important}
+}
+
+
+/* V14.2 — Unified accessibility colors for every host-synced guest theme.
+   Semantic messages must never inherit dark-mode backgrounds under light text, or vice versa.
+   The printed Bingo card is deliberately excluded so each guest's chosen card style stays intact. */
+body[data-palette]{
+ --msg-good-bg:#17473b;--msg-good-fg:#ebfff7;--msg-good-border:#74cfad;
+ --msg-warn-bg:#49351f;--msg-warn-fg:#fff3d9;--msg-warn-border:#e9ae5b;
+ --msg-error-bg:#572937;--msg-error-fg:#ffeef2;--msg-error-border:#ee8298;
+ --msg-neutral-bg:var(--v8-surface);--msg-neutral-fg:var(--v8-ink);
+}
+body[data-appearance="light"]{
+ --msg-good-bg:#e1f6eb;--msg-good-fg:#124d38;--msg-good-border:#448765;
+ --msg-warn-bg:#fff0d2;--msg-warn-fg:#68440b;--msg-warn-border:#bb852b;
+ --msg-error-bg:#ffeaec;--msg-error-fg:#7b2339;--msg-error-border:#b95269;
+ --msg-neutral-bg:var(--v8-surface);--msg-neutral-fg:var(--v8-ink);
+}
+/* Announcements, including the guest's 'You won this prize' message. */
+body[data-palette] .alert,
+body[data-palette] .alert:not(.success):not(.warning){background:var(--msg-neutral-bg)!important;color:var(--msg-neutral-fg)!important;border:1px solid var(--v8-stroke)!important}
+body[data-palette] .alert.success,
+body[data-palette] #guest-win-message .alert.success{
+ background:var(--msg-good-bg)!important;color:var(--msg-good-fg)!important;border:2px solid var(--msg-good-border)!important;
+ box-shadow:0 5px 16px #0000000b;
+}
+body[data-palette] .alert.warning{background:var(--msg-warn-bg)!important;color:var(--msg-warn-fg)!important;border:1px solid var(--msg-warn-border)!important}
+body[data-palette] .alert.error{background:var(--msg-error-bg)!important;color:var(--msg-error-fg)!important;border:1px solid var(--msg-error-border)!important}
+body[data-palette] #guest-win-message .alert{font-size:clamp(12px,2.9vw,15px);line-height:1.5;font-weight:750;padding:11px 13px;margin:9px 0 3px;border-radius:13px}
+body[data-palette] #guest-win-message .alert strong,
+body[data-palette] #guest-win-message .alert span{color:inherit!important}
+/* Status badges are light too in Light Mode; no dark red/green pills with inherited dark lettering. */
+body[data-appearance="light"] .pill.green{background:var(--msg-good-bg)!important;color:var(--msg-good-fg)!important;border-color:var(--msg-good-border)!important}
+body[data-appearance="light"] .pill.red{background:var(--msg-error-bg)!important;color:var(--msg-error-fg)!important;border-color:var(--msg-error-border)!important}
+body[data-appearance="light"] .pill.gold{background:var(--msg-warn-bg)!important;color:var(--msg-warn-fg)!important;border-color:var(--msg-warn-border)!important}
+/* Previous winners, called history and mobile room status. */
+body[data-palette] .winner-entry{
+ background:var(--msg-good-bg)!important;color:var(--msg-good-fg)!important;
+ border:1px solid var(--msg-good-border)!important;
+}
+body[data-palette] .winner-entry strong,
+body[data-palette] .winner-entry span,
+body[data-palette] .winner-entry .tiny{color:var(--msg-good-fg)!important}
+body[data-palette] .guest-footnote{color:var(--v8-muted)!important}
+body[data-palette] .guest-mobile-history,
+body[data-palette] .guest-side .card,
+body[data-palette] .guest-meta-card{color:var(--v8-ink)!important}
+body[data-palette] .guest-mobile-history summary,
+body[data-palette] .guest-side .history-head,
+body[data-palette] .guest-side .history-head span{color:var(--v8-ink)!important}
+body[data-palette] .guest-roomline{color:var(--v8-muted)!important}
+body[data-palette] .guest-card-title strong,
+body[data-palette] .guest-meta h1{color:var(--v8-ink)!important}
+body[data-palette] .guest-card-tools .icon-button,
+body[data-palette] .focus-stage-info{background:var(--v8-surface)!important;color:var(--v8-ink)!important;border-color:var(--v8-stroke)!important}
+body[data-palette] .guest-card-tools .icon-button[aria-pressed="true"]{background:var(--v8-last)!important;color:var(--v8-onlast)!important;border-color:var(--v8-last)!important}
+body[data-palette] .guest-card-tools .focus-claim{background:var(--v8-hit)!important;color:var(--v8-onhit)!important;border-color:var(--v8-hit)!important}
+body[data-palette] .focus-prize-footer,
+body[data-palette] .focus-stage-header{background:var(--v8-surface)!important;color:var(--v8-ink)!important;border-color:var(--v8-stroke)!important}
+body[data-palette] .focus-prize-footer strong{color:var(--v8-accent)!important}
+body[data-palette] .focus-prize-footer span,
+body[data-palette] .focus-stage-header .focus-label{color:var(--v8-muted)!important}
+/* Popups use the theme's matching surface. Avoid a dark info panel under light-mode text. */
+body[data-appearance="light"] .standing-info-hero,
+body[data-appearance="light"] .standing-roster-summary{
+ background:var(--msg-good-bg)!important;color:var(--msg-good-fg)!important;border-color:var(--msg-good-border)!important;
+}
+body[data-appearance="light"] .standing-info-hero strong,
+body[data-appearance="light"] .standing-info-hero span{color:var(--msg-good-fg)!important}
+body[data-appearance="light"] .qr-screen-dialog{background:var(--v8-surface)!important;color:var(--v8-ink)!important;border-color:var(--v8-stroke)!important}
+body[data-appearance="light"] .qr-screen-top,
+body[data-appearance="light"] .qr-screen-room{color:var(--v8-accent)!important}
+body[data-appearance="light"] .qr-screen-hint,
+body[data-appearance="light"] .qr-screen-link{color:var(--v8-muted)!important}
+/* Temporary success/failure feedback should remain readable in either mode. */
+body[data-palette] .toast{background:var(--msg-good-bg)!important;color:var(--msg-good-fg)!important;border-color:var(--msg-good-border)!important}
+body[data-palette] .toast.error{background:var(--msg-error-bg)!important;color:var(--msg-error-fg)!important;border-color:var(--msg-error-border)!important}
+body[data-appearance="light"] .stage-save-feedback{background:var(--msg-good-bg)!important;color:var(--msg-good-fg)!important;border-color:var(--msg-good-border)!important}
+body[data-appearance="light"] .stage-save-feedback.error{background:var(--msg-error-bg)!important;color:var(--msg-error-fg)!important;border-color:var(--msg-error-border)!important}
+/* Light host winner screen: same light theme, not permanently dark navy. */
+body[data-appearance="light"] .winner-celebration{
+ background:rgba(16,32,51,.66)!important;backdrop-filter:blur(5px);
+}
+body[data-appearance="light"] .winner-announcement{
+ background:var(--v8-surface)!important;color:var(--v8-ink)!important;
+ border-color:var(--v8-stroke)!important;box-shadow:0 23px 85px #07172a77!important;
+}
+body[data-appearance="light"] .winner-announcement .eyebrow,
+body[data-appearance="light"] .winner-announcement h2,
+body[data-appearance="light"] .winner-announcement .prize-amount,
+body[data-appearance="light"] .winner-announcement .prize-amount strong{
+ color:var(--v8-accent)!important;text-shadow:none!important;
+}
+body[data-appearance="light"] .winner-announcement .winner-names{color:var(--v8-ink)!important}
+body[data-appearance="light"] .winner-announcement p,
+body[data-appearance="light"] .winner-announcement .tiny,
+body[data-appearance="light"] .winner-announcement .winner-status-note{color:var(--v8-muted)!important}
+body[data-appearance="light"] .winner-announcement .prize-amount small{color:var(--v8-muted)!important}
+body[data-appearance="light"] .winner-decisions .btn:not(.danger):not(.secondary){background:var(--v8-accent)!important;color:var(--v8-onaccent)!important;border-color:var(--v8-accent)!important}
+body[data-appearance="light"] .winner-decisions .btn.secondary{background:var(--v8-panel)!important;color:var(--v8-ink)!important;border-color:var(--v8-stroke)!important}
+body[data-appearance="light"] .winner-decisions .btn.danger{background:var(--msg-error-bg)!important;color:var(--msg-error-fg)!important;border-color:var(--msg-error-border)!important}
+/* Guest personal card skins remain unchanged even when the host switches modes. */
+
 </style>
 </head>
 <body>
@@ -1147,7 +1344,7 @@ function standingGuestHTML(pub,p){
  return `<div class="standing-guest-status ${sitting?'eliminated':'active'}" id="standing-guest-status"><strong>${safe(status)}</strong><span>${pub.stage.lmsSource==='number'?'Your lucky number: '+ball(Number(p?.luckyNumber)||0):'Your whole card counts'} · ${pub.stage.lmsRule==='miss'?'No match? Sit down.':'Match? Sit down.'}</span></div>`;
 }
 function sessionSave(){try{sessionStorage.setItem('bingolive_session',JSON.stringify({role:S.role,mode:S.mode,roomId:S.roomId,uid:S.uid}))}catch(e){}}
-function toast(message,error=false){el('toast-root').innerHTML=`<div class="toast" style="${error?'background:#60303b;border-color:#ce7688':''}">${safe(message)}</div>`;clearTimeout(toast.timer);toast.timer=setTimeout(()=>el('toast-root').innerHTML='',3700)}
+function toast(message,error=false){el('toast-root').innerHTML=`<div class="toast ${error?'error':''}">${safe(message)}</div>`;clearTimeout(toast.timer);toast.timer=setTimeout(()=>el('toast-root').innerHTML='',3700)}
 function confirmDialog(title,message,yes,onYes){el('modal-root').innerHTML=`<div class="overlay"><div class="modal"><div class="eyebrow">Host confirmation</div><h2>${safe(title)}</h2><p>${safe(message)}</p><div class="row"><button class="btn" id="modal-yes">${safe(yes)}</button><button class="btn secondary" id="modal-no">Cancel</button></div></div></div>`;el('modal-yes').onclick=()=>{el('modal-root').innerHTML='';onYes()};el('modal-no').onclick=()=>el('modal-root').innerHTML=''}
 function onlineConfigured(){const c=window.BINGO_FIREBASE_CONFIG||{};return !!(c.apiKey&&c.authDomain&&c.databaseURL&&c.projectId)}
 function render(){applyTheme();document.body.classList.toggle('on-landing',!S.role);if(!S.role)return renderLanding();if(S.role==='host')return renderHost();return renderGuest()}
@@ -1322,7 +1519,7 @@ function syncStageEditorFields(){
 }
 function renderHost(){document.body.classList.remove('on-landing');const r=S.room;if(!r){el('app').innerHTML=topBarHtml()+'<div class="card pad">Opening your game…</div>';return}const pub=r.public,st=currentStage(r),plist=players(r),candidates=Object.values(r.candidates||{}).filter(c=>c.stageId===st?.id);el('app').innerHTML=topBarHtml()+`<div class="host-meta"><div><div class="eyebrow">GAME NIGHT / HOST</div><h1>Let's play <span>BIG!</span></h1><div class="host-subtitle">${safe(stageLabel(st))}</div></div><div class="host-badges"><span class="pill">◎ ${plist.length} / 100 players</span><span class="pill ${pub.status==='playing'?'green':'gold'}">${safe(pub.status==='playing'?'● Drawing':pub.status==='lobby'?'Lobby open':pub.status==='paused'?'Ⅱ Paused':'Game ended')}</span></div></div><div class="quickbar"><div class="quickbar-stage"><span class="eyebrow">CURRENT PRIZE · ${pub.stageIndex+1} / ${r.stages.length}</span><strong>${safe(st?.name||'BINGO')}</strong>${prizeBadge(st)}</div><div class="quickbar-actions">${pub.status==='lobby'?'<button class="btn" data-act="start">▶ Start game</button>':''}<button class="btn secondary" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''}>Next prize <span aria-hidden="true">→</span></button><button class="btn ghost" data-act="showqr">▦ Show QR</button><button class="btn ghost" data-act="stagemanager">☷ Stages</button><button class="btn ghost" data-act="themes">◒ Themes</button>${isStandingStage(st)?`<button class="btn secondary" data-act="standing-roster">🧍 ${standingSurvivors(r).length} Still Standing</button>`:""}</div></div><div class="dashboard"><div class="stack">${drawPanel(r)}<div class="card pad winners-panel"><div class="row between"><h2 class="section-title">🏆 Prize winners</h2>${prizeBadge(st)}<span class="pill green">${awardList(r,st?.id).length} winners</span></div>${winnerHTML(r)}${candidates.length?`<div class="alert warning"><strong>${candidates.length} waiting for your approval</strong><p>${candidates.map(c=>safe(c.name)).join(', ')}</p><button class="btn mini" data-act="approve">Confirm winners</button></div>`:''}</div><details class="card management-panel"><summary>⚙ Game controls <span>Reset draws · End game · Reopen</span></summary><div class="management-body"><button class="btn secondary mini" data-act="resetdraws">↻ Reset draws, keep all cards</button><button class="btn danger mini" data-act="end">End game</button>${pub.status==='ended'?'<button class="btn secondary mini" data-act="reopen">Reopen game</button>':''}<p class="soft">Resetting a draw never changes a player's card numbers.</p></div></details></div><aside class="stack">${qrPanel()}<div class="card pad stack"><div class="row between"><h2 class="section-title">Prize stages</h2><button class="btn mini secondary" data-act="addstage">+ Add stage</button></div><div class="stage-list">${stageEntries(r)}</div></div><details class="card side-details" ${S.mode==='demo'?'open':''}><summary>Players <span>${plist.length} joined</span></summary><div class="players">${S.mode==='demo'?'<button class="btn ghost mini" data-act="adddemo">+ Add 12 guests</button>':''}${Object.entries(r.players||{}).length?Object.entries(r.players||{}).sort((a,b)=>(a[1].joinedAt||0)-(b[1].joinedAt||0)).map(([uid,p])=>`<div class="player-row"><div><strong>${safe(p.name)}</strong><div class="tiny muted">${p.card?'Card ready':p.rejected?'Room full':'Getting card…'}</div></div><span class="pill ${p.card?'green':'gold'}">${p.card?'✓':'…'}</span></div>`).join(''):'<div class="soft">Invite guests to start the fun.</div>'}</div></details><details class="card side-details"><summary>Past winners</summary><div class="past-winners">${r.stages.slice(0,r.public.stageIndex).map(ps=>`<div><strong>${safe(ps.name)}</strong><p>${awardList(r,ps.id).map(w=>safe(w.name)).join(', ')||'No winners recorded'}</p></div>`).join('')}${(r.public.pastRoundResults||[]).slice().reverse().map(h=>`<div class="past-round"><strong>Past game · ${new Date(h.at).toLocaleDateString()}</strong><p>${(h.awards||[]).map(w=>safe(w.name)+' — '+safe(w.stageName||'Prize')).join(', ')||'No winners'}</p></div>`).join('')}${!r.public.stageIndex&&!(r.public.pastRoundResults||[]).length?'<span class="soft">Your previous winners will appear here.</span>':''}</div></details></aside></div>`;setTimeout(renderQR,0);syncFocusMode()}
 function renderQR(){const target=el('qr-container');if(!target)return;const url=joinLink();if(S.lastQrUrl===url&&target.querySelector('canvas'))return;S.lastQrUrl=url;target.innerHTML='';if(window.QRCode){try{new QRCode(target,{text:url,width:165,height:165,colorDark:'#101a2d',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});return}catch(e){}}target.innerHTML='<span style="color:#17213c;font-weight:700;text-align:center;font-size:12px">QR not available.<br>Use the invite link.</span>'}
-function renderGuest(){document.body.classList.remove('on-landing');const r=S.room;if(!r){el('app').innerHTML=topBarHtml()+'<div class="card pad">Joining your game…</div>';return}const p=S.player||r.players?.[S.uid],pub=r.public,st=pub.stage||currentStage(r),called=new Set(pub.called||[]);S.guestSignature=JSON.stringify([p?.card?.join(','),st?.id,st?.gameType,st?.lmsRule,st?.lmsSource,st?.prizeAmount,st?.prizeDistribution,S.uid]);const selfWinner=(pub.winnerList||[]).some(w=>w.uid===S.uid&&validRoundAward(w,pub));const drawing=!!pub.drawing;const statusText=selfWinner?'🏆 WINNER':isStandingStage(st)?standingGuestState(pub,p):safe(pub.status);const playHint=isStandingStage(st)?'Follow the rule for each draw.':st?.markMode==='auto'?'Your card marks itself.':st?.markMode==='manual'?'Tap only the called numbers.':'Tap to mark. Winners are checked automatically.';const footHint=isStandingStage(st)?'Watch every draw carefully. If your rule says sit, you are out for this stage.':st?.markMode==='manual'?'Tap called numbers, then press BINGO! when complete.':st?.markMode==='hybrid'?'Tap to mark · winners checked automatically':'Marked automatically as numbers are called';el('app').innerHTML=topBarHtml()+`<section class="guest-meta guest-meta-card"><div><div class="eyebrow">YOUR LUCKY CARD</div><div class="guest-name-row"><h1>${safe(p?.name||'Welcome!')} ✦</h1><span class="guest-roomline">Room ${safe(S.roomId)} · ${safe(st?.name||'Bingo')}</span></div></div><div class="guest-mini-tags"><span class="pill" id="guest-count">${(pub.called||[]).length}/75 called</span><span class="pill ${selfWinner?'green':isStandingStage(st)&&statusText.includes('SIT DOWN')?'red':'gold'}" id="guest-status">${safe(statusText)}</span></div></section>${!p?.card?`<div class="alert warning">${p?.rejected?'The room is full.':'You are in! Your card will be ready soon…'}</div>`:`<div class="guest-layout"><div class="guest-main"><div class="guest-card-panel"><div class="focus-stage-header"><div><span class="focus-label">CURRENT GAME</span><strong id="guest-focus-stage-name">${safe(st?.name||'Bingo')}</strong><small>${safe(isStandingStage(st)?'Last Player Standing':PATS[st?.pattern]||'Bingo')}</small></div><button class="focus-stage-info" data-act="pattern-info" aria-label="View current stage rules">ⓘ</button></div><div class="guest-card-head compact"><div class="guest-card-caption guest-card-title"><span class="eyebrow">PLAY YOUR CARD</span><strong>${safe(st?.name||'BINGO')}</strong><div class="soft">${playHint}</div></div><div class="guest-card-tools compact"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Winning pattern and rules">ⓘ Info</button><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle game sound">${S.soundOn?'♫ Sound on':'♪ Sound off'}</button><button class="icon-button card-style-toggle" data-act="card-styles" title="Customize the look of your card">🎨 Card</button><button class="icon-button focus-enter" data-act="focus-guest">⛶ Card only</button>${!isStandingStage(st)&&st?.markMode==='manual'?'<button class="icon-button focus-claim" data-act="claim">🏆 BINGO!</button>':''}<button class="icon-button focus-exit" data-act="focus-guest">✕ Exit</button></div></div>${isStandingStage(st)?standingGuestHTML(pub,p).replace('standing-guest-status ','standing-guest-status compact '):''}<div class="latest-strip compact ${drawing?'guest-drawing-active':''}"><span id="guest-draw-label"><i></i> ${drawing?'DRAWING…':'NOW CALLED'}</span><strong id="guest-focus-latest">${drawing?'DRAWING…':ball(pub.last)}</strong><span class="right" id="guest-count-strip">${(pub.called||[]).length} of 75</span></div><div class="guest-card-wrap" id="guest-board"><div class="paper-card"><div class="paper-card-top"><span>OFFICIAL BINGO CARD</span><span>#${safe(String(p.slot||'001').padStart(3,'0'))}</span></div><div class="bingo-head">${'BINGO'.split('').map((ch,i)=>`<span class="head-${i}">${ch}</span>`).join('')}</div><div class="bingo-card">${p.card.map((n,i)=>{const marked=i===12||((isStandingStage(st)||st?.markMode==='auto')?called.has(n):S.marks.has(i));return `<button class="square ${i===12?'free':''} ${called.has(n)&&i!==12?'called':''} ${marked?'marked':''}" data-act="mark" data-index="${i}" ${i===12||isStandingStage(st)||st?.markMode==='auto'||!called.has(n)||pub.status==='ended'?'disabled':''}><span>${i===12?'FREE':n}</span></button>`}).join('')}</div><div class="paper-card-bottom"><span>★ GOOD LUCK! ★</span><span>KEEP THIS CARD</span></div></div></div><div class="focus-prize-footer" id="guest-focus-prize"><span>${st?.prizeDistribution==='pool'?'TOTAL PRIZE POOL':'PRIZE PER WINNER'}</span><strong>${safe(prizeLine(st)||'No amount set')}</strong></div><div class="guest-footnote">${footHint}</div><div id="guest-win-message">${selfWinner?('<div class="alert success">🏆 You won this prize! '+(prizeLine(st)?'Prize: '+safe(prizeLine(st))+' ':'')+'Keep playing.</div>'):''}</div></div><details class="guest-mobile-history"><summary id="guest-mobile-history-label">Called numbers · ${(pub.called||[]).length}</summary><div id="guest-mobile-history">${recentHistory(pub)}</div></details></div><aside class="guest-side"><div class="card pad latest-card"><div class="latest-card-label"><div><div class="eyebrow">LAST DRAWN</div><strong id="guest-prize-name">${safe(st?.name||'Bingo')}</strong>${prizeBadge(st)}</div><div class="big-ball compact-ball" id="guest-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="history-head"><span>DRAW HISTORY</span><span class="muted">Latest first</span></div><div id="guest-history">${recentHistory(pub)}</div></div><div class="card pad stack guest-winners-panel"><div class="eyebrow">PRIZE WINNERS</div><div id="guest-winners">${renderGuestWinners(pub)}</div></div></aside></div>`}`;syncFocusMode()}
+function renderGuest(){document.body.classList.remove('on-landing');const r=S.room;if(!r){el('app').innerHTML=topBarHtml()+'<div class="card pad">Joining your game…</div>';return}const p=S.player||r.players?.[S.uid],pub=r.public,st=pub.stage||currentStage(r),called=new Set(pub.called||[]);S.guestSignature=JSON.stringify([p?.card?.join(','),st?.id,st?.gameType,st?.lmsRule,st?.lmsSource,st?.prizeAmount,st?.prizeDistribution,S.uid]);const selfWinner=(pub.winnerList||[]).some(w=>w.uid===S.uid&&validRoundAward(w,pub));const drawing=!!pub.drawing;const statusText=selfWinner?'🏆 WINNER':isStandingStage(st)?standingGuestState(pub,p):safe(pub.status);const playHint=isStandingStage(st)?'Follow the rule for each draw.':st?.markMode==='auto'?'Your card marks itself.':st?.markMode==='manual'?'Tap only the called numbers.':'Tap to mark. Winners are checked automatically.';const footHint=isStandingStage(st)?'Watch every draw carefully. If your rule says sit, you are out for this stage.':st?.markMode==='manual'?'Tap called numbers, then press BINGO! when complete.':st?.markMode==='hybrid'?'Tap to mark · winners checked automatically':'Marked automatically as numbers are called';el('app').innerHTML=topBarHtml()+`<section class="guest-meta guest-meta-card"><div><div class="eyebrow">YOUR LUCKY CARD</div><div class="guest-name-row"><h1>${safe(p?.name||'Welcome!')} ✦</h1><span class="guest-roomline">Room ${safe(S.roomId)} · ${safe(st?.name||'Bingo')}</span></div></div><div class="guest-mini-tags"><span class="pill" id="guest-count">${(pub.called||[]).length}/75 called</span><span class="pill ${selfWinner?'green':isStandingStage(st)&&statusText.includes('SIT DOWN')?'red':'gold'}" id="guest-status">${safe(statusText)}</span></div></section>${!p?.card?`<div class="alert warning">${p?.rejected?'The room is full.':'You are in! Your card will be ready soon…'}</div>`:`<div class="guest-layout"><div class="guest-main"><div class="guest-card-panel"><div class="focus-stage-header"><div class="focus-stage-details"><span class="focus-label">STAGE ${(pub.stageIndex||0)+1}</span><strong id="guest-focus-stage-name">${safe(st?.name||'Bingo')}</strong></div><button class="focus-stage-info" data-act="pattern-info" aria-label="See winning pattern and instructions" title="Game instructions">ⓘ</button></div><div class="guest-card-head compact"><div class="guest-card-caption guest-card-title"><span class="eyebrow">PLAY YOUR CARD</span><strong>${safe(st?.name||'BINGO')}</strong><div class="soft">${playHint}</div></div><div class="guest-card-tools compact"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Winning pattern and rules">ⓘ Info</button><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle game sound" title="Toggle sound"><span aria-hidden="true">${S.soundOn?'♫':'♪'}</span><span class="guest-action-word">${S.soundOn?'Sound on':'Sound off'}</span></button><button class="icon-button card-style-toggle" data-act="card-styles" title="Customize the look of your card" aria-label="Customize card"><span aria-hidden="true">🎨</span><span class="guest-action-word">Card</span></button><button class="icon-button focus-enter" data-act="focus-guest">⛶ Card only</button>${!isStandingStage(st)&&st?.markMode==='manual'?'<button class="icon-button focus-claim" data-act="claim" aria-label="Claim Bingo"><span aria-hidden="true">🏆</span><span class="guest-action-word">BINGO!</span></button>':''}<button class="icon-button focus-exit" data-act="focus-guest" aria-label="Exit card only" title="Exit Card Only"><span aria-hidden="true">✕</span><span class="guest-action-word">Exit</span></button></div></div>${isStandingStage(st)?standingGuestHTML(pub,p).replace('standing-guest-status ','standing-guest-status compact '):''}<div class="latest-strip compact ${drawing?'guest-drawing-active':''}"><span id="guest-draw-label"><i></i> ${drawing?'DRAWING…':'NOW CALLED'}</span><strong id="guest-focus-latest">${drawing?'DRAWING…':ball(pub.last)}</strong><span class="right" id="guest-count-strip">${(pub.called||[]).length} of 75</span></div><div class="guest-card-wrap" id="guest-board"><div class="paper-card"><div class="paper-card-top"><span>OFFICIAL BINGO CARD</span><span>#${safe(String(p.slot||'001').padStart(3,'0'))}</span></div><div class="bingo-head">${'BINGO'.split('').map((ch,i)=>`<span class="head-${i}">${ch}</span>`).join('')}</div><div class="bingo-card">${p.card.map((n,i)=>{const marked=i===12||((isStandingStage(st)||st?.markMode==='auto')?called.has(n):S.marks.has(i));return `<button class="square ${i===12?'free':''} ${called.has(n)&&i!==12?'called':''} ${marked?'marked':''}" data-act="mark" data-index="${i}" ${i===12||isStandingStage(st)||st?.markMode==='auto'||!called.has(n)||pub.status==='ended'?'disabled':''}><span>${i===12?'FREE':n}</span></button>`}).join('')}</div><div class="paper-card-bottom"><span>★ GOOD LUCK! ★</span><span>KEEP THIS CARD</span></div></div></div><div class="focus-prize-footer" id="guest-focus-prize"><span>${st?.prizeDistribution==='pool'?'TOTAL PRIZE POOL':'PRIZE PER WINNER'}</span><strong>${safe(prizeLine(st)||'No amount set')}</strong></div><div class="guest-footnote">${footHint}</div><div id="guest-win-message">${selfWinner?('<div class="alert success">🏆 You won this prize! '+(prizeLine(st)?'Prize: '+safe(prizeLine(st))+' ':'')+'Keep playing.</div>'):''}</div></div><details class="guest-mobile-history"><summary id="guest-mobile-history-label">Called numbers · ${(pub.called||[]).length}</summary><div id="guest-mobile-history">${recentHistory(pub)}</div></details></div><aside class="guest-side"><div class="card pad latest-card"><div class="latest-card-label"><div><div class="eyebrow">LAST DRAWN</div><strong id="guest-prize-name">${safe(st?.name||'Bingo')}</strong>${prizeBadge(st)}</div><div class="big-ball compact-ball" id="guest-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="history-head"><span>DRAW HISTORY</span><span class="muted">Latest first</span></div><div id="guest-history">${recentHistory(pub)}</div></div><div class="card pad stack guest-winners-panel"><div class="eyebrow">PRIZE WINNERS</div><div id="guest-winners">${renderGuestWinners(pub)}</div></div></aside></div>`}`;syncFocusMode()}
 function renderGuestWinners(pub){const awards=(pub.winnerList||[]).filter(w=>validRoundAward(w,pub));return awards.length?awards.map(w=>`<div class="winner-entry"><strong>🏆 ${safe(w.name)}</strong><span class="tiny">Draw #${w.drawCount}</span></div>`).join(''):'<div class="soft">Good luck, everyone!</div>'}
 function updateBall(node,number){if(!node)return;const now=Number(number)||0;const old=Number(node.dataset.ball)||0;if(old===now)return;node.dataset.ball=String(now);node.innerHTML=`<div class="letter">${now?'BINGO'[Math.floor((now-1)/15)]:'✦'}</div><div class="digit">${now||'—'}</div>`;if(now){node.classList.remove('draw-pop');void node.offsetWidth;node.classList.add('draw-pop','v11-ball-reveal');setTimeout(()=>node.classList.remove('v11-ball-reveal'),1100)} }
 function updateGuestUI(){const r=S.room,p=S.player,pub=r.public,st=pub.stage,called=new Set(pub.called||[]),won=(pub.winnerList||[]).some(w=>w.uid===S.uid&&validRoundAward(w,pub));const drawing=!!pub.drawing;const strip=el('guest-focus-latest')?.closest('.latest-strip');strip?.classList.toggle('guest-drawing-active',drawing);const drawingLabel=el('guest-draw-label');if(drawingLabel)drawingLabel.innerHTML='<i></i> '+(drawing?'DRAWING…':'NOW CALLED');const count=el('guest-count');if(count)count.textContent=`${(pub.called||[]).length}/75 called`;const countStrip=el('guest-count-strip');if(countStrip)countStrip.textContent=`${(pub.called||[]).length} of 75`;const standingNote=el('standing-guest-status');if(standingNote){const statusText=standingGuestState(pub,p);standingNote.className='standing-guest-status '+(statusText.includes('SIT DOWN')?'eliminated':'active');standingNote.querySelector('strong').textContent=statusText}const status=el('guest-status');if(status){status.textContent=won?'🏆 WINNER':isStandingStage(st)?standingGuestState(pub,p):pub.status;status.className='pill '+(won?'green':'gold')}if(!drawing)updateBall(el('guest-last-ball'),pub.last);const latest=el('guest-focus-latest');const latestText=drawing?'DRAWING…':ball(pub.last);if(latest&&latest.textContent!==latestText){latest.textContent=latestText;latest.classList.remove('latest-pop');void latest.offsetWidth;latest.classList.add('latest-pop')}const history=el('guest-history');if(history)history.innerHTML=recentHistory(pub);const mobileHist=el('guest-mobile-history');if(mobileHist)mobileHist.innerHTML=recentHistory(pub);const mobileLabel=el('guest-mobile-history-label');if(mobileLabel)mobileLabel.textContent=`Called numbers · ${(pub.called||[]).length}`;const winners=el('guest-winners');if(winners)winners.innerHTML=renderGuestWinners(pub);const message=el('guest-win-message');if(message)message.innerHTML=won?('<div class="alert success">🏆 You won this prize! '+(prizeLine(st)?'Prize: '+safe(prizeLine(st))+' ':'')+'Keep playing.</div>'):'';document.querySelectorAll('#guest-board .square').forEach((square,i)=>{const n=p?.card?.[i]||0,active=n&&called.has(n),marked=i===12||((isStandingStage(st)||st?.markMode==='auto')?active:S.marks.has(i)),wasMarked=square.classList.contains('marked');square.classList.toggle('called',!!active);square.classList.toggle('marked',!!marked);if(marked&&!wasMarked){square.classList.remove('daub-pop');void square.offsetWidth;square.classList.add('daub-pop')}square.disabled=i===12||isStandingStage(st)||st?.markMode==='auto'||!active||pub.status==='ended'})}
@@ -1388,9 +1585,9 @@ function finishDrawAnimation(){
 function playWinnerSound(){if(!S.soundOn||!audioReady())return;[523,659,784,1047].forEach((f,i)=>ping(f,i*.12,.32,'sine',.12))}
 function playClickSound(){if(!S.soundOn||!audioReady())return;ping(530,0,.075,'sine',.055)}
 function announceNumber(n){if(!S.voiceOn||S.role!=='host'||!n||!('speechSynthesis'in window))return;try{speechSynthesis.cancel();const letter='BINGO'[Math.floor((n-1)/15)];const word={B:'B',I:'I',N:'N',G:'G',O:'O'}[letter];const utterance=new SpeechSynthesisUtterance(`${word}, ${n}`);utterance.lang='en-US';utterance.rate=.92;utterance.pitch=1.04;utterance.volume=.92;speechSynthesis.speak(utterance)}catch(e){}}
-function soundAction(act){audioReady();if(act==='sound'){S.soundOn=!S.soundOn;store('bingolive_sound_'+S.role,S.soundOn);if(S.soundOn)playClickSound()}else{S.voiceOn=!S.voiceOn;store('bingolive_voice',S.voiceOn);if(S.voiceOn){const n=S.room?.public?.last;announceNumber(n||0)}}document.querySelectorAll('[data-act="sound"]').forEach(b=>{b.textContent=S.soundOn?'♫ Sound on':'♪ Sound off';b.setAttribute('aria-pressed',S.soundOn)});document.querySelectorAll('[data-act="voice"]').forEach(b=>{b.textContent=S.voiceOn?'🗣 Voice on':'🗣 Voice off';b.setAttribute('aria-pressed',S.voiceOn)})}
+function soundAction(act){audioReady();if(act==='sound'){S.soundOn=!S.soundOn;store('bingolive_sound_'+S.role,S.soundOn);if(S.soundOn)playClickSound()}else{S.voiceOn=!S.voiceOn;store('bingolive_voice',S.voiceOn);if(S.voiceOn){const n=S.room?.public?.last;announceNumber(n||0)}}document.querySelectorAll('[data-act="sound"]').forEach(b=>{const icon=b.querySelector('[aria-hidden="true"]'),word=b.querySelector('.guest-action-word');if(icon&&word){icon.textContent=S.soundOn?'♫':'♪';word.textContent=S.soundOn?'Sound on':'Sound off'}else b.textContent=S.soundOn?'♫ Sound on':'♪ Sound off';b.setAttribute('aria-pressed',S.soundOn)});document.querySelectorAll('[data-act="voice"]').forEach(b=>{b.textContent=S.voiceOn?'🗣 Voice on':'🗣 Voice off';b.setAttribute('aria-pressed',S.voiceOn)})}
 
-function clearWinnerScreen(){clearTimeout(S.winnerTimer);el('winner-root').innerHTML=''}
+function clearWinnerScreen(){clearTimeout(S.winnerTimer);document.body.classList.remove('winner-open');el('winner-root').innerHTML=''}
 function celebrateHost(list,stage){
  if(!list?.length||S.role!=='host')return;
  playWinnerSound();
