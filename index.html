@@ -1558,6 +1558,94 @@ body[data-appearance="light"] .voice-system-picker label,body[data-appearance="l
 body[data-appearance="light"] .voice-system-picker select{background:#fff!important;color:#172a44!important;border-color:#7890ab!important}
 @media(max-width:420px){.voice-presets{gap:6px}.voice-preset{padding:8px;min-height:57px}.voice-preset.active{padding:7px}.voice-preset strong{font-size:12px}.voice-preset span{font-size:10px}.voice-modal-actions{grid-template-columns:1fr}}
 
+
+/* V20 — Always-alive orbit rings: idle, mixing and reveal. Pure decoration. */
+.host-draw-panel .ball-orbit{
+  --orbit-accent:var(--v8-accent,#f8ca79);
+  --orbit-outline:color-mix(in srgb,var(--orbit-accent) 68%,transparent);
+}
+/* Three independently rotating tracks. Only the outlines rotate, never the ball or number. */
+body[data-palette] .host-draw-panel .ball-orbit::before,
+.host-draw-panel .ball-orbit::before{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  z-index:0;
+  border:3px dashed var(--orbit-outline);
+  border-radius:50%;
+  pointer-events:none;
+  opacity:.85;
+  animation:orbit-v20-cw 27s linear infinite!important;
+  will-change:transform;
+}
+body[data-palette] .host-draw-panel .ball-orbit::after,
+.host-draw-panel .ball-orbit::after{
+  content:"";
+  position:absolute;
+  inset:-16px;
+  z-index:0;
+  border:3px solid transparent;
+  border-top-color:var(--orbit-accent);
+  border-right-color:var(--orbit-outline);
+  border-bottom-color:color-mix(in srgb,var(--orbit-accent) 34%,transparent);
+  border-radius:50%;
+  opacity:.75;
+  pointer-events:none;
+  animation:orbit-v20-ccw 34s linear infinite!important;
+  will-change:transform;
+}
+.host-draw-panel .ball-orbit>.orbit-tracer{
+  position:absolute;
+  inset:4%;
+  z-index:0;
+  border:2px dotted var(--orbit-accent);
+  border-radius:50%;
+  opacity:.72;
+  pointer-events:none;
+  animation:orbit-v20-cw 41s linear infinite;
+  will-change:transform;
+}
+.host-draw-panel .ball-orbit>.big-ball{z-index:1}
+/* Short suspense: rings speed up while the drawing machine is visible. */
+body[data-palette] .host-draw-panel .ball-orbit.draw-machine-active::before,
+.host-draw-panel .ball-orbit.draw-machine-active::before{
+  animation-duration:1.2s!important;
+  opacity:1;
+  border-color:var(--orbit-accent);
+  filter:drop-shadow(0 0 6px var(--orbit-accent));
+}
+body[data-palette] .host-draw-panel .ball-orbit.draw-machine-active::after,
+.host-draw-panel .ball-orbit.draw-machine-active::after{
+  animation-duration:1.7s!important;
+  opacity:1;
+  filter:drop-shadow(0 0 10px var(--orbit-accent));
+}
+.host-draw-panel .ball-orbit.draw-machine-active>.orbit-tracer{
+  animation-duration:2.15s;
+  opacity:1;
+  filter:drop-shadow(0 0 6px var(--orbit-accent));
+}
+/* Brief radiance at the official number reveal, then back to idle. */
+.host-draw-panel .ball-orbit.orbit-reveal{
+  animation:orbit-v20-reveal-flash .95s ease-out both;
+}
+@keyframes orbit-v20-cw {to{transform:rotate(360deg)}}
+@keyframes orbit-v20-ccw {to{transform:rotate(-360deg)}}
+@keyframes orbit-v20-reveal-flash{
+  0%{filter:drop-shadow(0 0 1px transparent)}
+  35%{filter:drop-shadow(0 0 17px var(--orbit-accent))}
+  100%{filter:drop-shadow(0 0 0 transparent)}
+}
+body[data-appearance="light"] .host-draw-panel .ball-orbit{--orbit-outline:color-mix(in srgb,var(--orbit-accent) 80%,transparent)}
+@media(prefers-reduced-motion:reduce){
+  body[data-palette] .host-draw-panel .ball-orbit::before,
+  body[data-palette] .host-draw-panel .ball-orbit::after,
+  .host-draw-panel .ball-orbit::before,
+  .host-draw-panel .ball-orbit::after,
+  .host-draw-panel .ball-orbit>.orbit-tracer,
+  .host-draw-panel .ball-orbit.orbit-reveal{animation:none!important;filter:none!important;will-change:auto}
+}
+
 </style>
 </head>
 <body>
@@ -1793,7 +1881,7 @@ function recentFiveHTML(pub){
  }).join('');
  return `<div class="recent-five-heading">LAST 5 BALLS</div><div class="recent-five-balls">${balls}</div>`;
 }
-function drawPanel(r){const pub=r.public;return `<section class="card pad host-draw-panel" aria-label="Game draw screen"><div class="draw-toolbar"><div class="draw-label"><div class="draw-stage-name">${safe(currentStage(r)?.name||'Bingo')}</div>${prizeBadge(currentStage(r))}</div><div class="draw-tools"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Rules (I)">ⓘ</button><button class="icon-button qr-quick" data-act="showqr" aria-label="Show join QR code (Q)" title="Show join QR code (Q)">▦ QR <kbd>Q</kbd></button><button class="icon-button focus-start" data-act="start" ${pub.status!=='lobby'?'disabled':''} aria-label="Start drawing" title="Start drawing numbers">▶ Start</button><button class="icon-button focus-theme" data-act="themes" aria-label="Choose theme (T)" title="Choose theme (T)">◒ Theme</button><button class="icon-button focus-next" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''} title="Next Prize (N / Right Arrow)">→ Prize</button><button class="icon-button focus-reset" data-act="resetdraws" title="Reset to zero (R)">↻ Reset</button><button class="icon-button standing-roster-btn" data-act="standing-roster" id="host-standing-btn" style="${isStandingStage(currentStage(r))?'':'display:none'}" title="See who is still standing">🧍 <span id="standing-count">${isStandingStage(currentStage(r))?standingSurvivors(r).length:0}</span> standing</button><button type="button" class="players-joined-btn" data-act="joined-players" title="View all players joined" aria-label="View players who joined"><span aria-hidden="true">👥</span><strong class="joined-value" id="host-joined-count" aria-live="polite">${joinedPlayerCount(r)}</strong><span class="joined-word">joined</span></button><span class="draw-count" id="host-draw-count">${(pub.called||[]).length-(S.drawSuspenseActive&&S.drawAwaitedNumber?1:0)}<small> / 75 CALLED</small></span><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle draw sound" title="Toggle sound">${S.soundOn?'♫ Sound on':'♪ Sound off'}</button><button class="icon-button voice-style-button" data-act="voice-picker" title="Choose an announcer voice and preview">🎙 Voices</button><button class="icon-button voice-toggle" data-act="voice" aria-pressed="${S.voiceOn}" title="Announce numbers aloud">${S.voiceOn?'🗣 Voice on':'🗣 Voice off'}</button><button class="icon-button focus-enter" data-act="focus-host">⛶ Full screen</button><button class="icon-button focus-exit" data-act="focus-host">✕ Exit</button></div></div><div class="board-layout"><div class="ball-stage"><div class="ball-caption">THE LUCKY NUMBER</div><div class="ball-orbit ${S.drawSuspenseActive?'draw-machine-active':''}">${drawMachineHTML()}<div class="big-ball" id="host-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="ball-name" id="ball-nickname">${S.drawSuspenseActive?'MIXING THE BALLS…':pub.last?ball(pub.last):'READY TO ROLL'}</div><div class="draw-actions"><button class="btn draw-cta" data-act="draw" id="draw-next" ${pub.status!=='playing'||(pub.called||[]).length>=75?'disabled':''}><span>✦</span> DRAW NEXT BALL <span>→</span></button><button class="btn secondary pause-btn" data-act="togglepause" id="pause-next" ${!['playing','paused'].includes(pub.status)?'disabled':''}>${pub.status==='paused'?'▶ Resume':'Ⅱ Pause'}</button></div><div class="keyboard-tip">Space: Draw · V: Board view · Q: QR · I: Rules · T: Theme · N / →: Prize · R: Reset</div></div><div class="board-section"><div class="board-head"><div><div class="eyebrow number-board-title">THE NUMBER BOARD</div><div class="board-subtitle">Every call, in one place</div></div>${boardViewButtons()}</div><div class="letter-guide">${'BINGO'.split('').map(ch=>`<div>${ch}</div>`).join('')}</div><div id="host-num-board">${numBoard(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div><div class="history-head"><span>RECENT DRAWS</span><span class="muted">Latest first</span></div><div id="host-history">${recentHistory(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></div></div><div class="host-recent-five" id="host-recent-five" aria-label="Five recent called numbers">${recentFiveHTML(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></section>`}
+function drawPanel(r){const pub=r.public;return `<section class="card pad host-draw-panel" aria-label="Game draw screen"><div class="draw-toolbar"><div class="draw-label"><div class="draw-stage-name">${safe(currentStage(r)?.name||'Bingo')}</div>${prizeBadge(currentStage(r))}</div><div class="draw-tools"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Rules (I)">ⓘ</button><button class="icon-button qr-quick" data-act="showqr" aria-label="Show join QR code (Q)" title="Show join QR code (Q)">▦ QR <kbd>Q</kbd></button><button class="icon-button focus-start" data-act="start" ${pub.status!=='lobby'?'disabled':''} aria-label="Start drawing" title="Start drawing numbers">▶ Start</button><button class="icon-button focus-theme" data-act="themes" aria-label="Choose theme (T)" title="Choose theme (T)">◒ Theme</button><button class="icon-button focus-next" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''} title="Next Prize (N / Right Arrow)">→ Prize</button><button class="icon-button focus-reset" data-act="resetdraws" title="Reset to zero (R)">↻ Reset</button><button class="icon-button standing-roster-btn" data-act="standing-roster" id="host-standing-btn" style="${isStandingStage(currentStage(r))?'':'display:none'}" title="See who is still standing">🧍 <span id="standing-count">${isStandingStage(currentStage(r))?standingSurvivors(r).length:0}</span> standing</button><button type="button" class="players-joined-btn" data-act="joined-players" title="View all players joined" aria-label="View players who joined"><span aria-hidden="true">👥</span><strong class="joined-value" id="host-joined-count" aria-live="polite">${joinedPlayerCount(r)}</strong><span class="joined-word">joined</span></button><span class="draw-count" id="host-draw-count">${(pub.called||[]).length-(S.drawSuspenseActive&&S.drawAwaitedNumber?1:0)}<small> / 75 CALLED</small></span><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle draw sound" title="Toggle sound">${S.soundOn?'♫ Sound on':'♪ Sound off'}</button><button class="icon-button voice-style-button" data-act="voice-picker" title="Choose an announcer voice and preview">🎙 Voices</button><button class="icon-button voice-toggle" data-act="voice" aria-pressed="${S.voiceOn}" title="Announce numbers aloud">${S.voiceOn?'🗣 Voice on':'🗣 Voice off'}</button><button class="icon-button focus-enter" data-act="focus-host">⛶ Full screen</button><button class="icon-button focus-exit" data-act="focus-host">✕ Exit</button></div></div><div class="board-layout"><div class="ball-stage"><div class="ball-caption">THE LUCKY NUMBER</div><div class="ball-orbit ${S.drawSuspenseActive?'draw-machine-active':''}">${drawMachineHTML()}<span class="orbit-tracer" aria-hidden="true"></span><div class="big-ball" id="host-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="ball-name" id="ball-nickname">${S.drawSuspenseActive?'MIXING THE BALLS…':pub.last?ball(pub.last):'READY TO ROLL'}</div><div class="draw-actions"><button class="btn draw-cta" data-act="draw" id="draw-next" ${pub.status!=='playing'||(pub.called||[]).length>=75?'disabled':''}><span>✦</span> DRAW NEXT BALL <span>→</span></button><button class="btn secondary pause-btn" data-act="togglepause" id="pause-next" ${!['playing','paused'].includes(pub.status)?'disabled':''}>${pub.status==='paused'?'▶ Resume':'Ⅱ Pause'}</button></div><div class="keyboard-tip">Space: Draw · V: Board view · Q: QR · I: Rules · T: Theme · N / →: Prize · R: Reset</div></div><div class="board-section"><div class="board-head"><div><div class="eyebrow number-board-title">THE NUMBER BOARD</div><div class="board-subtitle">Every call, in one place</div></div>${boardViewButtons()}</div><div class="letter-guide">${'BINGO'.split('').map(ch=>`<div>${ch}</div>`).join('')}</div><div id="host-num-board">${numBoard(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div><div class="history-head"><span>RECENT DRAWS</span><span class="muted">Latest first</span></div><div id="host-history">${recentHistory(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></div></div><div class="host-recent-five" id="host-recent-five" aria-label="Five recent called numbers">${recentFiveHTML(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></section>`}
 
 // Screen-only appearance: host can change its look without changing game results.
 const HOST_PALETTES={royal:{name:'Royal Gala',emoji:'✦',detail:'Velvet, gold trim & elegant round balls'},ocean:{name:'Neon Arcade',emoji:'◈',detail:'Digital grid, sharp edges & bright displays'},emerald:{name:'Classic Bingo Hall',emoji:'♣',detail:'Printed ticket style & traditional marks'},sunset:{name:'Pop Carnival',emoji:'☀',detail:'Bold comic outlines & playful tiles'}};
@@ -1969,7 +2057,7 @@ function beginDrawAnimation(){
  S.drawSuspenseActive=true;S.drawRevealReady=false;S.drawAwaitedNumber=0;
  const panel=document.querySelector('.host-draw-panel');
  const orbit=panel?.querySelector('.ball-orbit');
- panel?.classList.add('is-drawing');orbit?.classList.add('draw-machine-active');
+ panel?.classList.add('is-drawing');orbit?.classList.remove('orbit-reveal');orbit?.classList.add('draw-machine-active');
  const nickname=el('ball-nickname');if(nickname)nickname.textContent='MIXING THE BALLS…';
  const btn=el('draw-next');if(btn)btn.disabled=true;
  playDrawAnticipation();
@@ -1985,7 +2073,7 @@ function cancelDrawAnimation(){
  clearTimeout(S.drawAnimTimer);clearTimeout(S.drawRecoveryTimer);
   S.drawSuspenseActive=false;S.drawRevealReady=false;S.drawAwaitedNumber=0;S.hostPreviewNumber=0;
  document.querySelector('.host-draw-panel')?.classList.remove('is-drawing');
- document.querySelector('.host-draw-panel .ball-orbit')?.classList.remove('draw-machine-active');
+ document.querySelector('.host-draw-panel .ball-orbit')?.classList.remove('draw-machine-active','orbit-reveal');
  const pub=S.room?.public;
  updateBall(el('host-last-ball'),pub?.last);
  const nickname=el('ball-nickname');if(nickname)nickname.textContent=pub?.last?ball(pub.last):'READY TO ROLL';
@@ -1998,7 +2086,9 @@ function finishDrawAnimation(){
  clearTimeout(S.drawAnimTimer);clearTimeout(S.drawRecoveryTimer);
  S.drawSuspenseActive=false;S.drawRevealReady=false;S.drawAwaitedNumber=0;
  const panel=document.querySelector('.host-draw-panel');panel?.classList.remove('is-drawing');
- panel?.querySelector('.ball-orbit')?.classList.remove('draw-machine-active');
+ const orbit=panel?.querySelector('.ball-orbit');orbit?.classList.remove('draw-machine-active');
+  orbit?.classList.remove('orbit-reveal');void orbit?.offsetWidth;orbit?.classList.add('orbit-reveal');
+  setTimeout(()=>orbit?.classList.remove('orbit-reveal'),980);
  const ballNode=el('host-last-ball');updateBall(ballNode,n);
  ballNode?.classList.add('draw-final-burst');setTimeout(()=>ballNode?.classList.remove('draw-final-burst'),1100);
  const nickname=el('ball-nickname');if(nickname)nickname.textContent=ball(n);
