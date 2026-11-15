@@ -1646,6 +1646,86 @@ body[data-appearance="light"] .host-draw-panel .ball-orbit{--orbit-outline:color
   .host-draw-panel .ball-orbit.orbit-reveal{animation:none!important;filter:none!important;will-change:auto}
 }
 
+
+/* V21 — Original host-only event music controls */
+.music-control-button{display:inline-flex;align-items:center;gap:5px;background:color-mix(in srgb,var(--v8-surface,#27324b) 88%,transparent);border-color:var(--v8-stroke,#7d90ad);color:var(--v8-ink,#fff)}
+.music-control-button[aria-pressed="true"]{border-color:var(--v8-accent,#ffcc81);color:var(--v8-ink,#fff);background:color-mix(in srgb,var(--v8-accent,#eabf7b) 17%,var(--v8-surface,#26324a))}
+body.host-focus .draw-tools .music-control-button{display:inline-flex!important;min-height:29px;padding:5px 7px;font-size:clamp(10px,.8vw,12px)}
+.music-modal{max-width:530px;width:min(96vw,530px);max-height:min(92dvh,760px);overflow-y:auto;padding:clamp(16px,2vw,26px)}
+.music-modal h2{font-size:clamp(24px,3vw,34px)}
+.music-mode-row,.music-mode-options,.music-style-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.music-mode-row{align-items:center;margin:12px 0}
+.music-choice{min-width:0;padding:11px 12px;min-height:50px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;border-radius:12px;border:1px solid var(--v8-stroke,#7685a4);background:var(--v8-surface,#28344d);color:var(--v8-ink,#fff)}
+.music-choice strong{font-size:13px}.music-choice span{font-size:11px;color:var(--v8-muted,#c4d0e0)}
+.music-choice.active{border:2px solid var(--v8-accent,#ffd485);padding:10px 11px;background:color-mix(in srgb,var(--v8-accent,#e7b965) 16%,var(--v8-surface,#25314a))}
+.music-style-title{font-weight:900;margin:12px 0 7px;font-size:13px;color:var(--v8-ink,#fff)}
+.music-switchline{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;background:var(--v8-surface,#263449);border-radius:12px;border:1px solid var(--v8-stroke,#697b94);color:var(--v8-ink,#fff)}
+.music-volume-label{display:flex;align-items:center;justify-content:space-between;margin-top:14px;font-weight:800;color:var(--v8-ink,#fff);font-size:13px}
+.music-volume{width:100%;min-height:33px;accent-color:var(--v8-accent,#edba63);cursor:pointer}
+.music-custom{margin:10px 0 12px;border:1px solid var(--v8-stroke,#6a7c99);border-radius:12px;padding:10px 12px}
+.music-custom summary{cursor:pointer;font-size:12px;font-weight:800;color:var(--v8-ink,#fff)}
+.music-custom .input{margin:8px 0 7px;min-height:37px;color:var(--v8-ink,#fff);background:var(--v8-surface,#263449);border-color:var(--v8-stroke,#7488a5)}
+.music-custom small{font-size:11px;color:var(--v8-muted,#c4d0e0);line-height:1.4;display:block;margin-bottom:8px}
+.music-status{font-size:12px;line-height:1.45;min-height:18px;margin-top:8px;color:var(--v8-muted,#d2ddf0)}
+.music-modal .music-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.music-modal .music-actions button{min-height:43px}
+body[data-appearance="light"] .music-modal{background:#fbfcff!important;border-color:#849bb7!important;color:#182943!important}
+body[data-appearance="light"] .music-modal .music-choice,body[data-appearance="light"] .music-modal .music-switchline{background:#f2f6fc!important;color:#192d44!important;border-color:#8497af!important}
+body[data-appearance="light"] .music-modal .music-choice span,body[data-appearance="light"] .music-modal .music-status,body[data-appearance="light"] .music-modal .music-custom small{color:#344b67!important}
+body[data-appearance="light"] .music-modal .music-choice.active{background:#fff2cb!important;border-color:#986b1e!important}
+body[data-appearance="light"] .music-modal .music-volume-label,body[data-appearance="light"] .music-modal .music-style-title,body[data-appearance="light"] .music-modal .music-custom summary{color:#192d44!important}
+body[data-appearance="light"] .music-modal .music-custom{border-color:#8497af!important}
+body[data-appearance="light"] .music-modal .music-custom .input{color:#162d45!important;background:#fff!important;border-color:#8497af!important}
+body[data-appearance="light"] .music-modal .icon-button{color:#172d49!important;background:#edf3fa!important;border-color:#748da9!important}
+@media(max-width:420px){.music-modal{padding:14px!important}.music-choice{padding:9px;min-height:48px}.music-choice.active{padding:8px}.music-choice strong{font-size:12px}.music-choice span{font-size:10px}}
+
+
+/* V22 Assistant Host — compact mobile command center */
+.assistant-quick{border-color:var(--gold)!important;color:var(--txt)!important}
+.assistant-home-entry{margin-top:12px;text-align:center}
+.assistant-join-card{max-width:480px;margin:18px auto;padding:clamp(20px,4vw,32px)}
+.assistant-join-card .input{background:var(--v8-surface,#15223a);color:var(--v8-ink,#f4f6fc)}
+.assistant-status{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800}
+.assistant-status.ok{color:#125f48;background:#c8ffec;border-color:#44ac8c}
+.assistant-status.waiting{color:#68410c;background:#fff0c0;border-color:#b9994b}
+.assistant-status.offline{color:#8d253a;background:#ffe0e6;border-color:#b8657b}
+.assistant-page{max-width:750px;margin:0 auto;display:flex;flex-direction:column;gap:10px;padding-bottom:86px}
+.assistant-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border:1px solid var(--v8-line,var(--line));border-radius:16px;background:var(--v8-surface,#1e2b47)}
+.assistant-top strong{display:block;font-size:16px}
+.assistant-stage{border:1px solid var(--v8-line,var(--line));border-radius:18px;background:var(--v8-surface,#1e2b47);padding:14px 16px}
+.assistant-stage .eyebrow{font-size:10px}
+.assistant-stage h2{font-size:clamp(21px,5vw,29px);margin:4px 0;line-height:1.16}
+.assistant-stage .prize-amount{font-size:clamp(19px,5vw,27px)}
+.assistant-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.assistant-kpi{border:1px solid var(--v8-line,var(--line));border-radius:14px;text-align:center;padding:10px 6px;background:var(--v8-surface,#1e2b47)}
+.assistant-kpi strong{display:block;font-size:clamp(20px,6vw,31px);line-height:1.1}
+.assistant-kpi:nth-child(3) strong{font-size:clamp(12px,3.7vw,17px);letter-spacing:.02em}.assistant-kpi span{font-size:10px;color:var(--v8-muted,var(--muted))}
+.assistant-control-panel{border:1px solid var(--v8-line,var(--line));border-radius:18px;background:var(--v8-surface,#1e2b47);padding:13px;display:grid;gap:10px}
+.assistant-last-ball{width:120px;height:120px;display:flex;flex-direction:column;justify-content:center;align-items:center;margin:0 auto;border-radius:50%;background:radial-gradient(circle at 33% 25%,#fff5c6,#f7ca6b 65%,#d89344);border:5px solid #ffe3a3;box-shadow:0 4px 18px #0002;color:#172941}
+.assistant-last-ball strong{font-size:48px;line-height:1;font-weight:1000}
+.assistant-last-ball span{font-size:18px;font-weight:950}
+.assistant-draw{min-height:62px;font-size:19px;width:100%}
+.assistant-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.assistant-actions button{min-height:42px}
+.assistant-tabs{position:sticky;bottom:8px;z-index:15;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;border:1px solid var(--v8-line,var(--line));background:var(--v8-surface,#182641);border-radius:16px;padding:6px;box-shadow:0 8px 24px #0003}
+.assistant-tabs button{border-radius:10px;border:1px solid transparent;background:transparent;color:var(--v8-ink,#f8f9ff);padding:11px 4px;font-size:11px;font-weight:850}
+.assistant-tabs button.active{background:var(--gold);color:#20283b}
+.assistant-menu-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px;border:1px solid var(--v8-line,var(--line));border-radius:12px;background:var(--v8-surface,#17253c)}
+.assistant-menu-row strong{font-size:13px;overflow-wrap:anywhere}
+.assistant-menu-row .btn{font-size:11px;min-height:34px;padding:7px 10px}
+.assistant-permission-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+.assistant-permission-grid label{border:1px solid var(--line);border-radius:9px;padding:9px;font-size:12px;display:flex;gap:7px;align-items:center}
+.assistant-management-list{display:flex;flex-direction:column;gap:9px;max-height:48dvh;overflow:auto;margin:12px 0}
+.assistant-management-entry{border:1px solid var(--line);border-radius:12px;padding:11px}
+.assistant-management-entry .row{justify-content:space-between}
+.assistant-invite-qr{width:220px;height:220px;max-width:100%;margin:12px auto;background:white;border-radius:12px;padding:10px;display:grid;place-items:center}
+.assistant-invite-qr canvas,.assistant-invite-qr img{max-width:100%;height:auto}
+.assistant-notice{padding:10px 12px;border-radius:12px;background:var(--v8-surface,#142238);border:1px solid var(--v8-line,var(--line));font-size:12px;line-height:1.5}
+body[data-appearance="light"] .assistant-top,body[data-appearance="light"] .assistant-stage,body[data-appearance="light"] .assistant-kpi,body[data-appearance="light"] .assistant-control-panel,body[data-appearance="light"] .assistant-menu-row,body[data-appearance="light"] .assistant-tabs,body[data-appearance="light"] .assistant-notice{background:#fff!important;color:#172b43!important;border-color:#becbd7!important}
+body[data-appearance="light"] .assistant-tabs button{color:#23344d}
+body[data-appearance="light"] .assistant-tabs button.active{color:#17253a}
+@media(max-width:520px){.assistant-page{gap:8px;padding-bottom:82px}.assistant-stage{padding:12px}.assistant-last-ball{width:112px;height:112px}.assistant-top{padding:10px}.assistant-permission-grid{grid-template-columns:1fr}.assistant-quick{padding:6px 8px!important;font-size:10px!important}}
+
 </style>
 </head>
 <body>
@@ -1669,7 +1749,7 @@ const START_STAGES=[
  {id:'stage4',name:'Grand Prize — Blackout',pattern:'blackout',eligibility:'all',limit:1,approval:'auto',markMode:'auto',prizeAmount:0,prizeDistribution:'each'}
 ];
 const $=s=>document.querySelector(s);const el=id=>document.getElementById(id);
-const S={mode:'demo',role:'',uid:'',roomId:'',room:null,player:null,auth:null,db:null,ref:null,pollTimer:null,watch:null,marks:new Set(),markSyncTimer:null,markSyncWarning:false,mixAudio:null,lastWinKey:'',lastReset:-1,winnerToastTimer:null,actionBusy:false,stageDraft:null,busy:false,reconciling:false,notice:'',lastQrUrl:'',fetchErrors:0,publicRef:null,publicEtag:null,syncType:'',hostSignature:'',guestSignature:'',prevBall:null,focusMode:'',soundOn:false,voiceOn:false,voicePreset:'host',voiceURI:'auto',audioContext:null,boardView:'classic',cardStyle:'classic',cardAccent:'#7055C7',hostPreviewNumber:0};
+const S={mode:'demo',role:'',uid:'',roomId:'',room:null,player:null,auth:null,db:null,ref:null,pollTimer:null,watch:null,marks:new Set(),markSyncTimer:null,markSyncWarning:false,mixAudio:null,lastWinKey:'',lastReset:-1,winnerToastTimer:null,actionBusy:false,stageDraft:null,busy:false,reconciling:false,notice:'',lastQrUrl:'',fetchErrors:0,publicRef:null,publicEtag:null,syncType:'',hostSignature:'',guestSignature:'',prevBall:null,focusMode:'',soundOn:false,voiceOn:false,voicePreset:'host',voiceURI:'auto',audioContext:null,musicOn:true,musicStyle:'game',musicMood:'chill',musicVolume:30,musicUnlocked:false,musicBus:null,musicTimer:null,musicTrack:null,musicCustomUrl:'',musicCustomBroken:false,musicQuietUntil:0,musicBeatIndex:0,musicNextBeat:0,musicResyncTimer:null,musicPreviewUntil:0,boardView:'classic',cardStyle:'classic',cardAccent:'#7055C7',hostPreviewNumber:0,assistantProfile:null,assistantJoin:null,assistantRefs:[],assistantTab:'control',assistantName:'',assistantResults:{},assistantBusy:false,assistantCommandBusy:false,assistantEditorUID:null,assistantInviteUrl:'',hostPulseTimer:null,hostPresence:null};
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clone=o=>JSON.parse(JSON.stringify(o));
 const friendlyError=e=>{const msg=String(e?.message||e);return /firebase|database|sdk|permission.denied|auth\/|http 40|http 50/i.test(msg)?'Unable to connect. Ask the host to check the game setup.':msg};
@@ -1680,7 +1760,7 @@ const ball=n=>n?('BINGO'[Math.floor((Number(n)-1)/15)]+'-'+n):'—';
 const cardKey=a=>a.join(',');
 function makeCard(){const a=Array(25).fill(0);for(let c=0;c<5;c++){const p=shuffle(Array.from({length:15},(_,i)=>i+1+15*c));for(let r=0;r<5;r++)a[r*5+c]=p[r];}a[12]=0;return a}
 function isPattern(card,called,pat,marks){if(!Array.isArray(card)||card.length!==25)return false;const has=i=>i===12||((called.has(card[i]))&&(!marks||marks.has(i)));const lines=[];for(let r=0;r<5;r++)lines.push([0,1,2,3,4].map(c=>r*5+c));for(let c=0;c<5;c++)lines.push([0,1,2,3,4].map(r=>r*5+c));const diag=[[0,6,12,18,24],[4,8,12,16,20]];let patterns=CELLS[pat]?[CELLS[pat]]:pat==='line'?[...lines,...diag]:pat==='row'?lines.slice(0,5):pat==='col'?lines.slice(5):pat==='diagonal'?diag:[];return patterns.some(p=>p.every(has))}
-function makeRoom(id,uid){return {hostUid:uid,createdAt:Date.now(),players:{},marks:{},claims:{},winners:{},candidates:{},stages:clone(START_STAGES),public:{code:id,status:'lobby',called:[],stageIndex:0,last:null,playerCount:0,resetVersion:0,drawing:null,theme:{palette:HOST_PALETTES[S.palette]?S.palette:'royal',appearance:S.appearance==='light'?'light':'dark'},updatedAt:Date.now(),winnerList:[],stageStartDrawCount:0,stage:clone(START_STAGES[0])}}}
+function makeRoom(id,uid){return {assistantJoin:{},assistants:{},assistantCommands:{},assistantResults:{},hostPresence:{online:true,at:Date.now()},hostUid:uid,createdAt:Date.now(),players:{},marks:{},claims:{},winners:{},candidates:{},stages:clone(START_STAGES),public:{code:id,status:'lobby',audio:{musicOn:S.musicOn,soundOn:S.soundOn,voiceOn:S.voiceOn,musicStyle:S.musicStyle,musicMood:S.musicMood,musicVolume:S.musicVolume,voicePreset:S.voicePreset},called:[],stageIndex:0,last:null,playerCount:0,resetVersion:0,lastDrawAt:0,drawing:null,theme:{palette:HOST_PALETTES[S.palette]?S.palette:'royal',appearance:S.appearance==='light'?'light':'dark'},updatedAt:Date.now(),winnerList:[],stageStartDrawCount:0,stage:clone(START_STAGES[0])}}}
 const currentStage=r=>r?.stages?.[r.public.stageIndex]||null;
 
 // Stage awards are shown as peso amounts throughout the game.
@@ -1744,10 +1824,11 @@ function sessionSave(){try{sessionStorage.setItem('bingolive_session',JSON.strin
 function toast(message,error=false){el('toast-root').innerHTML=`<div class="toast ${error?'error':''}">${safe(message)}</div>`;clearTimeout(toast.timer);toast.timer=setTimeout(()=>el('toast-root').innerHTML='',3700)}
 function confirmDialog(title,message,yes,onYes){el('modal-root').innerHTML=`<div class="overlay"><div class="modal"><div class="eyebrow">Host confirmation</div><h2>${safe(title)}</h2><p>${safe(message)}</p><div class="row"><button class="btn" id="modal-yes">${safe(yes)}</button><button class="btn secondary" id="modal-no">Cancel</button></div></div></div>`;el('modal-yes').onclick=()=>{el('modal-root').innerHTML='';onYes()};el('modal-no').onclick=()=>el('modal-root').innerHTML=''}
 function onlineConfigured(){const c=window.BINGO_FIREBASE_CONFIG||{};return !!(c.apiKey&&c.authDomain&&c.databaseURL&&c.projectId)}
-function render(){applyTheme();document.body.classList.toggle('on-landing',!S.role);if(!S.role)return renderLanding();if(S.role==='host')return renderHost();return renderGuest()}
+function render(){applyTheme();document.body.classList.toggle('on-landing',!S.role);if(!S.role)return renderLanding();if(S.role==='host')return renderHost();if(S.role==='assistant')return renderAssistant();return renderGuest()}
 function topBarHtml(){return `<header class="topbar"><div class="logo"><div class="logo-mark"><span>★</span></div><div class="logo-word">BINGO <span>LIVE</span><small>THE PARTY IS ON</small></div></div><div class="row topbar-actions">${S.role?'<button class="btn ghost mini home-action" data-act="leave" title="Return home">⌂ Home</button>':''}</div></header>`}
 function renderLanding(){
  document.body.classList.add('on-landing');
+ if(new URLSearchParams(location.search).get('assistant')==='1')return renderAssistantInviteLanding();
  const params=new URLSearchParams(location.search);
  const roomFromUrl=(params.get('room')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8);
  const invited=!!roomFromUrl;
@@ -1881,14 +1962,14 @@ function recentFiveHTML(pub){
  }).join('');
  return `<div class="recent-five-heading">LAST 5 BALLS</div><div class="recent-five-balls">${balls}</div>`;
 }
-function drawPanel(r){const pub=r.public;return `<section class="card pad host-draw-panel" aria-label="Game draw screen"><div class="draw-toolbar"><div class="draw-label"><div class="draw-stage-name">${safe(currentStage(r)?.name||'Bingo')}</div>${prizeBadge(currentStage(r))}</div><div class="draw-tools"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Rules (I)">ⓘ</button><button class="icon-button qr-quick" data-act="showqr" aria-label="Show join QR code (Q)" title="Show join QR code (Q)">▦ QR <kbd>Q</kbd></button><button class="icon-button focus-start" data-act="start" ${pub.status!=='lobby'?'disabled':''} aria-label="Start drawing" title="Start drawing numbers">▶ Start</button><button class="icon-button focus-theme" data-act="themes" aria-label="Choose theme (T)" title="Choose theme (T)">◒ Theme</button><button class="icon-button focus-next" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''} title="Next Prize (N / Right Arrow)">→ Prize</button><button class="icon-button focus-reset" data-act="resetdraws" title="Reset to zero (R)">↻ Reset</button><button class="icon-button standing-roster-btn" data-act="standing-roster" id="host-standing-btn" style="${isStandingStage(currentStage(r))?'':'display:none'}" title="See who is still standing">🧍 <span id="standing-count">${isStandingStage(currentStage(r))?standingSurvivors(r).length:0}</span> standing</button><button type="button" class="players-joined-btn" data-act="joined-players" title="View all players joined" aria-label="View players who joined"><span aria-hidden="true">👥</span><strong class="joined-value" id="host-joined-count" aria-live="polite">${joinedPlayerCount(r)}</strong><span class="joined-word">joined</span></button><span class="draw-count" id="host-draw-count">${(pub.called||[]).length-(S.drawSuspenseActive&&S.drawAwaitedNumber?1:0)}<small> / 75 CALLED</small></span><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle draw sound" title="Toggle sound">${S.soundOn?'♫ Sound on':'♪ Sound off'}</button><button class="icon-button voice-style-button" data-act="voice-picker" title="Choose an announcer voice and preview">🎙 Voices</button><button class="icon-button voice-toggle" data-act="voice" aria-pressed="${S.voiceOn}" title="Announce numbers aloud">${S.voiceOn?'🗣 Voice on':'🗣 Voice off'}</button><button class="icon-button focus-enter" data-act="focus-host">⛶ Full screen</button><button class="icon-button focus-exit" data-act="focus-host">✕ Exit</button></div></div><div class="board-layout"><div class="ball-stage"><div class="ball-caption">THE LUCKY NUMBER</div><div class="ball-orbit ${S.drawSuspenseActive?'draw-machine-active':''}">${drawMachineHTML()}<span class="orbit-tracer" aria-hidden="true"></span><div class="big-ball" id="host-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="ball-name" id="ball-nickname">${S.drawSuspenseActive?'MIXING THE BALLS…':pub.last?ball(pub.last):'READY TO ROLL'}</div><div class="draw-actions"><button class="btn draw-cta" data-act="draw" id="draw-next" ${pub.status!=='playing'||(pub.called||[]).length>=75?'disabled':''}><span>✦</span> DRAW NEXT BALL <span>→</span></button><button class="btn secondary pause-btn" data-act="togglepause" id="pause-next" ${!['playing','paused'].includes(pub.status)?'disabled':''}>${pub.status==='paused'?'▶ Resume':'Ⅱ Pause'}</button></div><div class="keyboard-tip">Space: Draw · V: Board view · Q: QR · I: Rules · T: Theme · N / →: Prize · R: Reset</div></div><div class="board-section"><div class="board-head"><div><div class="eyebrow number-board-title">THE NUMBER BOARD</div><div class="board-subtitle">Every call, in one place</div></div>${boardViewButtons()}</div><div class="letter-guide">${'BINGO'.split('').map(ch=>`<div>${ch}</div>`).join('')}</div><div id="host-num-board">${numBoard(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div><div class="history-head"><span>RECENT DRAWS</span><span class="muted">Latest first</span></div><div id="host-history">${recentHistory(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></div></div><div class="host-recent-five" id="host-recent-five" aria-label="Five recent called numbers">${recentFiveHTML(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></section>`}
+function drawPanel(r){const pub=r.public;return `<section class="card pad host-draw-panel" aria-label="Game draw screen"><div class="draw-toolbar"><div class="draw-label"><div class="draw-stage-name">${safe(currentStage(r)?.name||'Bingo')}</div>${prizeBadge(currentStage(r))}</div><div class="draw-tools"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Rules (I)">ⓘ</button><button class="icon-button qr-quick" data-act="showqr" aria-label="Show join QR code (Q)" title="Show join QR code (Q)">▦ QR <kbd>Q</kbd></button><button class="icon-button focus-start" data-act="start" ${pub.status!=='lobby'?'disabled':''} aria-label="Start drawing" title="Start drawing numbers">▶ Start</button><button class="icon-button assistant-quick" data-act="assistants" title="Manage assistant hosts">♙ Assistants</button><button class="icon-button focus-theme" data-act="themes" aria-label="Choose theme (T)" title="Choose theme (T)">◒ Theme</button><button class="icon-button focus-next" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''} title="Next Prize (N / Right Arrow)">→ Prize</button><button class="icon-button focus-reset" data-act="resetdraws" title="Reset to zero (R)">↻ Reset</button><button class="icon-button standing-roster-btn" data-act="standing-roster" id="host-standing-btn" style="${isStandingStage(currentStage(r))?'':'display:none'}" title="See who is still standing">🧍 <span id="standing-count">${isStandingStage(currentStage(r))?standingSurvivors(r).length:0}</span> standing</button><button type="button" class="players-joined-btn" data-act="joined-players" title="View all players joined" aria-label="View players who joined"><span aria-hidden="true">👥</span><strong class="joined-value" id="host-joined-count" aria-live="polite">${joinedPlayerCount(r)}</strong><span class="joined-word">joined</span></button><span class="draw-count" id="host-draw-count">${(pub.called||[]).length-(S.drawSuspenseActive&&S.drawAwaitedNumber?1:0)}<small> / 75 CALLED</small></span><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle draw sound" title="Toggle sound">${S.soundOn?'♫ Sound on':'♪ Sound off'}</button><button class="icon-button music-control-button" data-act="music-settings" title="Background music settings" aria-label="Background music settings" aria-pressed="${S.musicOn}">♫ Music</button><button class="icon-button voice-style-button" data-act="voice-picker" title="Choose an announcer voice and preview">🎙 Voices</button><button class="icon-button voice-toggle" data-act="voice" aria-pressed="${S.voiceOn}" title="Announce numbers aloud">${S.voiceOn?'🗣 Voice on':'🗣 Voice off'}</button><button class="icon-button focus-enter" data-act="focus-host">⛶ Full screen</button><button class="icon-button focus-exit" data-act="focus-host">✕ Exit</button></div></div><div class="board-layout"><div class="ball-stage"><div class="ball-caption">THE LUCKY NUMBER</div><div class="ball-orbit ${S.drawSuspenseActive?'draw-machine-active':''}">${drawMachineHTML()}<span class="orbit-tracer" aria-hidden="true"></span><div class="big-ball" id="host-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="ball-name" id="ball-nickname">${S.drawSuspenseActive?'MIXING THE BALLS…':pub.last?ball(pub.last):'READY TO ROLL'}</div><div class="draw-actions"><button class="btn draw-cta" data-act="draw" id="draw-next" ${pub.status!=='playing'||(pub.called||[]).length>=75?'disabled':''}><span>✦</span> DRAW NEXT BALL <span>→</span></button><button class="btn secondary pause-btn" data-act="togglepause" id="pause-next" ${!['playing','paused'].includes(pub.status)?'disabled':''}>${pub.status==='paused'?'▶ Resume':'Ⅱ Pause'}</button></div><div class="keyboard-tip">Space: Draw · V: Board view · Q: QR · I: Rules · T: Theme · N / →: Prize · R: Reset</div></div><div class="board-section"><div class="board-head"><div><div class="eyebrow number-board-title">THE NUMBER BOARD</div><div class="board-subtitle">Every call, in one place</div></div>${boardViewButtons()}</div><div class="letter-guide">${'BINGO'.split('').map(ch=>`<div>${ch}</div>`).join('')}</div><div id="host-num-board">${numBoard(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div><div class="history-head"><span>RECENT DRAWS</span><span class="muted">Latest first</span></div><div id="host-history">${recentHistory(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></div></div><div class="host-recent-five" id="host-recent-five" aria-label="Five recent called numbers">${recentFiveHTML(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></section>`}
 
 // Screen-only appearance: host can change its look without changing game results.
 const HOST_PALETTES={royal:{name:'Royal Gala',emoji:'✦',detail:'Velvet, gold trim & elegant round balls'},ocean:{name:'Neon Arcade',emoji:'◈',detail:'Digital grid, sharp edges & bright displays'},emerald:{name:'Classic Bingo Hall',emoji:'♣',detail:'Printed ticket style & traditional marks'},sunset:{name:'Pop Carnival',emoji:'☀',detail:'Bold comic outlines & playful tiles'}};
 const CARD_STYLES={classic:{name:'Classic White',desc:'Traditional paper & red dauber',tone:'#e96972'},rose:{name:'Blush Pink',desc:'Soft pink & berry stamps',tone:'#c42d64'},mint:{name:'Fresh Mint',desc:'Green ticket & teal stamps',tone:'#008976'},midnight:{name:'Midnight',desc:'Dark card & golden stamps',tone:'#e4b85d'},carnival:{name:'Carnival',desc:'Bold and playful ticket',tone:'#dc5e1a'},custom:{name:'My Color',desc:'Pick your favorite accent',tone:'#7055c7'}};
 function readableOn(hex){const c=/^#[0-9a-f]{6}$/i.test(hex)?hex:'#7055C7';const components=[1,3,5].map(i=>parseInt(c.slice(i,i+2),16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return .2126*components[0]+.7152*components[1]+.0722*components[2]>.39?'#102139':'#FFFFFF'}
 function applyTheme(){
- const synced=S.role==='player'?S.room?.public?.theme:null;
+ const synced=['player','assistant'].includes(S.role)?S.room?.public?.theme:null;
  const palette=HOST_PALETTES[synced?.palette]?synced.palette:HOST_PALETTES[S.palette]?S.palette:'royal';
  const appearance=(synced?.appearance||S.appearance)==='light'?'light':'dark';
  document.body.dataset.palette=palette;
@@ -1918,7 +1999,7 @@ function showThemePicker(){
 }
 
 function showStageManager(){
- if(S.role!=='host'||!S.room)return;
+ if(!(S.role==='host'||assistantCan('stages'))||!S.room)return;
  el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="stages"><div class="modal stage-manager-modal" role="dialog" aria-modal="true" aria-label="Prize stages"><div class="row between"><div><div class="eyebrow">YOUR GAME</div><h2>Prize Stages</h2></div><button class="icon-button" data-act="closemodal" aria-label="Close stage manager">✕</button></div><p class="stage-manager-hint">Before Start, edit, move or delete any stage. During play, only future stages can be changed. Keep at least one stage.</p><div class="stage-manager-count">${S.room.stages.length} ${S.room.stages.length===1?'prize stage':'prize stages'}</div><div class="stage-manager-list">${stageEntries(S.room)}</div><button class="btn block" data-act="addstage">+ Add Prize Stage</button></div></div>`;
 }
 function confirmStageRemoval(id){
@@ -1958,7 +2039,7 @@ function showJoinQR(){
 function toggleJoinQR(){if(el('modal-root')?.querySelector('[data-overlay-type="qr"]')){el('modal-root').innerHTML='';return}if(el('modal-root')?.querySelector('.overlay'))return;showJoinQR()}
 
 function showJoinedPlayers(){
- if(S.role!=='host'||!S.room)return;
+ if(!(S.role==='host'||assistantCan('players'))||!S.room)return;
  const entries=joinedPlayerEntries(S.room),ready=entries.filter(([,p])=>Array.isArray(p.card)&&p.card.length===25).length;
  const list=entries.length?entries.map(([uid,p],i)=>`<button type="button" class="joined-roster-row joined-selectable" data-act="joined-card" data-uid="${safe(uid)}" ${!Array.isArray(p.card)||p.card.length!==25?'disabled':''}><span class="joined-roster-position">${i+1}.</span><strong>${safe(p.name||'Guest')}</strong><small>${Array.isArray(p.card)&&p.card.length===25?'Card #'+safe(String(p.slot||i+1).padStart(3,'0')):'Card preparing…'}</small><span class="joined-view-label">View card ›</span></button>`).join(''):'<div class="alert">No guests have joined yet. Share the QR code to invite players.</div>';
  el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="joined-roster"><div class="modal joined-players-modal" role="dialog" aria-modal="true" aria-label="Players joined"><div class="row between"><div><div class="eyebrow">YOUR GAME</div><h2>Players Joined</h2></div><button class="icon-button" data-act="closemodal" aria-label="Close player list">✕</button></div><div class="joined-roster-summary"><strong>${entries.length} / 100</strong><span>${ready} cards ready</span></div><div class="joined-roster-list">${list}</div><button class="btn block" data-act="closemodal">Back to Game</button></div></div>`;
@@ -1978,12 +2059,12 @@ function hostCardPreviewHTML(uid){
  return `<div class="host-card-preview"><div class="joined-roster-summary"><strong>Card #${safe(String(p.slot||'—').padStart(3,'0'))}</strong><span>${safe(guestMarks)}</span></div><div class="host-preview-card"><div class="host-preview-head">${'BINGO'.split('').map(ch=>`<span>${ch}</span>`).join('')}</div><div class="host-preview-grid">${squares}</div></div><div class="host-card-legend"><span><i></i> Marked</span><span class="official-key"><i></i> Called</span></div><p class="host-card-note">${safe(status)} · ${called.size}/75 officially called. ${manual?'Shows the guest’s latest synced marks. Host view is read-only.':'Card marks are based on official drawn numbers.'}</p></div>`;
 }
 function showJoinedPlayerCard(uid){
- if(S.role!=='host'||!S.room)return;
+ if(!(S.role==='host'||assistantCan('players'))||!S.room)return;
  const p=S.room.players?.[uid];if(!p)return;
  el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="joined-card" data-uid="${safe(uid)}"><div class="modal joined-card-modal" role="dialog" aria-modal="true" aria-label="Player Bingo card"><div class="row between"><div><div class="eyebrow">GUEST CARD</div><h2>${safe(p.name||'Guest')}</h2></div><button class="icon-button" data-act="joined-players">‹ Players</button></div><div id="host-card-preview">${hostCardPreviewHTML(uid)}</div><button class="btn block" data-act="joined-players">Back to Players</button></div></div>`;
 }
 function showStandingRoster(){
- if(S.role!=='host'||!S.room||!isStandingStage(S.room.public.stage))return;
+ if(!(S.role==='host'||assistantCan('players'))||!S.room||!isStandingStage(S.room.public.stage))return;
  const r=S.room,alive=standingSurvivors(r),eligible=players(r).filter(p=>isEligible(r,p,r.public.stage)),out=eligible.filter(p=>!alive.some(a=>a.uid===p.uid));
  const rows=alive.length?alive.map(p=>`<div class="survivor-row"><span class="standing-dot"></span><strong>${safe(p.name)}</strong><small>${r.public.stage.lmsSource==='number'?ball(p.luckyNumber):'Card #'+(p.slot||'')}</small></div>`).join(''):'<div class="alert warning">Nobody is standing. You can reset to zero or continue to another prize.</div>';
  el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="roster"><div class="modal standing-roster-modal" role="dialog" aria-modal="true"><div class="row between"><div><span class="eyebrow">LAST PLAYER STANDING</span><h2>${safe(r.public.stage.name)}</h2></div><button class="icon-button" data-act="closemodal">✕</button></div><div class="standing-roster-summary"><strong>${alive.length}</strong><span>Still standing</span><span>${out.length} eliminated · ${standingStageCalls(r.public)} stage draws</span></div><div class="standing-roster-list">${rows}</div><button class="btn block" data-act="closemodal">Back to game</button></div></div>`;
@@ -2009,7 +2090,7 @@ function syncStageEditorFields(){
  const form=el('stage-form');if(!form)return;
  form.classList.toggle('editing-standing',form.elements.gameType?.value==='laststanding');
 }
-function renderHost(){document.body.classList.remove('on-landing');const r=S.room;if(!r){el('app').innerHTML=topBarHtml()+'<div class="card pad">Opening your game…</div>';return}const pub=r.public,st=currentStage(r),plist=players(r),candidates=Object.values(r.candidates||{}).filter(c=>c.stageId===st?.id);el('app').innerHTML=topBarHtml()+`<div class="host-meta"><div><div class="eyebrow">GAME NIGHT / HOST</div><h1>Let's play <span>BIG!</span></h1><div class="host-subtitle">${safe(stageLabel(st))}</div></div><div class="host-badges"><span class="pill">◎ ${joinedPlayerCount(r)} / 100 players</span><span class="pill ${pub.status==='playing'?'green':'gold'}">${safe(pub.status==='playing'?'● Drawing':pub.status==='lobby'?'Lobby open':pub.status==='paused'?'Ⅱ Paused':'Game ended')}</span></div></div><div class="quickbar"><div class="quickbar-stage"><span class="eyebrow">CURRENT PRIZE · ${pub.stageIndex+1} / ${r.stages.length}</span><strong>${safe(st?.name||'BINGO')}</strong>${prizeBadge(st)}</div><div class="quickbar-actions">${pub.status==='lobby'?'<button class="btn" data-act="start">▶ Start game</button>':''}<button class="btn secondary" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''}>Next prize <span aria-hidden="true">→</span></button><button class="btn ghost" data-act="showqr">▦ Show QR</button><button class="btn ghost" data-act="stagemanager">☷ Stages</button><button class="btn ghost" data-act="themes">◒ Themes</button>${isStandingStage(st)?`<button class="btn secondary" data-act="standing-roster">🧍 ${standingSurvivors(r).length} Still Standing</button>`:""}</div></div><div class="dashboard"><div class="stack">${drawPanel(r)}<div class="card pad winners-panel"><div class="row between"><h2 class="section-title">🏆 Prize winners</h2>${prizeBadge(st)}<span class="pill green">${awardList(r,st?.id).length} winners</span></div>${winnerHTML(r)}${candidates.length?`<div class="alert warning"><strong>${candidates.length} waiting for your approval</strong><p>${candidates.map(c=>safe(c.name)).join(', ')}</p><button class="btn mini" data-act="approve">Confirm winners</button></div>`:''}</div><details class="card management-panel"><summary>⚙ Game controls <span>Reset draws · End game · Reopen</span></summary><div class="management-body"><button class="btn secondary mini" data-act="resetdraws">↻ Reset draws, keep all cards</button><button class="btn danger mini" data-act="end">End game</button>${pub.status==='ended'?'<button class="btn secondary mini" data-act="reopen">Reopen game</button>':''}<p class="soft">Resetting a draw never changes a player's card numbers.</p></div></details></div><aside class="stack">${qrPanel()}<div class="card pad stack"><div class="row between"><h2 class="section-title">Prize stages</h2><button class="btn mini secondary" data-act="addstage">+ Add stage</button></div><div class="stage-list">${stageEntries(r)}</div></div><details class="card side-details" ${S.mode==='demo'?'open':''}><summary>Players <span>${joinedPlayerCount(r)} joined</span></summary><div class="players">${S.mode==='demo'?'<button class="btn ghost mini" data-act="adddemo">+ Add 12 guests</button>':''}${Object.entries(r.players||{}).length?Object.entries(r.players||{}).sort((a,b)=>(a[1].joinedAt||0)-(b[1].joinedAt||0)).map(([uid,p])=>`<div class="player-row"><div><strong>${safe(p.name)}</strong><div class="tiny muted">${p.card?'Card ready':p.rejected?'Room full':'Getting card…'}</div></div><span class="pill ${p.card?'green':'gold'}">${p.card?'✓':'…'}</span></div>`).join(''):'<div class="soft">Invite guests to start the fun.</div>'}</div></details><details class="card side-details"><summary>Past winners</summary><div class="past-winners">${r.stages.slice(0,r.public.stageIndex).map(ps=>`<div><strong>${safe(ps.name)}</strong><p>${awardList(r,ps.id).map(w=>safe(w.name)).join(', ')||'No winners recorded'}</p></div>`).join('')}${(r.public.pastRoundResults||[]).slice().reverse().map(h=>`<div class="past-round"><strong>Past game · ${new Date(h.at).toLocaleDateString()}</strong><p>${(h.awards||[]).map(w=>safe(w.name)+' — '+safe(w.stageName||'Prize')).join(', ')||'No winners'}</p></div>`).join('')}${!r.public.stageIndex&&!(r.public.pastRoundResults||[]).length?'<span class="soft">Your previous winners will appear here.</span>':''}</div></details></aside></div>`;setTimeout(renderQR,0);syncFocusMode()}
+function renderHost(){document.body.classList.remove('on-landing');const r=S.room;if(!r){el('app').innerHTML=topBarHtml()+'<div class="card pad">Opening your game…</div>';return}const pub=r.public,st=currentStage(r),plist=players(r),candidates=Object.values(r.candidates||{}).filter(c=>c.stageId===st?.id);el('app').innerHTML=topBarHtml()+`<div class="host-meta"><div><div class="eyebrow">GAME NIGHT / HOST</div><h1>Let's play <span>BIG!</span></h1><div class="host-subtitle">${safe(stageLabel(st))}</div></div><div class="host-badges"><span class="pill">◎ ${joinedPlayerCount(r)} / 100 players</span><span class="pill ${pub.status==='playing'?'green':'gold'}">${safe(pub.status==='playing'?'● Drawing':pub.status==='lobby'?'Lobby open':pub.status==='paused'?'Ⅱ Paused':'Game ended')}</span></div></div><div class="quickbar"><div class="quickbar-stage"><span class="eyebrow">CURRENT PRIZE · ${pub.stageIndex+1} / ${r.stages.length}</span><strong>${safe(st?.name||'BINGO')}</strong>${prizeBadge(st)}</div><div class="quickbar-actions">${pub.status==='lobby'?'<button class="btn" data-act="start">▶ Start game</button>':''}<button class="btn secondary" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''}>Next prize <span aria-hidden="true">→</span></button><button class="btn ghost" data-act="showqr">▦ Show QR</button><button class="btn ghost" data-act="stagemanager">☷ Stages</button><button class="btn ghost" data-act="assistants">👥 Assistants <span id="assistant-request-counter"></span></button><button class="btn ghost" data-act="themes">◒ Themes</button><button class="btn ghost" data-act="music-settings">♫ Music</button>${isStandingStage(st)?`<button class="btn secondary" data-act="standing-roster">🧍 ${standingSurvivors(r).length} Still Standing</button>`:""}</div></div><div class="dashboard"><div class="stack">${drawPanel(r)}<div class="card pad winners-panel"><div class="row between"><h2 class="section-title">🏆 Prize winners</h2>${prizeBadge(st)}<span class="pill green">${awardList(r,st?.id).length} winners</span></div>${winnerHTML(r)}${candidates.length?`<div class="alert warning"><strong>${candidates.length} waiting for your approval</strong><p>${candidates.map(c=>safe(c.name)).join(', ')}</p><button class="btn mini" data-act="approve">Confirm winners</button></div>`:''}</div><details class="card management-panel"><summary>⚙ Game controls <span>Reset draws · End game · Reopen</span></summary><div class="management-body"><button class="btn secondary mini" data-act="resetdraws">↻ Reset draws, keep all cards</button><button class="btn danger mini" data-act="end">End game</button>${pub.status==='ended'?'<button class="btn secondary mini" data-act="reopen">Reopen game</button>':''}<p class="soft">Resetting a draw never changes a player's card numbers.</p></div></details></div><aside class="stack">${qrPanel()}<div class="card pad stack"><div class="row between"><h2 class="section-title">Prize stages</h2><button class="btn mini secondary" data-act="addstage">+ Add stage</button></div><div class="stage-list">${stageEntries(r)}</div></div><details class="card side-details" ${S.mode==='demo'?'open':''}><summary>Players <span>${joinedPlayerCount(r)} joined</span></summary><div class="players">${S.mode==='demo'?'<button class="btn ghost mini" data-act="adddemo">+ Add 12 guests</button>':''}${Object.entries(r.players||{}).length?Object.entries(r.players||{}).sort((a,b)=>(a[1].joinedAt||0)-(b[1].joinedAt||0)).map(([uid,p])=>`<div class="player-row"><div><strong>${safe(p.name)}</strong><div class="tiny muted">${p.card?'Card ready':p.rejected?'Room full':'Getting card…'}</div></div><span class="pill ${p.card?'green':'gold'}">${p.card?'✓':'…'}</span></div>`).join(''):'<div class="soft">Invite guests to start the fun.</div>'}</div></details><details class="card side-details"><summary>Past winners</summary><div class="past-winners">${r.stages.slice(0,r.public.stageIndex).map(ps=>`<div><strong>${safe(ps.name)}</strong><p>${awardList(r,ps.id).map(w=>safe(w.name)).join(', ')||'No winners recorded'}</p></div>`).join('')}${(r.public.pastRoundResults||[]).slice().reverse().map(h=>`<div class="past-round"><strong>Past game · ${new Date(h.at).toLocaleDateString()}</strong><p>${(h.awards||[]).map(w=>safe(w.name)+' — '+safe(w.stageName||'Prize')).join(', ')||'No winners'}</p></div>`).join('')}${!r.public.stageIndex&&!(r.public.pastRoundResults||[]).length?'<span class="soft">Your previous winners will appear here.</span>':''}</div></details></aside></div>`;setTimeout(renderQR,0);syncFocusMode()}
 function renderQR(){const target=el('qr-container');if(!target)return;const url=joinLink();if(S.lastQrUrl===url&&target.querySelector('canvas'))return;S.lastQrUrl=url;target.innerHTML='';if(window.QRCode){try{new QRCode(target,{text:url,width:165,height:165,colorDark:'#101a2d',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});return}catch(e){}}target.innerHTML='<span style="color:#17213c;font-weight:700;text-align:center;font-size:12px">QR not available.<br>Use the invite link.</span>'}
 function renderGuest(){document.body.classList.remove('on-landing');const r=S.room;if(!r){el('app').innerHTML=topBarHtml()+'<div class="card pad">Joining your game…</div>';return}const p=S.player||r.players?.[S.uid],pub=r.public,st=pub.stage||currentStage(r),called=new Set(pub.called||[]);S.guestSignature=JSON.stringify([p?.card?.join(','),st?.id,st?.gameType,st?.lmsRule,st?.lmsSource,st?.prizeAmount,st?.prizeDistribution,S.uid]);const selfWinner=(pub.winnerList||[]).some(w=>w.uid===S.uid&&validRoundAward(w,pub));const drawing=!!pub.drawing;const statusText=selfWinner?'🏆 WINNER':isStandingStage(st)?standingGuestState(pub,p):safe(pub.status);const playHint=isStandingStage(st)?'Follow the rule for each draw.':st?.markMode==='auto'?'Your card marks itself.':st?.markMode==='manual'?'Tap only the called numbers.':'Tap to mark. Winners are checked automatically.';const footHint=isStandingStage(st)?'Watch every draw carefully. If your rule says sit, you are out for this stage.':st?.markMode==='manual'?'Tap called numbers, then press BINGO! when complete.':st?.markMode==='hybrid'?'Tap to mark · winners checked automatically':'Marked automatically as numbers are called';el('app').innerHTML=topBarHtml()+`<section class="guest-meta guest-meta-card"><div><div class="eyebrow">YOUR LUCKY CARD</div><div class="guest-name-row"><h1>${safe(p?.name||'Welcome!')} ✦</h1><span class="guest-roomline">Room ${safe(S.roomId)} · ${safe(st?.name||'Bingo')}</span></div></div><div class="guest-mini-tags"><span class="pill" id="guest-count">${(pub.called||[]).length}/75 called</span><span class="pill ${selfWinner?'green':isStandingStage(st)&&statusText.includes('SIT DOWN')?'red':'gold'}" id="guest-status">${safe(statusText)}</span></div></section>${!p?.card?`<div class="alert warning">${p?.rejected?'The room is full.':'You are in! Your card will be ready soon…'}</div>`:`<div class="guest-layout"><div class="guest-main"><div class="guest-card-panel"><div class="focus-stage-header"><div class="focus-stage-details"><span class="focus-label">STAGE ${(pub.stageIndex||0)+1}</span><strong id="guest-focus-stage-name">${safe(st?.name||'Bingo')}</strong></div><button class="focus-stage-info" data-act="pattern-info" aria-label="See winning pattern and instructions" title="Game instructions">ⓘ</button></div><div class="guest-card-head compact"><div class="guest-card-caption guest-card-title"><span class="eyebrow">PLAY YOUR CARD</span><strong>${safe(st?.name||'BINGO')}</strong><div class="soft">${playHint}</div></div><div class="guest-card-tools compact"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Winning pattern and rules">ⓘ Info</button><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle game sound" title="Toggle sound"><span aria-hidden="true">${S.soundOn?'♫':'♪'}</span><span class="guest-action-word">${S.soundOn?'Sound on':'Sound off'}</span></button><button class="icon-button card-style-toggle" data-act="card-styles" title="Customize the look of your card" aria-label="Customize card"><span aria-hidden="true">🎨</span><span class="guest-action-word">Card</span></button><button class="icon-button focus-enter" data-act="focus-guest">⛶ Card only</button>${!isStandingStage(st)&&st?.markMode==='manual'?'<button class="icon-button focus-claim" data-act="claim" aria-label="Claim Bingo"><span aria-hidden="true">🏆</span><span class="guest-action-word">BINGO!</span></button>':''}<button class="icon-button focus-exit" data-act="focus-guest" aria-label="Exit card only" title="Exit Card Only"><span aria-hidden="true">✕</span><span class="guest-action-word">Exit</span></button></div></div>${isStandingStage(st)?standingGuestHTML(pub,p).replace('standing-guest-status ','standing-guest-status compact '):''}<div class="latest-strip compact ${drawing?'guest-drawing-active':''}"><span id="guest-draw-label"><i></i> ${drawing?'DRAWING…':'NOW CALLED'}</span><strong id="guest-focus-latest">${drawing?'DRAWING…':ball(pub.last)}</strong><span class="right" id="guest-count-strip">${(pub.called||[]).length} of 75</span></div><div class="guest-card-wrap" id="guest-board"><div class="paper-card"><div class="paper-card-top"><span>OFFICIAL BINGO CARD</span><span>#${safe(String(p.slot||'001').padStart(3,'0'))}</span></div><div class="bingo-head">${'BINGO'.split('').map((ch,i)=>`<span class="head-${i}">${ch}</span>`).join('')}</div><div class="bingo-card">${p.card.map((n,i)=>{const marked=i===12||((isStandingStage(st)||st?.markMode==='auto')?called.has(n):S.marks.has(i));return `<button class="square ${i===12?'free':''} ${called.has(n)&&i!==12?'called':''} ${marked?'marked':''}" data-act="mark" data-index="${i}" ${i===12||isStandingStage(st)||st?.markMode==='auto'||!called.has(n)||pub.status==='ended'?'disabled':''}><span>${i===12?'FREE':n}</span></button>`}).join('')}</div><div class="paper-card-bottom"><span>★ GOOD LUCK! ★</span><span>KEEP THIS CARD</span></div></div></div><div class="focus-prize-footer" id="guest-focus-prize"><span>${st?.prizeDistribution==='pool'?'TOTAL PRIZE POOL':'PRIZE PER WINNER'}</span><strong>${safe(prizeLine(st)||'No amount set')}</strong></div><div class="guest-footnote">${footHint}</div><div id="guest-win-message">${selfWinner?('<div class="alert success">🏆 You won this prize! '+(prizeLine(st)?'Prize: '+safe(prizeLine(st))+' ':'')+'Keep playing.</div>'):''}</div></div><details class="guest-mobile-history"><summary id="guest-mobile-history-label">Called numbers · ${(pub.called||[]).length}</summary><div id="guest-mobile-history">${recentHistory(pub)}</div></details></div><aside class="guest-side"><div class="card pad latest-card"><div class="latest-card-label"><div><div class="eyebrow">LAST DRAWN</div><strong id="guest-prize-name">${safe(st?.name||'Bingo')}</strong>${prizeBadge(st)}</div><div class="big-ball compact-ball" id="guest-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="history-head"><span>DRAW HISTORY</span><span class="muted">Latest first</span></div><div id="guest-history">${recentHistory(pub)}</div></div><div class="card pad stack guest-winners-panel"><div class="eyebrow">PRIZE WINNERS</div><div id="guest-winners">${renderGuestWinners(pub)}</div></div></aside></div>`}`;syncFocusMode()}
 function renderGuestWinners(pub){const awards=(pub.winnerList||[]).filter(w=>validRoundAward(w,pub));return awards.length?awards.map(w=>`<div class="winner-entry"><strong>🏆 ${safe(w.name)}</strong><span class="tiny">Draw #${w.drawCount}</span></div>`).join(''):'<div class="soft">Good luck, everyone!</div>'}
@@ -2025,6 +2106,107 @@ function leaveHostFullscreenBoard(){
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&S.focusMode){const wasHost=S.focusMode==='host';S.focusMode='';syncFocusMode();if(wasHost)leaveHostFullscreenBoard()}});
 function toggleFocus(kind){if(S.focusMode===kind){S.focusMode='';syncFocusMode();if(kind==='host')leaveHostFullscreenBoard();document.exitFullscreen?.().catch(()=>{});}else{if(kind==='host')leaveHostFullscreenBoard();S.focusMode=kind;const target=document.documentElement;target.requestFullscreen?.().catch(()=>{});syncFocusMode()}try{localStorage.setItem('bingolive_focus_'+kind,S.focusMode===kind?'1':'0')}catch(e){}}
 
+
+
+// V21 background music — original procedural game loops; no external song/library required.
+const MUSIC_STYLES={
+ game:{name:'Game Show',desc:'Bright & playful',bpm:106,roots:[60,57,65,67],chords:[[0,4,7,11],[0,3,7,10],[0,4,7,11],[0,4,7,10]],steps:[0,2,1,3,2,1,0,2,3,1,2,0,1,3,2,0],wave:'triangle'},
+ lounge:{name:'Bingo Lounge',desc:'Relaxed & cheerful',bpm:84,roots:[62,67,60,57],chords:[[0,3,7,10],[0,4,7,11],[0,4,7,11],[0,3,7,10]],steps:[0,1,2,1,0,3,2,1,2,1,3,0,1,2,1,0],wave:'sine'},
+ retro:{name:'Retro Arcade',desc:'Bouncy electronic',bpm:116,roots:[57,60,65,64],chords:[[0,3,7,10],[0,4,7,11],[0,4,7,11],[0,4,7,11]],steps:[0,2,1,3,0,2,3,1,2,0,3,1,0,2,1,3],wave:'square'},
+ suspense:{name:'Lucky Draw',desc:'Gentle suspense',bpm:92,roots:[64,60,57,62],chords:[[0,3,7,10],[0,4,7,11],[0,3,7,10],[0,3,7,10]],steps:[0,1,2,3,2,1,3,2,0,2,1,3,1,2,0,3],wave:'sine'}
+};
+function hostAudioSnapshot(){return {musicOn:!!S.musicOn,soundOn:!!S.soundOn,voiceOn:!!S.voiceOn,musicStyle:S.musicStyle,musicMood:S.musicMood,musicVolume:S.musicVolume,voicePreset:S.voicePreset}}
+async function publishHostAudio(){if(S.role!=='host'||!S.room)return;try{await patchHost({'public/audio':hostAudioSnapshot(),'public/updatedAt':Math.max(Date.now(),Number(S.room.public?.updatedAt||0)+1)})}catch(e){}}
+function musicOptionsSave(){store('bingolive_music_on',S.musicOn);store('bingolive_music_style',S.musicStyle);store('bingolive_music_mood',S.musicMood);store('bingolive_music_volume',S.musicVolume);store('bingolive_music_custom_url',S.musicCustomUrl)}
+function musicTrackAllowedUrl(raw){
+ const url=String(raw||'').trim();
+ if(!url)return '';
+ try{const parsed=new URL(url,location.href);return ['https:','http:'].includes(parsed.protocol)?parsed.href:''}catch(_e){return ''}
+}
+function musicUnlock(){
+ if(S.role!=='host')return;
+ S.musicUnlocked=true;const ctx=audioReady();
+ if(ctx?.state==='suspended')ctx.resume().then(syncHostMusic).catch(()=>{});
+ syncHostMusic();
+}
+function musicAllowed(){const pub=S.room?.public;return S.role==='host'&&S.musicUnlocked&&S.soundOn&&S.musicOn&&(pub?.status==='playing'||Date.now()<(S.musicPreviewUntil||0))&&!pub.drawing&&!S.drawSuspenseActive&&!document.querySelector('.winner-celebration')}
+function musicLevel(){return Math.min(.5,Math.max(0,Number(S.musicVolume)||0)/100*.38)}
+function musicFade(target,secs=.26){
+ const ctx=S.audioContext,gain=S.musicBus?.gain;if(!ctx||!gain)return;
+ const now=ctx.currentTime;gain.cancelScheduledValues(now);gain.setValueAtTime(gain.value,now);gain.linearRampToValueAtTime(Math.max(0,target),now+secs);
+}
+function musicNote(frequency,when,duration,level,wave='sine'){
+ const ctx=S.audioContext;
+ if(!ctx||ctx.state!=='running'||!S.musicBus)return;
+ const osc=ctx.createOscillator(),amp=ctx.createGain();
+ osc.type=wave;osc.frequency.setValueAtTime(frequency,when);
+ amp.gain.setValueAtTime(.0001,when);
+ amp.gain.exponentialRampToValueAtTime(Math.max(.001,level),when+.015);
+ amp.gain.exponentialRampToValueAtTime(Math.max(.0001,level*.42),when+Math.min(.13,duration*.35));
+ amp.gain.exponentialRampToValueAtTime(.0001,when+duration);
+ osc.connect(amp);amp.connect(S.musicBus);osc.start(when);osc.stop(when+duration+.025);
+}
+const musicFrequency=n=>440*Math.pow(2,(n-69)/12);
+function musicBeat(beat,when,step){
+ const st=MUSIC_STYLES[S.musicStyle]||MUSIC_STYLES.game;
+ const hype=S.musicMood==='hype',bar=Math.floor(beat/8)%4,local=beat%8;
+ const root=st.roots[bar],chord=st.chords[bar];
+ // Harmonically related notes, specifically composed for this game; no existing song samples.
+ const note= root+12+chord[st.steps[beat%16]%chord.length];
+ musicNote(musicFrequency(note),when,Math.min(step*.84,.34),st.wave==='square'?.035:.07,st.wave);
+ if(local%2===0){musicNote(musicFrequency(root-12),when,Math.min(step*1.8,.53),.09,'sine')}
+ if(local===0||local===4){chord.forEach((interval,i)=>musicNote(musicFrequency(root+interval),when+i*.008,Math.min(step*3.4,1.25),.016,'sine'))}
+ if(hype){if(local%2===1)musicNote(musicFrequency(root+24+chord[(local+1)%chord.length]),when,Math.min(.11,step*.6),.025,'triangle');if(local===2||local===6)musicNote(92,when,.08,.033,'sine')}
+}
+function musicSchedule(){
+ const ctx=S.audioContext;
+ if(!ctx||ctx.state!=='running'||!S.musicTimer)return;
+ const style=MUSIC_STYLES[S.musicStyle]||MUSIC_STYLES.game;
+ const beatLength=30/(style.bpm*(S.musicMood==='hype'?1.14:1));
+ if(S.musicNextBeat<ctx.currentTime-.5)S.musicNextBeat=ctx.currentTime+.04;
+ let count=0;
+ while(S.musicNextBeat<ctx.currentTime+.28&&count++<8){musicBeat(S.musicBeatIndex++,S.musicNextBeat,beatLength);S.musicNextBeat+=beatLength}
+}
+function musicStopCustom(){
+ const track=S.musicTrack;
+ if(track){try{track.pause();track.currentTime=0}catch(_e){}}
+}
+function musicStop({complete=false}={}){
+ if(S.musicTimer){clearInterval(S.musicTimer);S.musicTimer=null}
+ clearTimeout(S.musicResyncTimer);S.musicResyncTimer=null;
+ musicFade(0,.13);musicStopCustom();
+ if(complete){S.musicUnlocked=false;S.musicQuietUntil=0}
+}
+function syncHostMusic(){
+ clearTimeout(S.musicResyncTimer);S.musicResyncTimer=null;
+ if(!musicAllowed()){musicStop();return}
+ const ctx=audioReady();if(!ctx)return;
+ if(ctx.state!=='running'){S.musicResyncTimer=setTimeout(syncHostMusic,250);return}
+ if(!S.musicBus){S.musicBus=ctx.createGain();S.musicBus.gain.value=0;S.musicBus.connect(ctx.destination)}
+ const quiet=Date.now()<S.musicQuietUntil;
+ if(quiet){S.musicResyncTimer=setTimeout(syncHostMusic,Math.max(100,S.musicQuietUntil-Date.now()+15))}
+ const custom=musicTrackAllowedUrl(S.musicCustomUrl);
+ if(custom&&!S.musicCustomBroken){
+  if(S.musicTimer){clearInterval(S.musicTimer);S.musicTimer=null;musicFade(0,.16)}
+  if(!S.musicTrack||S.musicTrack.src!==custom){musicStopCustom();S.musicTrack=new Audio(custom);S.musicTrack.loop=true;S.musicTrack.preload='auto';S.musicTrack.addEventListener('error',()=>{S.musicCustomBroken=true;musicStopCustom();syncHostMusic()})}
+  S.musicTrack.volume=quiet?0:Math.min(1,musicLevel()*2.2);
+  if(S.musicTrack.paused){S.musicTrack.play().catch(()=>{S.musicCustomBroken=true;syncHostMusic()})}
+  return;
+ }
+ musicStopCustom();
+ if(!S.musicTimer){S.musicBeatIndex=0;S.musicNextBeat=ctx.currentTime+.045;S.musicTimer=setInterval(musicSchedule,120);musicSchedule()}
+ musicFade(quiet?0:musicLevel(),quiet?.06:.35);
+}
+function musicQuiet(ms){if(S.role!=='host')return;S.musicQuietUntil=Math.max(S.musicQuietUntil,Date.now()+ms);syncHostMusic()}
+function musicButtonRefresh(){
+ document.querySelectorAll('[data-act="music-settings"]').forEach(btn=>{btn.setAttribute('aria-pressed',S.musicOn);if(btn.classList.contains('music-control-button'))btn.textContent=S.musicOn?'♫ Music on':'♪ Music off'})
+}
+function showMusicSettings(){
+ if(S.role!=='host')return;
+ const choices=Object.entries(MUSIC_STYLES).map(([key,style])=>`<button class="music-choice ${S.musicStyle===key?'active':''}" data-act="music-style" data-style="${key}" aria-pressed="${S.musicStyle===key}"><strong>${safe(style.name)}</strong><span>${safe(style.desc)}</span></button>`).join('');
+ el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="music-settings"><div class="modal music-modal" role="dialog" aria-modal="true" aria-label="Background music settings"><div class="row between"><div><div class="eyebrow">HOST SOUNDTRACK</div><h2>Background Music</h2></div><button class="icon-button" data-act="closemodal" aria-label="Close">✕</button></div><p class="soft">Music plays between draws. It fades away for the shaking sound, number announcement, and winners.</p><div class="music-switchline"><strong>${S.musicOn?'♫ Music is ON':'♪ Music is OFF'}</strong><button class="btn mini secondary" data-act="music-toggle">${S.musicOn?'Turn Off':'Turn On'}</button></div><div class="music-style-title">Choose the vibe</div><div class="music-mode-options"><button class="music-choice ${S.musicMood==='chill'?'active':''}" data-act="music-mood" data-mood="chill" aria-pressed="${S.musicMood==='chill'}"><strong>🌿 Chill</strong><span>Soft background rhythm</span></button><button class="music-choice ${S.musicMood==='hype'?'active':''}" data-act="music-mood" data-mood="hype" aria-pressed="${S.musicMood==='hype'}"><strong>⚡ Hype</strong><span>Faster party energy</span></button></div><div class="music-style-title">Music style</div><div class="music-style-grid">${choices}</div><div class="music-volume-label"><label for="music-volume">Music Volume</label><strong id="music-volume-value">${S.musicVolume}%</strong></div><input class="music-volume" type="range" id="music-volume" min="0" max="100" step="5" value="${S.musicVolume}"/><details class="music-custom"><summary>Use your own music link (optional)</summary><small>Enter an audio link that you own or have permission to play. Leave blank to use the built-in original soundtrack.</small><input class="input" id="music-custom-url" value="${safe(S.musicCustomUrl)}" placeholder="https://example.com/music.mp3" inputmode="url"/><button class="btn mini secondary" data-act="music-save-link">Save Music Link</button></details><div class="music-actions"><button class="btn secondary" data-act="music-test">▶ Play / Test</button><button class="btn" data-act="closemodal">Done</button></div><div id="music-status" class="music-status" role="status">${!S.musicOn?'Music is off. Turn it on to start.':S.room?.public?.status==='playing'?'Music will play between draws.':'Press Start Game or Play / Test to begin music.'}</div></div></div>`;
+}
+function musicOptionsChange(){musicOptionsSave();publishHostAudio();S.musicCustomBroken=false;musicStop();musicButtonRefresh();musicUnlock();if(el('modal-root')?.querySelector('[data-overlay-type="music-settings"]'))showMusicSettings()}
 
 // Original, synthesized game sounds. Audio starts only after a user gesture.
 function audioReady(){try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return null;if(!S.audioContext)S.audioContext=new AC();if(S.audioContext.state==='suspended')S.audioContext.resume().catch(()=>{});return S.audioContext}catch(e){return null}}
@@ -2054,6 +2236,7 @@ function playDrawAnticipation(){
 }
 const DRAW_REVEAL_MS=1320;
 function beginDrawAnimation(){
+ musicQuiet(DRAW_REVEAL_MS+1800);
  S.drawSuspenseActive=true;S.drawRevealReady=false;S.drawAwaitedNumber=0;
  const panel=document.querySelector('.host-draw-panel');
  const orbit=panel?.querySelector('.ball-orbit');
@@ -2069,6 +2252,7 @@ function beginDrawAnimation(){
  },8000);
 }
 function cancelDrawAnimation(){
+ S.musicQuietUntil=0;syncHostMusic();
  stopMixTrack();
  clearTimeout(S.drawAnimTimer);clearTimeout(S.drawRecoveryTimer);
   S.drawSuspenseActive=false;S.drawRevealReady=false;S.drawAwaitedNumber=0;S.hostPreviewNumber=0;
@@ -2094,10 +2278,10 @@ function finishDrawAnimation(){
  const nickname=el('ball-nickname');if(nickname)nickname.textContent=ball(n);
  const btn=el('draw-next'),pub=S.room?.public;if(btn)btn.disabled=pub?.status!=='playing'||(pub?.called||[]).length>=75;
  if(pub)updateHostUI();
- playDrawSound();announceNumber(n);
+ playDrawSound();announceNumber(n);musicQuiet(S.voiceOn?2300:760);
  if(S.pendingCelebration){const pending=S.pendingCelebration;S.pendingCelebration=null;setTimeout(()=>celebrateHost(pending.list,pending.stage),420)}
 }
-function playWinnerSound(){if(!S.soundOn||!audioReady())return;[523,659,784,1047].forEach((f,i)=>ping(f,i*.12,.32,'sine',.12))}
+function playWinnerSound(){musicQuiet(999999);if(!S.soundOn||!audioReady())return;[523,659,784,1047].forEach((f,i)=>ping(f,i*.12,.32,'sine',.12))}
 function playClickSound(){if(!S.soundOn||!audioReady())return;ping(530,0,.075,'sine',.055)}
 
 // Ten speaking styles work without downloads. Real voice quality/identity is supplied by the browser.
@@ -2119,10 +2303,11 @@ function voiceInfo(){const preset=VOICE_PRESETS[S.voicePreset]||VOICE_PRESETS.ho
 function speakBall(n,{preview=false}={}){
  if(S.role!=='host'||(!preview&&!S.voiceOn)||!n||!('speechSynthesis' in window))return false;
  try{
+  musicQuiet(preview?1600:2700);
   speechSynthesis.cancel();const {preset,voice}=voiceInfo();const b=ball(n);
   const msg=new SpeechSynthesisUtterance(b.replace('-',', '));
   if(voice){msg.voice=voice;msg.lang=voice.lang}else msg.lang='en-US';
-  msg.pitch=preset.pitch;msg.rate=preset.rate;msg.volume=1;
+  msg.pitch=preset.pitch;msg.rate=preset.rate;msg.volume=1;msg.onend=()=>{S.musicQuietUntil=Date.now()+350;syncHostMusic()};msg.onerror=()=>{S.musicQuietUntil=Date.now()+350;syncHostMusic()};
   speechSynthesis.speak(msg);return true;
  }catch(e){return false}
 }
@@ -2135,9 +2320,9 @@ function showVoicePicker(){
 }
 
 function announceNumber(n){return speakBall(n)}
-function soundAction(act,announceLatest=true){audioReady();if(act==='sound'){S.soundOn=!S.soundOn;store('bingolive_sound_'+S.role,S.soundOn);if(!S.soundOn)stopMixTrack();if(S.soundOn)playClickSound()}else{S.voiceOn=!S.voiceOn;store('bingolive_voice',S.voiceOn);if(S.voiceOn&&announceLatest){const n=S.room?.public?.last;announceNumber(n||0)}}document.querySelectorAll('[data-act="sound"]').forEach(b=>{const icon=b.querySelector('[aria-hidden="true"]'),word=b.querySelector('.guest-action-word');if(icon&&word){icon.textContent=S.soundOn?'♫':'♪';word.textContent=S.soundOn?'Sound on':'Sound off'}else b.textContent=S.soundOn?'♫ Sound on':'♪ Sound off';b.setAttribute('aria-pressed',S.soundOn)});document.querySelectorAll('[data-act="voice"]').forEach(b=>{b.textContent=S.voiceOn?'🗣 Voice on':'🗣 Voice off';b.setAttribute('aria-pressed',S.voiceOn)})}
+function soundAction(act,announceLatest=true){audioReady();if(act==='sound'){S.soundOn=!S.soundOn;store('bingolive_sound_'+S.role,S.soundOn);if(!S.soundOn){stopMixTrack();if(S.role==='host')musicStop()}if(S.soundOn){playClickSound();if(S.role==='host')musicUnlock()}}else{S.voiceOn=!S.voiceOn;store('bingolive_voice',S.voiceOn);if(S.voiceOn&&announceLatest){const n=S.room?.public?.last;announceNumber(n||0)}}document.querySelectorAll('[data-act="sound"]').forEach(b=>{const icon=b.querySelector('[aria-hidden="true"]'),word=b.querySelector('.guest-action-word');if(icon&&word){icon.textContent=S.soundOn?'♫':'♪';word.textContent=S.soundOn?'Sound on':'Sound off'}else b.textContent=S.soundOn?'♫ Sound on':'♪ Sound off';b.setAttribute('aria-pressed',S.soundOn)});document.querySelectorAll('[data-act="voice"]').forEach(b=>{b.textContent=S.voiceOn?'🗣 Voice on':'🗣 Voice off';b.setAttribute('aria-pressed',S.voiceOn)});if(S.role==='host')publishHostAudio()}
 
-function clearWinnerScreen(){clearTimeout(S.winnerTimer);document.body.classList.remove('winner-open');el('winner-root').innerHTML=''}
+function clearWinnerScreen(){clearTimeout(S.winnerTimer);document.body.classList.remove('winner-open');el('winner-root').innerHTML='';S.musicQuietUntil=0;syncHostMusic()}
 function celebrateHost(list,stage){
  if(!list?.length||S.role!=='host')return;
  playWinnerSound();
@@ -2173,6 +2358,9 @@ function receiveRoom(r){
   if(fresh.length){if(S.drawSuspenseActive)S.pendingCelebration={list:fresh,stage:r.public?.stage};else celebrateHost(fresh,r.public?.stage)}
  }
  S.room=r;S.stageDraft=S.stageDraft||null;
+ if(S.role==='assistant'){S.assistantProfile=r.assistants?.[S.uid]||null;S.assistantJoin=r.assistantJoin?.[S.uid]||null;S.hostPresence={online:true,at:Date.now()};renderAssistant();return;}
+ if(S.role==='host'){setTimeout(processAssistantCommands,40);if(el('modal-root')?.querySelector('[data-overlay-type=assistants]')&&!el('modal-root')?.querySelector('input:focus'))setTimeout(showAssistantManager,60)}
+ if(S.role==='host'&&S.musicUnlocked)syncHostMusic();
  if(S.role==='host'){const opened=document.querySelector('[data-overlay-type="joined-card"]');if(opened){const target=el('host-card-preview');if(target)target.innerHTML=hostCardPreviewHTML(opened.dataset.uid)}}
   if(S.role==='player')applyTheme();
  if(S.role==='player'&&S.mode==='demo')S.player=r.players?.[S.uid]||null;
@@ -2300,7 +2488,7 @@ async function createRoom(mode){
   liveCreationFailed(e);
  }finally{S.busy=false}
 }
-function watchHost(){if(S.ref){S.ref.off();S.ref=null}S.ref=S.db.ref('rooms/'+S.roomId);S.ref.on('value',snap=>receiveRoom(snap.val()),err=>toast('Connection lost. Please refresh to reconnect.',true))}
+function watchHost(){beginHostPresence();if(S.ref){S.ref.off();S.ref=null}S.ref=S.db.ref('rooms/'+S.roomId);S.ref.on('value',snap=>receiveRoom(snap.val()),err=>toast('Connection lost. Please refresh to reconnect.',true))}
 function restPath(path){const db=window.BINGO_FIREBASE_CONFIG.databaseURL.replace(/\/$/,'');return `${db}/${path}.json`}
 async function rest(path,method='GET',data){const token=await S.auth.currentUser.getIdToken(),url=restPath(path)+'?auth='+encodeURIComponent(token);const options={method,cache:'no-store',headers:{'Content-Type':'application/json'}};if(method!=='GET')options.body=JSON.stringify(data);const res=await fetch(url,options);let body=await res.json().catch(()=>null);if(!res.ok)throw Error(body?.error||`Firebase HTTP ${res.status}`);return body}
 async function joinRoom(id,name,mode){if(S.busy)return;S.busy=true;try{S.roomId=id.trim().toUpperCase();S.mode=mode;S.role='player';S.soundOn=load('bingolive_sound_player',false);S.room=null;S.player=null;S.marks=new Set();S.lastReset=-1;S.lastWinKey='';if(mode==='demo'){const room=demoRead(S.roomId);if(!room)throw Error("This is a demo room. To join, open it in the host browser. For phones, ask the host to start a live game.");S.uid='guest_'+code()+code();if(room.public.status!=='lobby')throw Error('New players can only join before the game starts.');if(players(room).length>=100)throw Error('The room already has 100 players.');room.players[S.uid]={name,uid:S.uid,joinedAt:Date.now()};setDemoRoom(S.roomId,room);watchDemo()}else{await authorize();const pub=await rest('rooms/'+S.roomId+'/public');if(!pub)throw Error('Room not found. Check the room code.');let p=await rest('rooms/'+S.roomId+'/players/'+S.uid);if(!p){if(pub.status!=='lobby')throw Error('New joins are closed after the game starts. Existing players can reconnect.');if(pub.playerCount>=100)throw Error('This room already has 100 cards.');p={name,uid:S.uid,joinedAt:Date.now()};await rest('rooms/'+S.roomId+'/players/'+S.uid,'PUT',p)}S.player=p;S.room={public:pub,players:{[S.uid]:p}};syncMarks();render();startPolling()}sessionSave();toast('You joined the room!')}catch(e){S.role='';S.player=null;S.room=null;renderLanding();toast('Cannot join: '+friendlyError(e),true)}finally{S.busy=false}}
@@ -2375,7 +2563,12 @@ async function performDraw(){
  const startedAt=Date.now();
  try{
   // Drawing state has NO secret number. Guests cannot see the result early.
-  await patchHost({'public/drawing':{id,startedAt,stageId,resetVersion:epoch},'public/updatedAt':Math.max(Date.now(),Number(startedPub.updatedAt||0)+1)});
+  if(S.mode==='firebase'){
+   const ref=S.db.ref('rooms/'+S.roomId+'/public/drawing');
+   const claim=await ref.transaction(existing=>existing===null?{id,startedAt,stageId,resetVersion:epoch}:undefined,undefined,false);
+   if(!claim.committed)throw Error('Another draw has already started.');
+   await S.db.ref('rooms/'+S.roomId+'/public/updatedAt').set(Math.max(Date.now(),Number(startedPub.updatedAt||0)+1));
+  }else await patchHost({'public/drawing':{id,startedAt,stageId,resetVersion:epoch},'public/updatedAt':Math.max(Date.now(),Number(startedPub.updatedAt||0)+1)});
   await new Promise(resolve=>setTimeout(resolve,Math.max(0,DRAW_REVEAL_MS+130-(Date.now()-startedAt))));
   if(S.role!=='host'||!S.room||roundVersion(S.room.public)!==epoch||S.room.public.stage?.id!==stageId||S.room.public.status!=='playing'||S.room.public.drawing?.id!==id){throw Error('Draw was interrupted. Nothing new was called.')}
   // The host sees the reveal FIRST, then the official result is sent to guests.
@@ -2384,12 +2577,14 @@ async function performDraw(){
   // Give the host display a moment to paint the reveal before guests receive it.
   await new Promise(resolve=>setTimeout(resolve,85));
   const room=S.room;
-  await patchHost({public:modifiedPub(room,{called:[...(room.public.called||[]),number],last:number,drawing:null})});
+  await patchHost({public:modifiedPub(room,{called:[...(room.public.called||[]),number],last:number,lastDrawAt:Date.now(),drawing:null})});
+  return true;
  }catch(e){
   cancelDrawAnimation();S.hostPreviewNumber=0;
   try{if(S.role==='host'&&S.room?.public?.drawing?.id===id)await patchHost({'public/drawing':null,'public/updatedAt':Math.max(Date.now(),Number(S.room.public.updatedAt||0)+1)})}catch(_e){}
   if(S.role==='host'&&S.room)updateHostUI();
   toast('Draw could not finish: '+(e?.message||'Please try again.'),true);
+  return false;
  }finally{S.drawBusy=false;if(S.role==='host'&&S.room)updateHostUI()}
 }
 
@@ -2405,7 +2600,7 @@ case 'resetdraws':{
  const history=[...(pub.pastRoundResults||[])];
  const previous=allWinners(r);
  if((pub.called||[]).length||previous.length){history.push({at:Date.now(),drawCount:(pub.called||[]).length,awards:previous.map(w=>({name:w.name,stageName:w.stageName||r.stages.find(st=>st.id===w.stageId)?.name||'Bingo',prizeAmount:w.prizeAmount||0,prizeDistribution:w.prizeDistribution||'each'}))});}
- changes={winners:null,candidates:null,claims:null,marks:null,public:modifiedPub(r,{called:[],last:null,stageIndex:0,stage:r.stages[0],stageStartDrawCount:0,winnerList:[],status:'lobby',drawing:null,resetVersion:roundVersion(pub)+1,pastRoundResults:history.slice(-12)})};break;
+ changes={winners:null,candidates:null,claims:null,marks:null,public:modifiedPub(r,{called:[],last:null,stageIndex:0,stage:r.stages[0],stageStartDrawCount:0,winnerList:[],status:'lobby',drawing:null,lastDrawAt:0,resetVersion:roundVersion(pub)+1,pastRoundResults:history.slice(-12)})};break;
 }
 case 'approve':{const proposed=Object.values(r.candidates||{}).filter(c=>c.stageId===st?.id&&validRoundAward(c,r.public)).sort((a,b)=>a.drawCount-b.drawCount);if(!proposed.length)return toast('No pending candidates.');const existing=awardList(r,st.id);if(st.limit>0&&existing.length>=st.limit)return toast('Winner limit already reached.');const firstDraw=proposed[0].drawCount;let winners=proposed.filter(w=>w.drawCount===firstDraw);if(st.limit===0){winners=proposed}for(const w of winners){changes[`winners/${st.id}/${w.uid}`]=w;changes['candidates/'+w.uid]=null}changes['public/winnerList']=[...existing,...winners];break}
 case 'adddemo':{if(S.mode!=='demo')return;const names=['Alex','Bea','Carlo','Dani','Ella','Francis','Gina','Hugo','Ivy','Jules','Kai','Luna'];let idx=0;for(const name of names){const uid='sim_'+code()+'_'+idx;changes['players/'+uid]={name:`${name} (Demo)`,uid,joinedAt:Date.now()+idx++}}break}
@@ -2419,6 +2614,7 @@ async function saveStage(form){
  const r=S.room,d=S.stageDraft||{};
  const st={id:d.id||('stage'+Date.now()+'_'+code()),name,gameType:f.get('gameType')==='laststanding'?'laststanding':'bingo',lmsRule:f.get('lmsRule')==='miss'?'miss':'hit',lmsSource:f.get('lmsSource')==='number'?'number':'card',pattern:String(f.get('pattern')),eligibility:String(f.get('eligibility')),limit:Number(f.get('limit')),markMode:String(f.get('markMode')),approval:String(f.get('approval')),prizeAmount:Math.round(amount*100)/100,prizeDistribution:f.get('prizeDistribution')==='pool'?'pool':'each'};
  if(!PATS[st.pattern]){showStageSaveError('Invalid winning pattern.');return}
+ if(S.role==='assistant'){if(!assistantCan('stages'))return showStageSaveError('Stage permission not granted.');await assistantCommand('stageSave',{stage:st,editIndex:Number.isInteger(d.editIndex)?d.editIndex:null});el('modal-root').innerHTML='';toast('Stage change sent for processing.');return}
  const stages=clone(r.stages),editIndex=d.editIndex;
  if(Number.isInteger(editIndex)){
   if(editIndex<r.public.stageIndex||editIndex===r.public.stageIndex&&r.public.status!=='lobby'){
@@ -2451,14 +2647,233 @@ function showStageSaveError(message){
  if(feedback){feedback.className='stage-save-feedback error';feedback.textContent=message}
  else toast(message,true);
 }
-async function leave(){stopMixTrack();clearTimeout(S.markSyncTimer);stopGuestSync();S.focusMode='';syncFocusMode();if(S.ref){S.ref.off();S.ref=null}window.removeEventListener('storage',onDemoStorage);S.role='';S.room=null;S.roomId='';S.stageDraft=null;S.player=null;S.marks=new Set();try{sessionStorage.removeItem('bingolive_session')}catch(e){}if(location.search){history.replaceState(null,'',location.pathname)}render()}
-async function runAct(act,btn){if(act==='closemodal'){el('modal-root').innerHTML='';return}if(act==='showqr')return toggleJoinQR();if(act==='board-view')return setBoardView(btn?.dataset?.view);if(act==='themes')return showThemePicker();if(act==='stagemanager')return showStageManager();if(act==='standing-roster')return showStandingRoster();if(act==='joined-players')return showJoinedPlayers();if(act==='joined-card')return showJoinedPlayerCard(btn?.dataset?.uid);if(act==='card-styles')return showCardStyles();if(act==='set-card-style')return selectCardStyle(btn.dataset.style);if(act==='picktheme'){if(HOST_PALETTES[btn.dataset.theme]){S.palette=btn.dataset.theme;store('bingolive_palette',S.palette);applyTheme();showThemePicker();await publishHostTheme()}return}if(act==='pickappearance'){if(['dark','light'].includes(btn.dataset.appearance)){S.appearance=btn.dataset.appearance;store('bingolive_appearance',S.appearance);applyTheme();showThemePicker();await publishHostTheme()}return}if(act==='closewinner'||act==='winner-keep'){clearWinnerScreen();return}
+
+// V22 — Assistant Host. The owning Host alone commits official game changes.
+const ASSISTANT_PERMISSIONS={draw:'Draw Numbers',start:'Start / Pause',stages:'Manage Stages',settings:'Themes / Game Settings',audio:'Music & Voice',players:'View Players & Cards',verify:'Verify Winners',reset:'Reset / End Game'};
+const ASSISTANT_ACTION_PERM={draw:'draw',start:'start',togglepause:'start',nextstage:'stages',selectstage:'stages',stageSave:'stages',stageMove:'stages',stageDelete:'stages',theme:'settings',music:'audio',voice:'audio',sound:'audio',approve:'verify',resetdraws:'reset',end:'reset',reopen:'reset'};
+const assistantPermissions=(mode='view')=>Object.fromEntries(Object.keys(ASSISTANT_PERMISSIONS).map(k=>[k,mode==='full'||mode==='view'&&k==='players']));
+const assistantCan=key=>S.role==='assistant'&&S.assistantProfile?.status==='approved'&&S.assistantProfile?.permissions?.[key]===true;
+const assistantApproved=()=>S.role==='assistant'&&S.assistantProfile?.status==='approved';
+const assistantReady=()=>S.mode==='demo'||!!(S.hostPresence?.online&&Date.now()-Number(S.hostPresence.at||0)<35000);
+const assistantLink=()=>{let base=location.protocol==='file:'?location.href.split('?')[0]:location.origin+location.pathname;return base+'?assistant=1&room='+encodeURIComponent(S.roomId)+'&mode='+encodeURIComponent(S.mode)};
+function renderAssistantInviteLanding(){
+ const p=new URLSearchParams(location.search),id=(p.get('room')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8);
+ el('app').innerHTML=topBarHtml()+`<div class="card assistant-join-card stack"><div class="eyebrow">INVITATION · ASSISTANT HOST</div><h1 style="margin:0;font-size:28px">Help run Bingo Live</h1><p class="soft">Enter your name and request access. The Main Host must approve you before you can control the game.</p><form class="stack" id="assistant-join-form"><div class="field"><label>Room code</label><input class="input" name="room" maxlength="8" required value="${safe(id)}" autocomplete="off"></div><div class="field"><label>Your name</label><input class="input" name="name" maxlength="30" required placeholder="Assistant name" autocomplete="name"></div><button class="btn block" type="submit">Request Assistant Access</button></form><p class="soft">Joining as an assistant is different from joining as a player. You do not receive a Bingo card.</p><button class="btn ghost mini" data-act="assistant-back">← Back to Bingo Home</button></div>`;
+}
+function showAssistantManager(){
+ if(S.role!=='host'||!S.room)return;
+ const joins=S.room.assistantJoin||{},approved=S.room.assistants||{};
+ const pending=Object.entries(joins).filter(([uid])=>!approved[uid]||approved[uid].status==='pending');
+ const all=Object.entries(approved).filter(([,a])=>a?.status!=='pending');
+ const entry=([uid,a])=>{const selected=uid===S.assistantEditorUID;return `<div class="assistant-management-entry"><div class="row"><div><strong>${safe(a.name||joins[uid]?.name||'Assistant')}</strong><div class="soft">${safe(a.status||'Pending')} ${a.status==='approved'?'· '+Object.keys(a.permissions||{}).filter(k=>a.permissions[k]).length+' permissions':''}</div></div><div class="row"><button class="btn mini secondary" data-act="assistant-edit" data-uid="${safe(uid)}">${selected?'Editing':'Permissions'}</button><button class="btn mini danger" data-act="assistant-revoke" data-uid="${safe(uid)}">Revoke</button></div></div>${selected?assistantPermissionEditor(uid,a.permissions||assistantPermissions('view')):''}</div>`};
+ const requests=pending.map(([uid,a])=>`<div class="assistant-management-entry"><strong>${safe(a.name)}</strong><span class="soft"> · Access requested</span><div class="row" style="margin-top:8px"><button class="btn mini" data-act="assistant-approve" data-uid="${safe(uid)}" data-level="full">✓ Full Control</button><button class="btn mini secondary" data-act="assistant-approve" data-uid="${safe(uid)}" data-level="view">View Only</button><button class="btn mini ghost" data-act="assistant-edit" data-uid="${safe(uid)}">Custom</button></div>${S.assistantEditorUID===uid?assistantPermissionEditor(uid,assistantPermissions('view')):''}</div>`).join('');
+ const url=assistantLink();
+ const localHint=location.protocol==='file:'?'<p class="alert warning">For phone invitations, publish Bingo Live on your website first. A local file link cannot open on another phone.</p>':'';
+ el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="assistants"><div class="modal" style="max-width:590px;max-height:94dvh;overflow:auto" role="dialog" aria-modal="true"><div class="row between"><div><div class="eyebrow">MAIN HOST ONLY</div><h2>Assistant Hosts</h2></div><button class="icon-button" data-act="closemodal">✕ Close</button></div><p class="soft">Share this Assistant QR (not the Guest QR). Only approved assistants can control the game. The Main Host must be connected to process their actions.</p>${localHint}<div id="assistant-invite-qr" class="assistant-invite-qr"></div><div class="row" style="justify-content:center"><button class="btn mini secondary" data-act="assistant-copy-link">Copy Assistant Link</button></div><p class="soft" style="overflow-wrap:anywhere;text-align:center">${safe(url)}</p><h3>Access requests (${pending.length})</h3><div class="assistant-management-list">${requests||'<p class="soft">No new requests.</p>'}</div><h3>Approved / Previous assistants (${all.length})</h3><div class="assistant-management-list">${all.map(entry).join('')||'<p class="soft">No assistants yet.</p>'}</div></div></div>`;
+ const target=el('assistant-invite-qr');if(window.QRCode&&target){try{new QRCode(target,{text:url,width:200,height:200,colorDark:'#17263d',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M})}catch(e){target.textContent='Copy the invite link instead.'}}
+}
+function assistantPermissionEditor(uid,perms){return `<form class="assistant-permission-form" data-uid="${safe(uid)}"><div class="assistant-permission-grid">${Object.entries(ASSISTANT_PERMISSIONS).map(([k,label])=>`<label><input type="checkbox" name="${k}" ${perms[k]?'checked':''}/> ${label}</label>`).join('')}</div><button class="btn mini" type="submit">Save Permissions & Approve</button></form>`}
+async function updateAssistantApproval(uid,perms,status='approved'){
+ if(S.role!=='host'||!S.room)return;
+ const name=trimName(S.room.assistantJoin?.[uid]?.name||S.room.assistants?.[uid]?.name||'Assistant');
+ const permissions=Object.fromEntries(Object.keys(ASSISTANT_PERMISSIONS).map(k=>[k,perms?.[k]===true]));
+ await patchHost({['assistants/'+uid]:{name,status,permissions,updatedAt:Date.now()}});
+ S.assistantEditorUID=null;showAssistantManager();toast(status==='approved'?'Assistant access saved.':'Assistant access revoked.');
+}
+function stopAssistantWatch(){for(const [ref,cb] of S.assistantRefs||[]){try{ref.off('value',cb)}catch(e){}}S.assistantRefs=[];for(const [ref,cb] of S.assistantPrivateRefs||[])try{ref.off('value',cb)}catch(e){};S.assistantPrivateRefs=[];S.assistantLiveAttached=false;clearInterval(S.assistantStatusTimer);S.assistantStatusTimer=null}
+function attachAssistant(path,callback){const ref=S.db.ref('rooms/'+S.roomId+'/'+path);const cb=s=>callback(s.val());ref.on('value',cb,()=>toast('Assistant connection interrupted.',true));S.assistantRefs.push([ref,cb])}
+function updateAssistantRoom(key,val){if(S.role!=='assistant')return;S.room??={public:{},stages:[],players:{},marks:{},winners:{},candidates:{}};S.room[key]=val??(key==='stages'?[]:{});if(key==='public'){if(val?.theme?.palette&&HOST_PALETTES[val.theme.palette])S.palette=val.theme.palette;if(['light','dark'].includes(val?.theme?.appearance))S.appearance=val.theme.appearance;applyTheme()}renderAssistant();}
+function connectAssistantWatch(){
+ stopAssistantWatch();S.db=firebase.database();
+ attachAssistant('assistantJoin/'+S.uid,val=>{S.assistantJoin=val;if(!S.assistantProfile?.status)renderAssistant()});
+ attachAssistant('assistants/'+S.uid,val=>{
+  const was=assistantApproved();S.assistantProfile=val;
+  if(assistantApproved()&&!was){attachAssistantApproved();toast('Approved! Assistant controls are ready.')}
+  if(!assistantApproved()&&was){stopAssistantWatch();connectAssistantWatch();toast('Assistant access was revoked.',true)}
+  else if(assistantApproved()&&was)syncAssistantPrivateReads();
+  renderAssistant();
+ });
+ attachAssistant('public',val=>updateAssistantRoom('public',val));
+ S.assistantStatusTimer=setInterval(()=>{if(S.role==='assistant')renderAssistantStatus()},5000);
+}
+function attachAssistantApproved(){
+ if(S.assistantLiveAttached)return;S.assistantLiveAttached=true;
+ attachAssistant('stages',val=>updateAssistantRoom('stages',val||[]));
+ attachAssistant('winners',val=>updateAssistantRoom('winners',val||{}));
+ attachAssistant('assistantResults/'+S.uid,val=>{S.assistantResults=val||{};const latest=Object.entries(S.assistantResults).sort((a,b)=>(b[1]?.at||0)-(a[1]?.at||0))[0]?.[1];if(latest&&latest.status!=='processing'&&Number(latest.at||0)>Number(S.assistantLastFeedbackAt||0)){S.assistantLastFeedbackAt=latest.at;S.assistantBusy=false;toast(latest.message||'Action processed.',latest.status==='error')}renderAssistant()});
+ attachAssistant('hostPresence',val=>{S.hostPresence=val;renderAssistantStatus()});
+ syncAssistantPrivateReads();
+}
+function syncAssistantPrivateReads(){
+ for(const [ref,cb] of S.assistantPrivateRefs||[])try{ref.off('value',cb)}catch(e){};S.assistantPrivateRefs=[];
+ const add=(key)=>{const ref=S.db.ref('rooms/'+S.roomId+'/'+key),cb=s=>updateAssistantRoom(key,s.val());ref.on('value',cb,()=>{});S.assistantPrivateRefs.push([ref,cb])};
+ S.room??={public:{},stages:[],players:{},marks:{},winners:{},candidates:{}};
+ if(assistantCan('players')){add('players');add('marks')}else{S.room.players={};S.room.marks={}}
+ if(assistantApproved())add('candidates');else S.room.candidates={};
+}
+async function requestAssistant(id,name,mode){
+ if(S.busy)return;S.busy=true;
+ try{
+  S.roomId=id.trim().toUpperCase();S.mode=mode;S.role='assistant';S.assistantName=trimName(name);
+  if(mode==='demo'){
+   const r=demoRead(S.roomId);if(!r)throw Error('Demo room must be open in the same browser.');S.uid='assistant_'+code()+code();
+   patchDemo({['assistantJoin/'+S.uid]:{name:S.assistantName,createdAt:Date.now()}});
+   watchDemo();S.assistantProfile=null;
+  }else{
+   await authorize();S.db=firebase.database();
+   const pub=await rest('rooms/'+S.roomId+'/public');if(!pub)throw Error('Room not found.');
+   const existing=await rest('rooms/'+S.roomId+'/assistantJoin/'+S.uid);
+   if(!existing)await rest('rooms/'+S.roomId+'/assistantJoin/'+S.uid,'PUT',{name:S.assistantName,createdAt:Date.now()});
+   S.assistantLiveAttached=false;connectAssistantWatch();
+  }
+  sessionSave();renderAssistant();
+ }catch(e){S.role='';S.room=null;toast('Could not request assistant access: '+friendlyError(e),true);renderLanding()}
+ finally{S.busy=false}
+}
+function assistantStageName(){const r=S.room;return r?.public?.stage?.name||r?.stages?.[r.public?.stageIndex]?.name||'Bingo'}
+function renderAssistantStatus(){const e=el('assistant-connection');if(!e)return;const ready=assistantReady();e.textContent=ready?'● Main Host Connected':'● Waiting for Main Host';e.className='assistant-status '+(ready?'ok':'offline');document.querySelectorAll('[data-assistant-command]').forEach(b=>b.disabled=!ready||!assistantCan(b.dataset.permission||ASSISTANT_ACTION_PERM[b.dataset.assistantCommand]))}
+function renderAssistant(){
+ if(S.role!=='assistant')return;
+ applyTheme();const approval=S.assistantProfile?.status||'pending';
+ if(approval!=='approved'){
+  const denied=['revoked','denied'].includes(approval);
+  el('app').innerHTML=topBarHtml()+`<div class="assistant-page"><div class="card pad stack" style="text-align:center;margin-top:24px"><div style="font-size:42px">${denied?'🔒':'⌛'}</div><h2>${denied?'Access not available':'Waiting for Main Host Approval'}</h2><p class="soft">${denied?'The Main Host has removed or denied access.':'Your request is sent. Ask the Main Host to open Assistants and approve '+safe(S.assistantName||'your request')+'.'}</p><div class="pill">Room ${safe(S.roomId)}</div><button class="btn secondary" data-act="leave">Back to Home</button></div></div>`;return;
+ }
+ const r=S.room||{},pub=r.public||{},st=pub.stage||{},tab=S.assistantTab;
+ const status=pub.status||'lobby',stageCount=Number(pub.stageIndex||0)+1;
+ const tabBtn=(id,title)=>`<button data-act="assistant-tab" data-tab="${id}" class="${tab===id?'active':''}" aria-pressed="${tab===id}">${title}</button>`;
+ let content='';
+ const control=(type,perm,label,attr='')=>`<button class="btn ${type==='resetdraws'?'danger':'secondary'}" data-act="assistant-command" data-assistant-command="${type}" data-permission="${perm}" ${attr} ${assistantCan(perm)&&assistantReady()?'':'disabled'}>${label}</button>`;
+ if(tab==='control'){
+  const n=Number(pub.last)||0;
+  content=`<div class="assistant-stage"><div class="row between"><div class="eyebrow">CURRENT STAGE · ${stageCount} / ${(r.stages||[]).length||1}</div><button class="btn mini ghost" data-act="pattern-info">ⓘ Rules</button></div><h2>${safe(assistantStageName())}</h2>${prizeBadge(st)}</div><div class="assistant-kpis"><div class="assistant-kpi"><strong>${(pub.called||[]).length}</strong><span>of 75 called</span></div><div class="assistant-kpi"><strong>${Number(pub.playerCount)||0}</strong><span>players joined</span></div><div class="assistant-kpi"><strong>${safe(status.toUpperCase())}</strong><span>game status</span></div></div><div class="assistant-control-panel"><div class="assistant-last-ball"><span>${pub.drawing?'•••':n?'BINGO'[Math.floor((n-1)/15)]:'★'}</span><strong>${pub.drawing?'…':n||'—'}</strong></div><div style="text-align:center;font-size:12px;font-weight:800">${pub.drawing?'🎱 DRAWING…':n?'LATEST: '+ball(n):'READY TO DRAW'}</div><button class="btn assistant-draw" data-act="assistant-command" data-assistant-command="draw" data-permission="draw" ${assistantCan('draw')&&assistantReady()&&status==='playing'&&!pub.drawing?'':'disabled'}>🎱 DRAW NEXT BALL</button><div class="assistant-actions">${control('start','start','▶ Start Game',status!=='lobby'?'disabled':'')}${control('togglepause','start',status==='paused'?'▶ Resume':'Ⅱ Pause',!['playing','paused'].includes(status)?'disabled':'')}${control('nextstage','stages','→ Next Prize',pub.stageIndex>=(r.stages||[]).length-1?'disabled':'')}${control('resetdraws','reset','↻ Reset to Zero')}</div><div class="assistant-notice">${S.mode==='demo'?'Demo commands are delivered in this browser.':'Commands are authorized by the Main Host and take effect on the shared game.'}</div></div>`;
+ }else if(tab==='players'){
+  content=`<div class="assistant-stage"><h2>Players & Winners</h2><p class="soft">${Number(pub.playerCount)||0} guests joined</p>${assistantCan('players')?'<button class="btn block secondary" data-act="joined-players">👥 View Player Names & Cards</button>':'<div class="assistant-notice">Main Host has not enabled Player Access.</div>'}${isStandingStage(st)&&assistantCan('players')?'<button class="btn block ghost" data-act="standing-roster">🧍 Still Standing</button>':''}</div><div class="assistant-control-panel"><strong>Winner claims</strong><p>${Object.keys(r.candidates||{}).length} pending for review</p>${assistantCan('verify')?control('approve','verify','🏆 Approve Eligible Winners'):'<div class="soft">View Only — winner approval requires permission.</div>'}</div>`;
+ }else if(tab==='stages'){
+  content=`<div class="assistant-stage"><h2>Prize Stages</h2>${(r.stages||[]).map((st,i)=>`<div class="assistant-menu-row"><div><strong>${i+1}. ${safe(st.name)}</strong><div class="soft">${i===pub.stageIndex?'Current stage':i<pub.stageIndex?'Completed':'Upcoming'} · ${safe(prizeLine(st)||'No amount')}</div></div>${assistantCan('stages')&&i>pub.stageIndex?`<button class="btn mini secondary" data-act="assistant-select-stage" data-index="${i}">Select</button>`:''}</div>`).join('')}${assistantCan('stages')?'<button class="btn block" data-act="stagemanager">☷ Edit / Add / Delete / Reorder Stages</button>':'<div class="assistant-notice">Stage editing requires permission.</div>'}</div>`;
+ }else{
+  content=`<div class="assistant-stage"><h2>Remote Settings</h2><p class="soft">These controls change the Main Host display and audio, not the assistant phone speakers.</p>${assistantCan('settings')?'<button class="btn block secondary" data-act="themes">🎨 Host Themes</button>':'<div class="assistant-notice">Theme control not enabled.</div>'}${assistantCan('audio')?`<div class="assistant-control-panel"><strong>Host Audio</strong><div class="assistant-actions"><button class="btn secondary" data-act="assistant-audio" data-key="musicOn" data-value="toggle">♫ Music On/Off</button><button class="btn secondary" data-act="assistant-audio" data-key="voiceOn" data-value="toggle">🎙 Voice On/Off</button><button class="btn secondary" data-act="assistant-audio" data-key="soundOn" data-value="toggle">🔊 Sound On/Off</button></div><label>Host Music Volume<input type="range" min="0" max="100" step="5" data-assistant-audio="musicVolume" value="${S.room?.public?.audio?.musicVolume??30}" style="width:100%"></label><label>Music style<select class="select" data-assistant-audio="musicStyle">${Object.entries(MUSIC_STYLES).map(([k,v])=>`<option value="${k}" ${pub.audio?.musicStyle===k?'selected':''}>${v.name}</option>`).join('')}</select></label><label>Music mood<select class="select" data-assistant-audio="musicMood"><option value="chill" ${pub.audio?.musicMood!=='hype'?'selected':''}>Chill</option><option value="hype" ${pub.audio?.musicMood==='hype'?'selected':''}>Hype</option></select></label><label>Voice style<select class="select" data-assistant-audio="voicePreset">${Object.entries(VOICE_PRESETS).map(([k,v])=>`<option value="${k}" ${pub.audio?.voicePreset===k?'selected':''}>${v.label}</option>`).join('')}</select></label></div>`:'<div class="assistant-notice">Audio control not enabled.</div>'}</div><div class="assistant-control-panel"><strong>Game Controls</strong>${control('reopen','reset','Reopen Game',status!=='ended'?'disabled':'')}${control('end','reset','End Event')}</div>`;
+ }
+ el('app').innerHTML=topBarHtml()+`<div class="assistant-page"><div class="assistant-top"><div><div class="eyebrow">ASSISTANT HOST</div><strong>Room ${safe(S.roomId)}</strong></div><span class="assistant-status waiting" id="assistant-connection">Checking Host…</span></div>${content}<nav class="assistant-tabs" aria-label="Assistant navigation">${tabBtn('control','🎱 Control')}${tabBtn('players','👥 Players')}${tabBtn('stages','🏆 Stages')}${tabBtn('settings','⚙ Settings')}</nav></div>`;
+ renderAssistantStatus();
+}
+async function assistantCommand(type,payload={}){
+ const perm=ASSISTANT_ACTION_PERM[type];if(!assistantCan(perm))return toast('This control is not permitted by Main Host.',true);
+ if(!assistantReady())return toast('Main Host is offline. Reconnect before sending controls.',true);
+ if(S.assistantBusy)return;
+ const raw=JSON.stringify(payload),cmd={type,payload:raw,createdAt:Date.now(),epoch:roundVersion(S.room?.public)};
+ if(raw.length>2400)return toast('Settings request is too large.',true);
+ S.assistantBusy=true;
+ try{
+  if(S.mode==='demo'){const id='cmd_'+Date.now()+'_'+code();patchDemo({['assistantCommands/'+S.uid+'/'+id]:cmd});}
+  else{await S.db.ref('rooms/'+S.roomId+'/assistantCommands/'+S.uid).push(cmd)}
+  toast('Request sent to Main Host…');
+ }catch(e){S.assistantBusy=false;toast('Request not sent: '+friendlyError(e),true)}
+ // A pending request never modifies client game data on its own.
+ setTimeout(()=>{S.assistantBusy=false},2500);
+}
+async function runAssistantCommand(uid,id,cmd){
+ if(S.role!=='host'||!S.room)return;
+ const perm=ASSISTANT_ACTION_PERM[cmd?.type],profile=S.room.assistants?.[uid],results=S.room.assistantResults?.[uid]||{};
+ if(!perm||results[id])return;
+ // Restrict by current authorization AND reset round; delayed commands are rejected.
+ let error='';const age=Date.now()-Number(cmd.createdAt||0);
+ if(profile?.status!=='approved'||profile?.permissions?.[perm]!==true)error='Access is no longer permitted.';
+ else if(age>15000||age< -3000)error='Request expired; try again.';
+ else if(Number(cmd.epoch)!==roundVersion(S.room.public))error='Game was reset. Please refresh.';
+ else if(cmd.type==='draw'&&Number(cmd.createdAt)<=Number(S.room.public.lastDrawAt||0))error='This draw request was sent before the previous draw finished.';
+ let data={};try{data=JSON.parse(cmd.payload||'{}')}catch(e){error='Invalid request data.'}
+ let claimed=false;
+ const path='assistantResults/'+uid+'/'+id;
+ if(S.mode==='demo'){
+  if(!S.room.assistantResults?.[uid]?.[id]){patchDemo({[path]:{status:'processing',at:Date.now()}});claimed=true}
+ }else{
+  try{const tx=await S.db.ref('rooms/'+S.roomId+'/'+path).transaction(cur=>cur===null?{status:'processing',at:Date.now()}:undefined,undefined,false);claimed=tx.committed}catch(e){return}
+ }
+ if(!claimed)return;
+ let message='Done — action applied.';
+ try{
+  if(error)throw Error(error);
+  const p=S.room.public;
+  if(cmd.type==='draw'){
+   if(p.status!=='playing'||p.drawing||S.drawBusy||S.drawSuspenseActive||S.actionBusy)throw Error('Draw already in progress, or game not started.');
+   if(!await performDraw())throw Error('Draw was not completed.');message='Number draw completed.';
+  }else if(['start','togglepause','nextstage','resetdraws','end','reopen','approve','selectstage'].includes(cmd.type)){
+   if(cmd.type==='start'&&p.status!=='lobby')throw Error('Game is not in lobby.');
+   if(cmd.type==='nextstage'&&(p.drawing||p.stageIndex>=S.room.stages.length-1))throw Error('Next prize is not available.');
+   if(cmd.type==='selectstage'&&(!Number.isInteger(data.index)||data.index<=p.stageIndex||data.index>=S.room.stages.length))throw Error('Invalid stage.');
+   if(cmd.type==='resetdraws'&&p.drawing)throw Error('Finish drawing before reset.');
+   await hostAction(cmd.type,cmd.type==='selectstage'?data.index:undefined);
+  }else if(cmd.type==='stageSave'){
+   const st=cleanAssistantStage(data.stage),idx=data.editIndex;
+   const r=S.room,stages=clone(r.stages);
+   if(Number.isInteger(idx)){
+    if(!stageChangeAllowed(r,idx)||!stages[idx]||stages[idx].id!==st.id)throw Error('Stage is locked or changed.');stages[idx]=st;
+   }else{st.id='stage'+Date.now()+'_'+code();stages.push(st)}
+   const changes={stages};if(Number.isInteger(idx)&&idx===r.public.stageIndex)changes.public=modifiedPub(r,{stage:st});await patchHost(changes);message='Prize stage saved.';
+  }else if(cmd.type==='stageMove'||cmd.type==='stageDelete'){
+   const r=S.room,idx=r.stages.findIndex(st=>st.id===data.id);
+   if(idx<0||!stageChangeAllowed(r,idx)||cmd.type==='stageDelete'&&r.stages.length<2)throw Error('Stage cannot be changed.');
+   if(cmd.type==='stageMove'&&(![-1,1].includes(data.step)||!stageChangeAllowed(r,idx+data.step)||idx+data.step<0||idx+data.step>=r.stages.length))throw Error('Move is not allowed.');
+   const stages=clone(r.stages);
+   if(cmd.type==='stageDelete')stages.splice(idx,1);else [stages[idx],stages[idx+data.step]]=[stages[idx+data.step],stages[idx]];
+   const changes={stages};if(stagePlanEditable(r))changes.public=modifiedPub(r,{stageIndex:Math.min(r.public.stageIndex,stages.length-1),stage:stages[Math.min(r.public.stageIndex,stages.length-1)]});await patchHost(changes);
+   message=cmd.type==='stageDelete'?'Stage deleted.':'Stage order updated.';
+  }else if(cmd.type==='theme'){
+   if(!HOST_PALETTES[data.palette]||!['light','dark'].includes(data.appearance))throw Error('Invalid theme.');
+   S.palette=data.palette;S.appearance=data.appearance;store('bingolive_palette',S.palette);store('bingolive_appearance',S.appearance);applyTheme();await publishHostTheme();message='Host theme updated.';
+  }else if(cmd.type==='music'||cmd.type==='voice'||cmd.type==='sound'){
+   const key=data.key,val=data.value;
+   if(key==='musicOn'&&val==='toggle')S.musicOn=!S.musicOn;
+   else if(key==='voiceOn'&&val==='toggle')S.voiceOn=!S.voiceOn;
+   else if(key==='soundOn'&&val==='toggle'){S.soundOn=!S.soundOn;store('bingolive_sound_host',S.soundOn);if(!S.soundOn)stopMixTrack()}
+   else if(key==='musicVolume'&&Number.isFinite(Number(val))&&Number(val)>=0&&Number(val)<=100)S.musicVolume=Number(val);
+   else if(key==='musicStyle'&&MUSIC_STYLES[val])S.musicStyle=val;
+   else if(key==='musicMood'&&['chill','hype'].includes(val))S.musicMood=val;
+   else if(key==='voicePreset'&&VOICE_PRESETS[val])S.voicePreset=val;
+   else throw Error('Invalid audio setting.');
+   musicOptionsSave();rememberVoiceOptions();store('bingolive_voice',S.voiceOn);syncHostMusic();await publishHostAudio();message='Host audio settings updated.';
+  }else throw Error('Unsupported action.');
+  await patchHost({[path]:{status:'success',message,at:Date.now()}});
+ }catch(e){try{await patchHost({[path]:{status:'error',message:e.message||'Action not completed.',at:Date.now()}})}catch(_e){}}
+}
+function cleanAssistantStage(stage){
+ const amount=Number(stage?.prizeAmount),name=trimName(stage?.name);
+ if(!name||!Number.isFinite(amount)||amount<0||amount>100000000||!PATS[stage.pattern])throw Error('Invalid stage name, pattern or prize.');
+ if(!['all','new','previous'].includes(stage.eligibility)||![0,1,3].includes(Number(stage.limit)))throw Error('Invalid stage rules.');
+ if(!['auto','hybrid','manual'].includes(stage.markMode)||!['auto','host'].includes(stage.approval))throw Error('Invalid stage settings.');
+ return {id:String(stage.id||'').slice(0,70),name,gameType:stage.gameType==='laststanding'?'laststanding':'bingo',lmsRule:stage.lmsRule==='miss'?'miss':'hit',lmsSource:stage.lmsSource==='number'?'number':'card',pattern:stage.pattern,eligibility:stage.eligibility,limit:Number(stage.limit),markMode:stage.markMode,approval:stage.approval,prizeAmount:Math.round(amount*100)/100,prizeDistribution:stage.prizeDistribution==='pool'?'pool':'each'};
+}
+function processAssistantCommands(){
+ if(S.role!=='host'||S.assistantCommandBusy||!S.room?.assistantCommands||S.actionBusy||S.drawBusy)return;
+ const queued=Object.entries(S.room.assistantCommands).flatMap(([uid,cmds])=>Object.entries(cmds||{}).filter(([id])=>!S.room.assistantResults?.[uid]?.[id]).map(([id,cmd])=>({uid,id,cmd}))).sort((a,b)=>(a.cmd.createdAt||0)-(b.cmd.createdAt||0));
+ if(!queued.length)return;
+ S.assistantCommandBusy=true;
+ (async()=>{for(const item of queued){await runAssistantCommand(item.uid,item.id,item.cmd)} })().finally(()=>{S.assistantCommandBusy=false;setTimeout(processAssistantCommands,150)});
+}
+function beginHostPresence(){
+ clearInterval(S.hostPulseTimer);
+ if(S.mode!=='firebase'||S.role!=='host'||!S.db)return;
+ const ref=S.db.ref('rooms/'+S.roomId+'/hostPresence');
+ ref.onDisconnect().set({online:false,at:firebase.database.ServerValue.TIMESTAMP}).catch(()=>{});
+ const pulse=()=>{if(S.role==='host')ref.set({online:true,at:firebase.database.ServerValue.TIMESTAMP}).catch(()=>{})};pulse();S.hostPulseTimer=setInterval(pulse,12000);
+}
+
+async function leave(){clearInterval(S.hostPulseTimer);S.hostPulseTimer=null;stopAssistantWatch();for(const [ref,cb] of S.assistantPrivateRefs||[])try{ref.off('value',cb)}catch(e){};S.assistantPrivateRefs=[];S.assistantLiveAttached=false;musicStop({complete:true});stopMixTrack();clearTimeout(S.markSyncTimer);stopGuestSync();S.focusMode='';syncFocusMode();if(S.ref){S.ref.off();S.ref=null}window.removeEventListener('storage',onDemoStorage);S.role='';S.room=null;S.roomId='';S.stageDraft=null;S.player=null;S.marks=new Set();try{sessionStorage.removeItem('bingolive_session')}catch(e){}if(location.search){history.replaceState(null,'',location.pathname)}render()}
+async function runAct(act,btn){if(act==='assistant-back'){history.replaceState(null,'',location.pathname);return renderLanding()}if(act==='assistants')return showAssistantManager();if(act==='assistant-copy-link'){try{await navigator.clipboard.writeText(assistantLink());toast('Assistant invitation copied.')}catch(e){prompt('Copy assistant link:',assistantLink())}return}if(act==='assistant-edit'){S.assistantEditorUID=btn.dataset.uid;return showAssistantManager()}if(act==='assistant-approve')return updateAssistantApproval(btn.dataset.uid,assistantPermissions(btn.dataset.level));if(act==='assistant-revoke')return confirmDialog('Revoke assistant access?','This assistant will no longer be able to send game controls.','Revoke',()=>updateAssistantApproval(btn.dataset.uid,assistantPermissions('none'),'revoked'));if(act==='assistant-tab'){S.assistantTab=btn.dataset.tab;renderAssistant();return}if(act==='assistant-select-stage')return confirmDialog('Continue to selected stage?','Previous numbers and cards remain unchanged.','Continue',()=>assistantCommand('selectstage',{index:Number(btn.dataset.index)}));if(act==='assistant-command'){const action=btn.dataset.assistantCommand;const irreversible=['resetdraws','end','nextstage'];return irreversible.includes(action)?confirmDialog(action==='resetdraws'?'Reset to Zero?':action==='end'?'End Game?':'Go to Next Prize?','This changes the game for ALL connected guests.','Confirm',()=>assistantCommand(action)):assistantCommand(action)}if(act==='assistant-audio')return assistantCommand('music',{key:btn.dataset.key,value:btn.dataset.value});if(act==='closemodal'){el('modal-root').innerHTML='';return}if(act==='showqr')return toggleJoinQR();if(act==='board-view')return setBoardView(btn?.dataset?.view);if(act==='themes')return showThemePicker();if(act==='stagemanager')return showStageManager();if(act==='standing-roster')return showStandingRoster();if(act==='joined-players')return showJoinedPlayers();if(act==='joined-card')return showJoinedPlayerCard(btn?.dataset?.uid);if(act==='card-styles')return showCardStyles();if(act==='set-card-style')return selectCardStyle(btn.dataset.style);if(act==='picktheme'&&S.role==='assistant')return assistantCommand('theme',{palette:btn.dataset.theme,appearance:S.room?.public?.theme?.appearance||'dark'});if(act==='pickappearance'&&S.role==='assistant')return assistantCommand('theme',{palette:S.room?.public?.theme?.palette||'royal',appearance:btn.dataset.appearance});if(act==='picktheme'){if(HOST_PALETTES[btn.dataset.theme]){S.palette=btn.dataset.theme;store('bingolive_palette',S.palette);applyTheme();showThemePicker();await publishHostTheme()}return}if(act==='pickappearance'){if(['dark','light'].includes(btn.dataset.appearance)){S.appearance=btn.dataset.appearance;store('bingolive_appearance',S.appearance);applyTheme();showThemePicker();await publishHostTheme()}return}if(act==='closewinner'||act==='winner-keep'){clearWinnerScreen();return}
 if(act==='winner-next'){clearWinnerScreen();return hostAction('nextstage')}
-if(act==='winner-reset'){return confirmDialog('Reset everything to ZERO?','All called numbers, current winners, and ALL guest marks will be cleared. Every guest keeps the SAME card. Drawing will NOT restart until you press Start.','Reset to zero',async()=>{clearWinnerScreen();await hostAction('resetdraws')})}if(act==='leave')return leave();if(act==='pattern-info')return showPatternGuide();if(act==='guide-prev')return showPatternGuide((S.guidePage||0)-1);if(act==='guide-next')return showPatternGuide((S.guidePage||0)+1);if(act==='voice-picker')return showVoicePicker();
-if(act==='set-voice-preset'){if(VOICE_PRESETS[btn?.dataset?.preset]){S.voicePreset=btn.dataset.preset;rememberVoiceOptions();showVoicePicker()}return}
+if(act==='winner-reset'){return confirmDialog('Reset everything to ZERO?','All called numbers, current winners, and ALL guest marks will be cleared. Every guest keeps the SAME card. Drawing will NOT restart until you press Start.','Reset to zero',async()=>{clearWinnerScreen();await hostAction('resetdraws')})}if(act==='leave')return leave();if(act==='pattern-info')return showPatternGuide();if(act==='guide-prev')return showPatternGuide((S.guidePage||0)-1);if(act==='guide-next')return showPatternGuide((S.guidePage||0)+1);if(act==='voice-picker')return showVoicePicker();if(act==='music-settings')return showMusicSettings();
+if(act==='music-toggle'){S.musicOn=!S.musicOn;musicOptionsChange();return}
+if(act==='music-style'){if(MUSIC_STYLES[btn?.dataset?.style]){S.musicStyle=btn.dataset.style;musicOptionsChange()}return}
+if(act==='music-mood'){if(['chill','hype'].includes(btn?.dataset?.mood)){S.musicMood=btn.dataset.mood;musicOptionsChange()}return}
+if(act==='music-save-link'){const val=el('music-custom-url')?.value.trim()||'';if(val&&!musicTrackAllowedUrl(val)){const e=el('music-status');if(e)e.textContent='Please enter a valid http(s) audio link.';return}S.musicCustomUrl=musicTrackAllowedUrl(val);musicOptionsChange();return}
+if(act==='music-test'){S.musicOn=true;S.musicPreviewUntil=Date.now()+8500;musicOptionsSave();musicUnlock();const status=el('music-status');if(status)status.textContent='Playing a short soundtrack preview. Press Done to close.';setTimeout(()=>{S.musicPreviewUntil=0;syncHostMusic()},8600);musicButtonRefresh();return}
+
+if(act==='set-voice-preset'){if(VOICE_PRESETS[btn?.dataset?.preset]){S.voicePreset=btn.dataset.preset;rememberVoiceOptions();publishHostAudio();showVoicePicker()}return}
 if(act==='voice-preview'){if(!speakBall(12,{preview:true}))toast('Voice preview is not available in this browser.',true);return}
 if(act==='voice-toggle-picker'){soundAction('voice',false);showVoicePicker();return}
-if(act==='sound'||act==='voice')return soundAction(act);if(act==='focus-host')return toggleFocus('host');if(act==='focus-guest')return toggleFocus('guest');if(act==='create-live'||act==='retry-live')return createRoom('firebase');if(act==='create-demo'){el('modal-root').innerHTML='';return createRoom('demo')};if(act==='copylink'){try{await navigator.clipboard.writeText(joinLink());toast('Join link copied!')}catch(e){prompt('Copy this link:',joinLink())}return}if(S.role==='player'){if(act==='mark'){const idx=Number(btn.dataset.index),n=S.player?.card?.[idx];if(!n||!S.room?.public.called?.includes(n))return;if(S.marks.has(idx))S.marks.delete(idx);else S.marks.add(idx);store(`bingolive_marks_${S.roomId}_${S.uid}`,{version:S.room.public.resetVersion,marks:[...S.marks]});updateGuestUI();publishGuestMarks();return}if(act==='claim')return submitClaim();return}
+if(act==='sound'||act==='voice'){soundAction(act);if(act==='sound'&&S.role==='host'){if(S.soundOn)musicUnlock();else musicStop()}return}if(act==='focus-host')return toggleFocus('host');if(act==='focus-guest')return toggleFocus('guest');if(act==='create-live'||act==='retry-live')return createRoom('firebase');if(act==='create-demo'){el('modal-root').innerHTML='';return createRoom('demo')};if(act==='copylink'){try{await navigator.clipboard.writeText(joinLink());toast('Join link copied!')}catch(e){prompt('Copy this link:',joinLink())}return}if(S.role==='player'){if(act==='mark'){const idx=Number(btn.dataset.index),n=S.player?.card?.[idx];if(!n||!S.room?.public.called?.includes(n))return;if(S.marks.has(idx))S.marks.delete(idx);else S.marks.add(idx);store(`bingolive_marks_${S.roomId}_${S.uid}`,{version:S.room.public.resetVersion,marks:[...S.marks]});updateGuestUI();publishGuestMarks();return}if(act==='claim')return submitClaim();return}
+if(S.role==='assistant'){if(act==='addstage'&&assistantCan('stages')){S.stageDraft={name:'New Prize Stage',gameType:'bingo',lmsRule:'hit',lmsSource:'card',pattern:'blackout',eligibility:'all',limit:1,markMode:'auto',approval:'auto',prizeAmount:0,prizeDistribution:'each'};return showStageEditor()}if(act==='editstage'&&assistantCan('stages')){const i=Number(btn.dataset.index);S.stageDraft={...S.room.stages[i],editIndex:i};return showStageEditor()}if(act==='cancelstage'){S.stageDraft=null;el('modal-root').innerHTML='';return}if(act==='move-stage'&&assistantCan('stages'))return assistantCommand('stageMove',{id:btn.dataset.id,step:Number(btn.dataset.step)});if(act==='delete-stage'&&assistantCan('stages'))return confirmDialog('Delete this prize stage?','This will remove the selected upcoming stage.','Delete',()=>assistantCommand('stageDelete',{id:btn.dataset.id}));if(act==='selectstage'&&assistantCan('stages'))return assistantCommand('selectstage',{index:Number(btn.dataset.index)});return;}
 if(S.role!=='host')return;
 if(act==='addstage'){S.stageDraft={name:'New Prize Stage',gameType:'bingo',lmsRule:'hit',lmsSource:'card',pattern:'blackout',eligibility:'all',limit:1,markMode:'auto',approval:'auto',prizeAmount:0,prizeDistribution:'each'};showStageEditor();return}
 if(act==='editstage'){const i=Number(btn.dataset.index);if(!S.room.stages[i])return;S.stageDraft={...S.room.stages[i],editIndex:i};showStageEditor();return}
@@ -2470,10 +2885,15 @@ if(act==='resetdraws')return confirmDialog('Reset Draws?','Clear ALL called numb
 if(act==='end')return confirmDialog('End Event?','The event will stop. Player cards, drawn numbers and winner history will remain saved.','End Event',()=>hostAction('end'));
 if(act==='selectstage'){const n=Number(btn.dataset.index);return confirmDialog('Switch prize stage?','Current card assignments, marked numbers, and all drawn balls will remain intact.','Continue',()=>hostAction('selectstage',n))}
 if(act==='nextstage')return confirmDialog('Continue to next prize?','Use existing drawn numbers and the same cards. All eligible cards will be checked against the next pattern.','Continue',()=>hostAction('nextstage'));
-if(act==='draw')return performDraw();return hostAction(act)
+if(act==='start'){musicUnlock();return hostAction(act)}if(act==='draw')return performDraw();return hostAction(act)
 }
 S.voicePreset=VOICE_PRESETS[load('bingolive_voice_preset','host')]?load('bingolive_voice_preset','host'):'host';
 S.voiceURI=String(load('bingolive_voice_uri','auto')||'auto');
+S.musicOn=load('bingolive_music_on',true)!==false;
+S.musicStyle=MUSIC_STYLES[load('bingolive_music_style','game')]?load('bingolive_music_style','game'):'game';
+S.musicMood=['chill','hype'].includes(load('bingolive_music_mood','chill'))?load('bingolive_music_mood','chill'):'chill';
+S.musicVolume=Math.min(100,Math.max(0,Number(load('bingolive_music_volume',30))||0));
+S.musicCustomUrl=musicTrackAllowedUrl(load('bingolive_music_custom_url',''));
 applyTheme();
 document.addEventListener('keydown',e=>{
  if(e.code==='Escape'&&el('modal-root')?.querySelector('.overlay')){e.preventDefault();el('modal-root').innerHTML='';return}
@@ -2491,9 +2911,10 @@ document.addEventListener('keydown',e=>{
 });
 if('speechSynthesis' in window){speechSynthesis.addEventListener?.('voiceschanged',()=>{if(el('modal-root')?.querySelector('[data-overlay-type=voice-picker]')&&!document.activeElement?.matches('#system-voice-select'))showVoicePicker()})}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(b){e.preventDefault();runAct(b.dataset.act,b).catch(err=>toast(err.message,true))}});
-document.addEventListener('change',e=>{if(e.target?.id==='system-voice-select'){S.voiceURI=e.target.value;rememberVoiceOptions();const feedback=el('voice-option-feedback');if(feedback)feedback.textContent='Voice selected. Press Preview to hear it.'}if(e.target?.name==='gameType')syncStageEditorFields();if(e.target?.id==='card-accent-picker'){S.cardAccent=e.target.value;store('bingolive_card_accent',S.cardAccent);S.cardStyle='custom';store('bingolive_card_style','custom');applyTheme();showCardStyles()}});
-document.addEventListener('submit',e=>{if(e.target.id==='join-form'){e.preventDefault();const f=new FormData(e.target);const name=trimName(f.get('name')),id=String(f.get('room')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8);if(!id||!name)return toast('Enter your room code and name.',true);joinRoom(id,name,detectJoinMode(id))}if(e.target.id==='stage-form'){e.preventDefault();saveStage(e.target)}});
-(async function boot(){const params=new URLSearchParams(location.search);const session=(()=>{try{return JSON.parse(sessionStorage.getItem('bingolive_session'))}catch(e){return null}})();if(session?.role==='host'&&session?.roomId){S.mode=session.mode;S.role='host';S.soundOn=load('bingolive_sound_host',true);S.voiceOn=load('bingolive_voice',false);S.roomId=session.roomId;try{if(S.mode==='demo'){S.uid=demoRead(S.roomId)?.hostUid;watchDemo()}else{await authorize();S.db=firebase.database();watchHost()}return}catch(e){toast('Could not restore your game. Please try again.',true);S.role=''}}if(session?.role==='player'&&session?.roomId){S.mode=session.mode;S.role='player';S.soundOn=load('bingolive_sound_player',false);S.roomId=session.roomId;try{if(S.mode==='demo'){const room=demoRead(S.roomId);if(!room)throw Error('Demo room missing');S.uid=session.uid;if(!S.uid)throw Error('Missing guest identity');S.player=room.players[S.uid];watchDemo()}else{await authorize();S.player=await rest('rooms/'+S.roomId+'/players/'+S.uid);startPolling()}return}catch(e){S.role=''}}render();if(params.has('room'))setTimeout(()=>el('name-input')?.focus(),150)})();
+document.addEventListener('input',e=>{if(e.target?.id==='music-volume'){S.musicVolume=Math.min(100,Math.max(0,Number(e.target.value)||0));musicOptionsSave();const val=el('music-volume-value');if(val)val.textContent=S.musicVolume+'%';syncHostMusic()}});
+document.addEventListener('change',e=>{if(e.target?.id==='system-voice-select'){S.voiceURI=e.target.value;rememberVoiceOptions();const feedback=el('voice-option-feedback');if(feedback)feedback.textContent='Voice selected. Press Preview to hear it.'}if(e.target?.dataset?.assistantAudio){assistantCommand('music',{key:e.target.dataset.assistantAudio,value:e.target.value})}if(e.target?.id==='music-volume'&&S.role==='host')publishHostAudio();if(e.target?.name==='gameType')syncStageEditorFields();if(e.target?.id==='card-accent-picker'){S.cardAccent=e.target.value;store('bingolive_card_accent',S.cardAccent);S.cardStyle='custom';store('bingolive_card_style','custom');applyTheme();showCardStyles()}});
+document.addEventListener('submit',e=>{if(e.target.id==='assistant-join-form'){e.preventDefault();const f=new FormData(e.target),id=String(f.get('room')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8),name=trimName(f.get('name'));if(!id||!name)return toast('Enter name and room code.',true);return requestAssistant(id,name,detectJoinMode(id))}if(e.target.classList.contains('assistant-permission-form')){e.preventDefault();const f=new FormData(e.target),perms=Object.fromEntries(Object.keys(ASSISTANT_PERMISSIONS).map(k=>[k,f.get(k)==='on']));return updateAssistantApproval(e.target.dataset.uid,perms)}if(e.target.id==='join-form'){e.preventDefault();const f=new FormData(e.target);const name=trimName(f.get('name')),id=String(f.get('room')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8);if(!id||!name)return toast('Enter your room code and name.',true);joinRoom(id,name,detectJoinMode(id))}if(e.target.id==='stage-form'){e.preventDefault();saveStage(e.target)}});
+(async function boot(){const params=new URLSearchParams(location.search);const session=(()=>{try{return JSON.parse(sessionStorage.getItem('bingolive_session'))}catch(e){return null}})();if(session?.role==='assistant'&&session?.roomId){S.mode=session.mode;S.role='assistant';S.roomId=session.roomId;S.uid=session.uid;try{if(S.mode==='demo'){watchDemo()}else{await authorize();S.db=firebase.database();S.assistantLiveAttached=false;connectAssistantWatch()}return}catch(e){S.role='';toast('Assistant session could not be restored.',true)}}if(session?.role==='host'&&session?.roomId){S.mode=session.mode;S.role='host';S.soundOn=load('bingolive_sound_host',true);S.voiceOn=load('bingolive_voice',false);S.roomId=session.roomId;try{if(S.mode==='demo'){S.uid=demoRead(S.roomId)?.hostUid;watchDemo()}else{await authorize();S.db=firebase.database();watchHost()}return}catch(e){toast('Could not restore your game. Please try again.',true);S.role=''}}if(session?.role==='player'&&session?.roomId){S.mode=session.mode;S.role='player';S.soundOn=load('bingolive_sound_player',false);S.roomId=session.roomId;try{if(S.mode==='demo'){const room=demoRead(S.roomId);if(!room)throw Error('Demo room missing');S.uid=session.uid;if(!S.uid)throw Error('Missing guest identity');S.player=room.players[S.uid];watchDemo()}else{await authorize();S.player=await rest('rooms/'+S.roomId+'/players/'+S.uid);startPolling()}return}catch(e){S.role=''}}render();if(params.has('room'))setTimeout(()=>el('name-input')?.focus(),150)})();
 </script>
 </body>
 </html>
