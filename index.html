@@ -1251,6 +1251,313 @@ body[data-appearance="light"] .winner-decisions .btn.secondary{background:var(--
 body[data-appearance="light"] .winner-decisions .btn.danger{background:var(--msg-error-bg)!important;color:var(--msg-error-fg)!important;border-color:var(--msg-error-border)!important}
 /* Guest personal card skins remain unchanged even when the host switches modes. */
 
+
+/* V15 — 3 projector-friendly number board layouts. Visual preference only. */
+.board-view-controls{display:none;align-items:center;gap:4px;flex-wrap:nowrap;white-space:nowrap}
+.board-view-btn{font-size:11px;line-height:1.1;font-weight:850;min-height:31px;padding:7px 9px;border:1px solid #8293ad88;border-radius:9px;color:#e7efff;background:#ffffff13;transition:background .16s,border-color .16s,transform .16s}
+.board-view-btn:hover{background:#ffffff28;transform:translateY(-1px)}
+.board-view-btn.active{color:#1b2c43!important;background:#ffe2a0!important;border-color:#ffdc79!important;box-shadow:0 0 0 1px #ffc76d66}
+body.host-focus .board-view-controls{display:flex}
+body.host-focus .board-head{display:flex!important;align-items:center;gap:7px;margin-bottom:clamp(4px,.7vh,9px);min-height:30px}
+body.host-focus .board-head>div:first-child{min-width:0}
+body.host-focus .number-board-title{font-size:clamp(10px,.8vw,13px);line-height:1.05}
+body.host-focus #host-num-board{min-width:0;width:100%;max-height:100%;min-height:0;overflow:hidden}
+body.host-focus .number-board-wrap{width:100%;max-height:100%;min-width:0;overflow:hidden}
+body.host-focus .bingo-number-groups{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(3px,.55vw,13px);width:100%;max-width:100%;margin:0 auto;align-items:start}
+body.host-focus .bingo-number-group{min-width:0;border-radius:13px;padding:clamp(3px,.45vw,8px);border:1px solid #bdd9f54a;background:#ffffff0b;overflow:hidden}
+body.host-focus .bingo-group-title{display:flex;align-items:center;justify-content:space-between;gap:3px;padding:1px 4px clamp(4px,.6vh,8px);color:#f7e7bc}
+body.host-focus .bingo-group-title strong{font-size:clamp(17px,2vw,38px);line-height:1;letter-spacing:.03em}
+body.host-focus .bingo-group-title span{font-size:clamp(9px,.88vw,15px);font-weight:850;white-space:nowrap;color:#e5eafb}
+body.host-focus .bingo-number-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(2px,.4vw,7px);min-width:0}
+body.host-focus .host-draw-panel .bingo-number-tiles .number{aspect-ratio:1;min-width:0;font-size:clamp(14px,2.1vw,47px);letter-spacing:-.04em;line-height:1;display:grid;place-items:center;border-width:1px}
+body.host-focus .board-view-called .bingo-number-group{background:#0000000c;border-color:#ffffff19}
+body.host-focus .board-view-called .bingo-number-tiles .number:not(.hit){opacity:.095;filter:grayscale(1);box-shadow:none!important;transform:none!important}
+body.host-focus .board-view-called .bingo-number-tiles .number.hit{opacity:1;font-size:clamp(17px,2.35vw,51px);font-weight:1000;border-color:#ffe5ad;filter:drop-shadow(0 2px 4px #0003)}
+body.host-focus .board-view-called .bingo-number-tiles .number.recent{opacity:1;box-shadow:0 0 0 2px #dffefa,0 0 25px #69e9d7cc!important}
+body[data-appearance="light"].host-focus .bingo-number-group{background:#f3f7fdf5;border-color:#a8b5c9}
+body[data-appearance="light"].host-focus .bingo-group-title{color:#183857}
+body[data-appearance="light"].host-focus .bingo-group-title span{color:#31506c}
+body[data-appearance="light"].host-focus .board-view-btn{background:#edf3fb;color:#17324d;border-color:#92a8c6}
+body[data-appearance="light"].host-focus .board-view-btn.active{background:#f4cd73!important;border-color:#b47f29!important;color:#172b46!important}
+body[data-appearance="light"].host-focus .host-draw-panel .board-view-called .number:not(.hit):not(.recent){opacity:.085!important;filter:grayscale(1)!important}
+/* Projectors with limited height: constrain grouped tiles by vertical space too. */
+@media(min-width:721px){
+ body.host-focus .board-view-grouped .bingo-number-groups,
+ body.host-focus .board-view-called .bingo-number-groups{max-width:min(100%,calc((100dvh - 160px)*2.64))}
+}
+@media(min-width:721px) and (max-height:650px){
+ body.host-focus .board-view-grouped .bingo-number-groups,
+ body.host-focus .board-view-called .bingo-number-groups{max-width:min(100%,calc((100dvh - 115px)*2.55))}
+ body.host-focus .bingo-group-title strong{font-size:clamp(15px,1.7vw,26px)}
+ body.host-focus .bingo-group-title span{font-size:10px}
+ body.host-focus .bingo-number-group{padding:3px}
+}
+@media(max-width:1100px){
+ body.host-focus .board-view-btn{font-size:10px;padding:6px 7px;min-height:27px}
+ body.host-focus .bingo-group-title strong{font-size:clamp(14px,2vw,25px)}
+}
+@media(max-width:720px){
+ body.host-focus .board-head{display:flex!important;justify-content:flex-end;min-height:25px;gap:0}
+ body.host-focus .board-head>div:first-child{display:none}
+ body.host-focus .board-view-controls{margin-inline:auto;gap:3px}
+ body.host-focus .board-view-btn{font-size:10px;padding:4px 6px;min-height:25px}
+ body.host-focus .bingo-number-groups{gap:2px}
+ body.host-focus .bingo-number-group{border-radius:5px;padding:2px}
+ body.host-focus .bingo-group-title{padding:0 0 3px;flex-direction:column;gap:1px}
+ body.host-focus .bingo-group-title strong{font-size:clamp(12px,3.5vw,18px)}
+ body.host-focus .bingo-group-title span{font-size:clamp(7px,2vw,10px)}
+ body.host-focus .bingo-number-tiles{gap:2px}
+ body.host-focus .host-draw-panel .bingo-number-tiles .number,
+ body.host-focus .board-view-called .bingo-number-tiles .number.hit{font-size:clamp(8px,2.4vw,15px)!important;border-width:1px!important;border-radius:2px!important}
+}
+@media(max-width:720px) and (max-height:650px){
+ body.host-focus .bingo-number-groups{max-width:min(100%,calc((100dvh - 190px)*3.6));margin-inline:auto}
+}
+
+
+/* V16 — compact, accessible prize-stage editing buttons */
+.stage-item .stage-actions{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:10px}
+.stage-item .stage-actions .btn{min-width:36px}
+.stage-item .stage-actions .btn:disabled{opacity:.38}
+.stage-action-delete{background:#6a273c!important;color:#fff!important;border:1px solid #e57a92!important}
+.stage-manager-hint{font-size:12px;color:var(--v8-muted,var(--muted));line-height:1.4;margin:8px 0}
+.stage-manager-count{font-size:12px;font-weight:850;color:var(--v8-accent,var(--gold));margin-top:3px}
+body[data-appearance="light"] .stage-action-delete{background:#ffedf1!important;color:#8c253e!important;border:1px solid #c35e79!important}
+body[data-appearance="light"] .stage-item .stage-actions .btn.secondary,
+body[data-appearance="light"] .stage-item .stage-actions .btn.ghost{background:#eaf0fa!important;color:#17324b!important;border:1px solid #96abc6!important}
+
+
+/* V16.1 — square bingo tiles with breathing room between rows. */
+/* Normal dashboard always uses classic board; these rules are scoped to fullscreen. */
+.number-board-wrap{width:100%;min-width:0}
+.bingo-number-groups{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;min-width:0}
+.bingo-number-group{min-width:0;padding:5px;border:1px solid var(--line);border-radius:10px}
+.bingo-group-title{display:flex;justify-content:space-between;gap:4px;align-items:center;padding:2px 2px 7px;font-weight:800}
+.bingo-group-title strong{font-size:17px}
+.bingo-group-title span{font-size:9px}
+.bingo-number-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;align-content:start;min-width:0}
+.bingo-number-tiles .number{aspect-ratio:1!important;min-width:0;min-height:0;width:100%;height:auto!important;display:grid;place-items:center;font-size:clamp(12px,1.5vw,25px)}
+@media(min-width:721px){
+ body.host-focus .host-draw-panel .board-layout{align-items:center!important}
+ body.host-focus .board-section{align-self:stretch!important;justify-content:center!important}
+ body.host-focus .board-view-grouped .bingo-number-groups,
+ body.host-focus .board-view-called .bingo-number-groups{
+   height:auto!important;max-height:none!important;max-width:min(100%,calc((100dvh - 150px)*2.65))!important;
+   align-items:start!important;gap:clamp(5px,.75vw,13px)!important;
+ }
+ body.host-focus .bingo-number-group{display:block!important;height:auto!important;min-height:0!important}
+ body.host-focus .bingo-number-tiles{display:grid!important;flex:none!important;min-height:0!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:none!important;row-gap:clamp(5px,1.3vh,16px)!important;column-gap:clamp(3px,.45vw,8px)!important;align-items:initial!important;align-content:start!important}
+ body.host-focus .host-draw-panel .bingo-number-tiles .number{
+   aspect-ratio:1!important;width:100%!important;height:auto!important;min-height:0!important;
+   font-size:clamp(13px,2.0vw,34px)!important;
+ }
+ body.host-focus .host-draw-panel .board-view-called .bingo-number-tiles .number.hit{font-size:clamp(14px,2.2vw,38px)!important}
+ body.host-focus .host-draw-panel .number-grid{height:auto!important;max-height:none!important;max-width:min(100%,calc((100dvh - 155px)*2.97))!important;grid-template-rows:none!important;row-gap:clamp(7px,1.65vh,21px)!important;column-gap:clamp(3px,.38vw,9px)!important;align-items:initial!important}
+ body.host-focus .host-draw-panel .number-grid .number{aspect-ratio:1!important;height:auto!important;width:100%!important;min-height:0!important;font-size:clamp(13px,2.1vw,34px)!important}
+}
+@media(min-width:721px) and (max-height:650px){
+ body.host-focus .board-view-grouped .bingo-number-groups,
+ body.host-focus .board-view-called .bingo-number-groups{max-width:min(100%,calc((100dvh - 115px)*2.47))!important}
+ body.host-focus .bingo-number-tiles{row-gap:clamp(2px,.7vh,6px)!important}
+ body.host-focus .host-draw-panel .number-grid{max-width:min(100%,calc((100dvh - 120px)*2.85))!important;row-gap:clamp(3px,1vh,9px)!important}
+}
+
+/* V17 — presentation-friendly display and live joined-player roster */
+.host-draw-panel, .host-draw-panel *:not(input):not(textarea):not(select):not([contenteditable]),
+.guest-card-panel, .guest-card-panel *:not(input):not(textarea):not(select):not([contenteditable]),
+.guest-meta, .guest-meta *:not(input):not(textarea):not(select):not([contenteditable]),
+.guest-mobile-history, .guest-mobile-history *:not(input):not(textarea):not(select):not([contenteditable]){
+  -webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none;caret-color:transparent!important;
+}
+/* Editable fields retain real text selection and caret, including in fullscreen dialogs. */
+input,textarea,select,[contenteditable="true"]{user-select:text!important;-webkit-user-select:text!important;caret-color:auto!important}
+.host-draw-panel .big-ball,.host-draw-panel .number,.host-draw-panel .bingo-number-group,
+.host-draw-panel .draw-stage-name,.host-draw-panel .prize-amount{cursor:default}
+.players-joined-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  min-height:34px;padding:6px 10px;border:1px solid #6ab9d3;border-radius:11px;
+  background:#12384b;color:#ecfcff;font-size:12px;font-weight:850;white-space:nowrap;
+  font-variant-numeric:tabular-nums}
+.players-joined-btn .joined-value{font-size:clamp(15px,1.25vw,20px);font-weight:1000;line-height:1;color:#a5f2ed}
+.players-joined-btn .joined-word{font-size:11px;color:#e7f7ff}
+.players-joined-btn:hover,.players-joined-btn:focus-visible{background:#17536d;border-color:#b9f6f1}
+body.host-focus .players-joined-btn{min-height:32px;padding:5px 9px;gap:5px}
+body[data-appearance="light"] .players-joined-btn{background:#dceff5!important;border-color:#2b7189!important;color:#103f54!important}
+body[data-appearance="light"] .players-joined-btn .joined-value,body[data-appearance="light"] .players-joined-btn .joined-word{color:#103f54!important}
+.joined-players-modal{width:min(620px,96vw);max-width:620px;max-height:min(88dvh,760px);display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.joined-roster-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#20435a;
+  color:#effbff;border:1px solid #5b9bb6;border-radius:13px;padding:11px 14px}
+.joined-roster-summary strong{font-size:clamp(26px,4vw,38px);line-height:1;font-weight:1000}
+.joined-roster-summary span{font-size:12px;color:#d0f1ff;font-weight:750}
+.joined-roster-list{min-height:45px;max-height:53dvh;overflow-y:auto;display:grid;gap:6px;align-content:start;padding-right:4px}
+.joined-roster-row{display:flex;gap:12px;align-items:center;padding:9px 12px;border-radius:11px;
+  background:#263956;border:1px solid #5a7391;color:#f6fbff}
+.joined-roster-row .joined-roster-position{font-size:11px;font-weight:900;color:#a8dcef;min-width:25px}
+.joined-roster-row strong{flex:1;overflow-wrap:anywhere;font-size:13px}
+.joined-roster-row small{font-size:11px;color:#d2e1f5}
+body[data-appearance="light"] .joined-roster-summary{background:#e4f4fb;color:#123f55;border-color:#6b9ab2}
+body[data-appearance="light"] .joined-roster-summary span{color:#174960}
+body[data-appearance="light"] .joined-roster-row{background:#f8fcff;color:#172b42;border-color:#b7cee0}
+body[data-appearance="light"] .joined-roster-row .joined-roster-position,body[data-appearance="light"] .joined-roster-row small{color:#3c596e}
+@media(max-width:740px){.players-joined-btn{padding:6px 7px;min-height:30px}.players-joined-btn .joined-word{display:none}
+ body.host-focus .players-joined-btn .joined-value{font-size:14px}.joined-players-modal{padding:14px}.joined-roster-list{max-height:49dvh}}
+
+/* V18 — presentation-friendly last five balls & host card preview */
+.host-recent-five{display:none}
+body.host-focus .host-recent-five{
+ display:flex;flex:0 0 auto;align-items:center;justify-content:center;
+ gap:clamp(8px,1.1vw,18px);min-height:clamp(66px,12dvh,118px);
+ padding:clamp(5px,1vh,11px) clamp(8px,1vw,16px);
+ margin-top:clamp(2px,.4vh,5px);border:1px solid color-mix(in srgb,var(--v8-accent,var(--gold)) 44%,transparent);
+ border-radius:16px;background:color-mix(in srgb,var(--v8-surface,#182640) 81%,transparent);
+}
+body.host-focus .recent-five-heading{color:var(--v8-ink,var(--txt));font-size:clamp(10px,.88vw,14px);font-weight:900;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;margin-right:clamp(2px,.8vw,10px)}
+body.host-focus .recent-five-balls{display:flex;gap:clamp(6px,1vw,14px);align-items:center;justify-content:center;min-width:0}
+body.host-focus .recent-mini-ball{
+ width:clamp(42px,6.3dvh,77px);height:clamp(42px,6.3dvh,77px);border:2px solid #d0b878;border-radius:50%;
+ display:grid;place-items:center;background:radial-gradient(circle at 30% 24%,#fff9da,#f6d587 72%,#d9a866);
+ color:#25324a;font-size:clamp(13px,2vh,21px);font-weight:1000;font-variant-numeric:tabular-nums;
+ box-shadow:0 4px 14px #0003;white-space:nowrap;
+}
+body.host-focus .recent-mini-ball.latest{transform:scale(1.12);border-color:#58dcca;background:radial-gradient(circle at 30% 20%,#e7fff7,#77eed4 70%,#3ab99f);color:#0d3c38;box-shadow:0 0 0 3px #64e8d044}
+body.host-focus .recent-mini-ball.empty{background:transparent;border:1px dashed var(--v8-muted,#9caec4);color:var(--v8-muted,#9caec4);box-shadow:none;opacity:.5}
+@media(max-width:720px){body.host-focus .host-recent-five{gap:7px;min-height:51px;padding:5px;margin-top:2px}body.host-focus .recent-five-heading{font-size:9px;margin-right:0}body.host-focus .recent-five-balls{gap:5px}body.host-focus .recent-mini-ball{width:clamp(29px,7.8vw,42px);height:clamp(29px,7.8vw,42px);font-size:clamp(10px,2.7vw,13px)}}
+@media(min-width:721px) and (max-height:650px){body.host-focus .host-recent-five{min-height:54px;padding:4px;margin-top:2px}body.host-focus .recent-mini-ball{height:42px;width:42px;font-size:13px}}
+.joined-roster-row.joined-selectable{width:100%;text-align:left;cursor:pointer;font:inherit}
+.joined-roster-row.joined-selectable:hover,.joined-roster-row.joined-selectable:focus-visible{border-color:#7fd8dd;background:#355171}
+.joined-roster-row .joined-view-label{font-size:11px;font-weight:900;color:#adf7e8;white-space:nowrap}
+body[data-appearance="light"] .joined-roster-row.joined-selectable:hover,body[data-appearance="light"] .joined-roster-row.joined-selectable:focus-visible{background:#e1f5f8}
+body[data-appearance="light"] .joined-roster-row .joined-view-label{color:#1b5d59}
+.joined-card-modal{max-width:520px;width:min(96vw,520px);max-height:calc(100dvh - 22px);overflow:auto;padding:clamp(12px,2vh,22px);}
+.host-card-preview{display:grid;gap:9px;margin:9px 0}
+.host-card-note{color:var(--v8-muted,#c4d2e9);font-size:12px;line-height:1.35}
+.host-preview-card{width:min(100%,355px);margin:0 auto;padding:11px;background:#fffefa;border:2px solid #d4c49f;border-radius:13px;box-shadow:0 6px 0 #c7b788;color:#15253c}
+.host-preview-head,.host-preview-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+.host-preview-head{margin-bottom:5px}.host-preview-head span{background:#176477;color:white;font-weight:1000;font-size:clamp(20px,5vw,28px);text-align:center;border-radius:6px;padding:3px}
+.host-preview-grid .host-preview-cell{aspect-ratio:1;display:grid;place-items:center;border:2px solid #bdcbd0;border-radius:5px;background:#ffffff;color:#172638;font-size:clamp(18px,4.4vw,27px);font-weight:1000;position:relative;font-variant-numeric:tabular-nums}
+.host-preview-grid .host-preview-cell.official{border-color:#cb9562;background:#fff3d9}
+.host-preview-grid .host-preview-cell.stamped::after{content:'';position:absolute;inset:8%;border:3px solid #12876c;border-radius:50%;background:#84dec4a8;pointer-events:none}
+.host-preview-grid .host-preview-cell span{z-index:1}
+.host-preview-grid .host-preview-cell.free{font-size:12px;background:#f9e8b8;border-color:#ddb653}
+.host-card-legend{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.host-card-legend span{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--v8-muted,#6f8799);border-radius:99px;padding:4px 8px;color:var(--v8-ink,#f7faff);font-size:11px;font-weight:800}
+.host-card-legend i{height:10px;width:10px;display:inline-block;border-radius:50%;border:2px solid #12876c;background:#84dec4}
+.host-card-legend .official-key i{border-color:#cb9562;background:#fff3d9}
+
+
+/* V18.1 — Give the Lucky Number title, decorative orbit, result and controls their own space. */
+.host-draw-panel .ball-stage{
+  gap:clamp(9px,1.2vh,15px);
+}
+.host-draw-panel .ball-caption{
+  display:block;
+  line-height:1.2;
+  margin:0;
+  padding:0 3px;
+  white-space:nowrap;
+  text-align:center;
+}
+.host-draw-panel .ball-orbit{
+  /* The outer decorative circle extends 15px outside this box. */
+  margin-block:clamp(12px,1.9vh,21px);
+}
+.host-draw-panel .ball-name{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:fit-content;
+  max-width:100%;
+  min-height:clamp(29px,4vh,38px);
+  padding:clamp(5px,.7vh,8px) clamp(12px,1.3vw,21px);
+  margin:0 auto;
+  border:1px solid #eac38b70;
+  border-radius:999px;
+  background:#211d33db;
+  color:#ffe5ad!important;
+  box-shadow:0 5px 15px #0000001c;
+  font-size:clamp(12px,1.1vw,17px);
+  font-weight:950;
+  line-height:1.1;
+  letter-spacing:.08em;
+  overflow-wrap:anywhere;
+}
+.host-draw-panel .draw-actions{margin-top:clamp(3px,.7vh,9px)}
+body[data-appearance="light"] .host-draw-panel .ball-name{
+  background:#fff2d9;
+  border-color:#bc9769;
+  color:#49301f!important;
+  box-shadow:0 4px 12px #67452a1a;
+}
+body[data-appearance="light"] .host-draw-panel .ball-caption{color:#354159!important}
+body.host-focus .host-draw-panel .ball-stage{
+  gap:clamp(7px,1.1vh,12px)!important;
+}
+body.host-focus .host-draw-panel .ball-orbit{
+  margin-block:clamp(12px,1.8vh,19px);
+}
+body.host-focus .host-draw-panel .ball-name{
+  font-size:clamp(12px,1.18vw,19px)!important;
+  min-height:clamp(27px,3.9vh,37px);
+  padding:clamp(5px,.65vh,7px) clamp(12px,1.3vw,21px);
+}
+@media(min-width:721px) and (max-height:650px){
+  body.host-focus .host-draw-panel .ball-orbit{margin-block:10px}
+  body.host-focus .host-draw-panel .ball-stage{gap:6px!important}
+  body.host-focus .host-draw-panel .ball-name{min-height:26px;font-size:12px!important;padding:4px 10px}
+}
+/* On very short/portrait projection screens retain the deliberate compact mode. */
+@media(max-width:720px){
+  body.host-focus .host-draw-panel .ball-caption,
+  body.host-focus .host-draw-panel .ball-name{display:none}
+  body.host-focus .host-draw-panel .ball-orbit{margin-block:2px}
+}
+
+
+/* V19 — spacious recent balls, accessible 10-style voice picker */
+body.host-focus .host-recent-five{
+ min-height:clamp(86px,15dvh,158px);padding:clamp(7px,1.2vh,16px) clamp(9px,1.6vw,23px);
+ gap:clamp(10px,1.5vw,24px);overflow:hidden;
+}
+body.host-focus .recent-five-heading{font-size:clamp(12px,1vw,17px)}
+body.host-focus .recent-five-balls{gap:clamp(8px,1.1vw,18px);min-height:0}
+body.host-focus .recent-mini-ball{
+ width:clamp(56px,12dvh,126px);height:clamp(56px,12dvh,126px);
+ font-size:clamp(17px,2.8dvh,32px);border-width:3px;letter-spacing:-.035em;
+}
+body.host-focus .recent-mini-ball.latest{transform:scale(1.07);box-shadow:0 0 0 4px #64e8d044,0 9px 24px #0004}
+@media(min-width:721px) and (max-height:650px){
+ body.host-focus .host-recent-five{min-height:68px;padding:5px 10px}
+ body.host-focus .recent-mini-ball{width:clamp(48px,9dvh,70px);height:clamp(48px,9dvh,70px);font-size:clamp(14px,2.5dvh,22px)}
+}
+@media(max-width:720px){
+ body.host-focus .host-recent-five{min-height:60px;gap:6px;padding:7px 5px}
+ body.host-focus .recent-five-heading{font-size:10px}
+ body.host-focus .recent-mini-ball{width:clamp(34px,9vw,54px);height:clamp(34px,9vw,54px);font-size:clamp(11px,3vw,16px);border-width:2px}
+ body.host-focus .recent-five-balls{gap:clamp(3px,1.5vw,7px)}
+}
+.host-draw-panel .voice-style-button{background:color-mix(in srgb,var(--v8-surface,#203046) 85%,transparent);color:var(--v8-ink,#f6f9ff);border-color:var(--v8-stroke,#7284a0)}
+body.host-focus .draw-tools .voice-style-button{display:inline-flex!important;min-height:29px;padding:5px 7px;font-size:clamp(10px,.8vw,12px)}
+.voice-style-modal{max-width:660px;width:min(96vw,660px);max-height:min(92dvh,830px);overflow-y:auto;overscroll-behavior:contain;padding:clamp(16px,2.3vw,27px)}
+.voice-style-modal .voice-intro{margin:5px 0 15px;color:var(--v8-muted,#cfdaec);font-size:13px;line-height:1.45}
+.voice-presets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+.voice-preset{border:1px solid var(--v8-stroke,#617491);background:var(--v8-surface,#25334a);color:var(--v8-ink,#fff);border-radius:12px;min-width:0;min-height:58px;padding:10px 12px;text-align:left;display:flex;flex-direction:column;gap:3px;cursor:pointer;transition:border-color .12s,background .12s}
+.voice-preset strong{font-size:13px;line-height:1.2}.voice-preset span{font-size:11px;color:var(--v8-muted,#c3cee1)}
+.voice-preset.active{border:2px solid var(--v8-accent,#ffd585);background:color-mix(in srgb,var(--v8-accent,#e2bf76) 17%,var(--v8-surface,#25334a));padding:9px 11px}
+.voice-preset:focus-visible{outline:3px solid var(--v8-accent,#ffd585);outline-offset:2px}
+.voice-system-picker{display:grid;gap:6px;margin:14px 0}.voice-system-picker label{font-size:12px;font-weight:900;color:var(--v8-ink,#fff)}
+.voice-system-picker select{width:100%;background:var(--v8-surface,#25334a);color:var(--v8-ink,#fff);border:1px solid var(--v8-stroke,#617491);border-radius:10px;padding:10px;min-height:43px}
+.voice-modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.voice-modal-actions .btn{white-space:normal;font-size:13px}
+.voice-preset-note{font-size:11px;line-height:1.5;color:var(--v8-muted,#c3cee1);margin:6px 0}
+.voice-option-feedback{font-size:12px;min-height:18px;color:var(--v8-ink,#fff);margin-top:6px}
+body[data-appearance="light"] .voice-style-modal{background:#fbfcff!important;color:#182940!important;border-color:#8a9cb2!important}
+body[data-appearance="light"] .voice-style-modal .voice-intro,body[data-appearance="light"] .voice-preset-note{color:#3a526e!important}
+body[data-appearance="light"] .voice-style-modal .voice-preset{background:#f5f8fd!important;border-color:#8094ae!important;color:#1b2e47!important}
+body[data-appearance="light"] .voice-style-modal .voice-preset span{color:#3b5168!important}
+body[data-appearance="light"] .voice-style-modal .voice-preset.active{background:#fff2ce!important;border-color:#a0711b!important}
+body[data-appearance="light"] .voice-system-picker label,body[data-appearance="light"] .voice-option-feedback{color:#182940!important}
+body[data-appearance="light"] .voice-system-picker select{background:#fff!important;color:#172a44!important;border-color:#7890ab!important}
+@media(max-width:420px){.voice-presets{gap:6px}.voice-preset{padding:8px;min-height:57px}.voice-preset.active{padding:7px}.voice-preset strong{font-size:12px}.voice-preset span{font-size:10px}.voice-modal-actions{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -1274,7 +1581,7 @@ const START_STAGES=[
  {id:'stage4',name:'Grand Prize — Blackout',pattern:'blackout',eligibility:'all',limit:1,approval:'auto',markMode:'auto',prizeAmount:0,prizeDistribution:'each'}
 ];
 const $=s=>document.querySelector(s);const el=id=>document.getElementById(id);
-const S={mode:'demo',role:'',uid:'',roomId:'',room:null,player:null,auth:null,db:null,ref:null,pollTimer:null,watch:null,marks:new Set(),lastWinKey:'',lastReset:-1,winnerToastTimer:null,actionBusy:false,stageDraft:null,busy:false,reconciling:false,notice:'',lastQrUrl:'',fetchErrors:0,publicRef:null,publicEtag:null,syncType:'',hostSignature:'',guestSignature:'',prevBall:null,focusMode:'',soundOn:false,voiceOn:false,audioContext:null,cardStyle:'classic',cardAccent:'#7055C7',hostPreviewNumber:0};
+const S={mode:'demo',role:'',uid:'',roomId:'',room:null,player:null,auth:null,db:null,ref:null,pollTimer:null,watch:null,marks:new Set(),markSyncTimer:null,markSyncWarning:false,mixAudio:null,lastWinKey:'',lastReset:-1,winnerToastTimer:null,actionBusy:false,stageDraft:null,busy:false,reconciling:false,notice:'',lastQrUrl:'',fetchErrors:0,publicRef:null,publicEtag:null,syncType:'',hostSignature:'',guestSignature:'',prevBall:null,focusMode:'',soundOn:false,voiceOn:false,voicePreset:'host',voiceURI:'auto',audioContext:null,boardView:'classic',cardStyle:'classic',cardAccent:'#7055C7',hostPreviewNumber:0};
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clone=o=>JSON.parse(JSON.stringify(o));
 const friendlyError=e=>{const msg=String(e?.message||e);return /firebase|database|sdk|permission.denied|auth\/|http 40|http 50/i.test(msg)?'Unable to connect. Ask the host to check the game setup.':msg};
@@ -1285,7 +1592,7 @@ const ball=n=>n?('BINGO'[Math.floor((Number(n)-1)/15)]+'-'+n):'—';
 const cardKey=a=>a.join(',');
 function makeCard(){const a=Array(25).fill(0);for(let c=0;c<5;c++){const p=shuffle(Array.from({length:15},(_,i)=>i+1+15*c));for(let r=0;r<5;r++)a[r*5+c]=p[r];}a[12]=0;return a}
 function isPattern(card,called,pat,marks){if(!Array.isArray(card)||card.length!==25)return false;const has=i=>i===12||((called.has(card[i]))&&(!marks||marks.has(i)));const lines=[];for(let r=0;r<5;r++)lines.push([0,1,2,3,4].map(c=>r*5+c));for(let c=0;c<5;c++)lines.push([0,1,2,3,4].map(r=>r*5+c));const diag=[[0,6,12,18,24],[4,8,12,16,20]];let patterns=CELLS[pat]?[CELLS[pat]]:pat==='line'?[...lines,...diag]:pat==='row'?lines.slice(0,5):pat==='col'?lines.slice(5):pat==='diagonal'?diag:[];return patterns.some(p=>p.every(has))}
-function makeRoom(id,uid){return {hostUid:uid,createdAt:Date.now(),players:{},claims:{},winners:{},candidates:{},stages:clone(START_STAGES),public:{code:id,status:'lobby',called:[],stageIndex:0,last:null,playerCount:0,resetVersion:0,drawing:null,theme:{palette:HOST_PALETTES[S.palette]?S.palette:'royal',appearance:S.appearance==='light'?'light':'dark'},updatedAt:Date.now(),winnerList:[],stageStartDrawCount:0,stage:clone(START_STAGES[0])}}}
+function makeRoom(id,uid){return {hostUid:uid,createdAt:Date.now(),players:{},marks:{},claims:{},winners:{},candidates:{},stages:clone(START_STAGES),public:{code:id,status:'lobby',called:[],stageIndex:0,last:null,playerCount:0,resetVersion:0,drawing:null,theme:{palette:HOST_PALETTES[S.palette]?S.palette:'royal',appearance:S.appearance==='light'?'light':'dark'},updatedAt:Date.now(),winnerList:[],stageStartDrawCount:0,stage:clone(START_STAGES[0])}}}
 const currentStage=r=>r?.stages?.[r.public.stageIndex]||null;
 
 // Stage awards are shown as peso amounts throughout the game.
@@ -1300,6 +1607,8 @@ const prizeBadge=st=>{
  return `<span class="prize-amount" aria-label="${perWinner?'Amount per winner':'Total prize pool'}: ${safe(amount)}"><strong>${safe(amount)}</strong><small>${perWinner?'per winner':'total prize pool'}</small></span>`;
 };
 const players=r=>Object.entries(r?.players||{}).filter(([,p])=>Array.isArray(p.card)&&p.card.length===25).map(([uid,p])=>({...p,uid}));
+const joinedPlayerEntries=r=>Object.entries(r?.players||{}).filter(([,p])=>p&&!p.rejected).sort((a,b)=>(Number(a[1]?.joinedAt)||0)-(Number(b[1]?.joinedAt)||0));
+const joinedPlayerCount=r=>joinedPlayerEntries(r).length;
 const roundVersion=pub=>Number(pub?.resetVersion)||0;
 const validRoundAward=(w,pub)=>!!w&&(w.resetVersion===undefined||w.resetVersion===null||Number(w.resetVersion)===roundVersion(pub));
 const validRoundClaim=(claim,pub)=>!!claim&&Number(claim.resetVersion??0)===roundVersion(pub);
@@ -1424,10 +1733,53 @@ function showPatternGuide(page=0){
  el('modal-root').innerHTML=`<div class="overlay guide-overlay"><div class="modal guide-modal" role="dialog" aria-modal="true" aria-label="Winning pattern"><div class="row between guide-top"><span class="eyebrow">CURRENT PRIZE</span><button class="icon-button" data-act="closemodal" aria-label="Close">✕ Close</button></div><h2>${safe(st.name)}</h2>${prizeBadge(st)}<p class="guide-summary"><strong>${safe(PATS[st.pattern]||'Bingo')}</strong> · ${valid.length} valid ${valid.length===1?'way':'ways'} to win</p><p class="soft guide-directions">${safe(prior)} Only officially called numbers count.</p><div class="guide-scroll ${valid.length===1?'one':'multi'} ${show.length<=4?'few':''}">${illustrations}</div>${pages}<button class="btn block guide-back" data-act="closemodal">Back to game</button></div></div>`;
 }
 
-function numBoard(pub){const called=new Set(pub.called||[]);return `<div class="number-grid">${Array.from({length:75},(_,i)=>i+1).map(n=>`<div class="number ${called.has(n)?'hit':''} ${pub.last===n?'recent':''}" title="${ball(n)}">${n}</div>`).join('')}</div>`}
+// Three host display views. The board is visual-only; the official draw sequence never changes.
+const BOARD_VIEWS={classic:'All 75',grouped:'B I N G O',called:'Called Focus'};
+function boardViewButtons(){
+ const current=BOARD_VIEWS[S.boardView]?S.boardView:'classic';
+ return `<div class="board-view-controls" role="group" aria-label="Number board view">${Object.entries(BOARD_VIEWS).map(([id,label])=>`<button type="button" class="board-view-btn ${current===id?'active':''}" data-act="board-view" data-view="${id}" aria-pressed="${current===id}" title="${label} number board">${label}</button>`).join('')}</div>`;
+}
+function numberTile(n,called,last){return `<div class="number ${called.has(n)?'hit':''} ${last===n?'recent':''}" data-n="${n}" title="${ball(n)}">${n}</div>`}
+function numBoard(pub){
+ const called=new Set(pub.called||[]),last=Number(pub.last)||0;
+ const view=BOARD_VIEWS[S.boardView]?S.boardView:'classic';
+ if(view==='classic')return `<div class="number-board-wrap board-view-classic" data-board-view="classic"><div class="number-grid">${Array.from({length:75},(_,i)=>numberTile(i+1,called,last)).join('')}</div></div>`;
+ const letters='BINGO';
+ return `<div class="number-board-wrap board-view-${view}" data-board-view="${view}"><div class="bingo-number-groups">${Array.from({length:5},(_,i)=>{
+  const start=i*15+1,end=start+14;
+  return `<section class="bingo-number-group" aria-label="${letters[i]} numbers ${start} to ${end}"><div class="bingo-group-title"><strong>${letters[i]}</strong><span>${start}–${end}</span></div><div class="bingo-number-tiles">${Array.from({length:15},(_,j)=>numberTile(start+j,called,last)).join('')}</div></section>`;
+ }).join('')}</div></div>`;
+}
+function setBoardView(view){
+ if(S.role!=='host'||!BOARD_VIEWS[view])return;
+ S.boardView=view;
+ const board=el('host-num-board');
+ if(board&&S.room){
+  const pub=S.room.public;
+  const preview=Number(S.hostPreviewNumber)||0;
+  const pending=preview>0&&!(pub.called||[]).includes(preview);
+  let drawn=pending?[...(pub.called||[]),preview]:[...(pub.called||[])];
+  if(S.drawSuspenseActive&&S.drawAwaitedNumber)drawn=drawn.filter(n=>n!==S.drawAwaitedNumber);
+  const last=drawn.includes(preview)&&pending?preview:drawn.at(-1)||null;
+  board.innerHTML=numBoard({...pub,called:drawn,last});
+ }
+ document.querySelectorAll('.board-view-btn').forEach(btn=>{
+  const active=btn.dataset.view===view;
+  btn.classList.toggle('active',active);
+  btn.setAttribute('aria-pressed',String(active));
+ });
+}
 function recentHistory(pub){return `<div class="history">${(pub.called||[]).length?pub.called.slice().reverse().map((n,i)=>`<span class="pill ${i===0?'green':''}">${ball(n)}</span>`).join(''):'<span class="soft">No numbers drawn yet.</span>'}</div>`}
 function winnerHTML(r){const st=currentStage(r);const winners=awardList(r,st?.id);return winners.length?winners.map((w,i)=>`<div class="winner-entry"><strong>🏆 ${safe(w.name)}</strong><span class="tiny">${safe(st.name)} · Draw #${w.drawCount||0}</span></div>`).join(''):'<div class="soft">No confirmed winners for this stage yet.</div>'}
-function stageEntries(r){return r.stages.map((st,i)=>`<div class="stage-item ${r.public.stageIndex===i?'active':r.public.stageIndex>i?'done':''}"><div class="row between"><div class="name">${i+1}. ${safe(st.name)}</div>${r.public.stageIndex===i?'<span class="pill gold">CURRENT</span>':r.public.stageIndex>i?'<span class="pill green">DONE</span>':''}</div><div class="soft">${safe(stageLabel(st))}</div>${prizeBadge(st)}<div class="row" style="margin-top:8px"><span class="pill">${st.limit===0?'Unlimited':st.limit+' max + ties'}</span><span class="pill">${safe(isStandingStage(st)?(LMS_SOURCES[st.lmsSource]||LMS_SOURCES.card):(({auto:"Auto mark",hybrid:"Tap + check",manual:"Manual mark"})[st.markMode]||st.markMode))}</span><span class="pill">${st.approval==='auto'?'Auto announce':'Host review'}</span></div>${r.public.status==='lobby'&&i===r.public.stageIndex||i>r.public.stageIndex?`<div class="row" style="margin-top:9px"><button class="btn ghost mini" data-act="editstage" data-index="${i}">Edit</button>${i>r.public.stageIndex?`<button class="btn secondary mini" data-act="selectstage" data-index="${i}">Select</button>`:''}</div>`:''}</div>`).join('')}
+function stagePlanEditable(r){return !!r&&r.public.status==='lobby'&&!(r.public.called||[]).length&&!r.public.drawing}
+function stageChangeAllowed(r,i){return stagePlanEditable(r)||i>r.public.stageIndex}
+function stageEntries(r){return r.stages.map((st,i)=>{
+ const canEdit=stageChangeAllowed(r,i),canDelete=canEdit&&r.stages.length>1;
+ const canMoveUp=i>0&&canEdit&&stageChangeAllowed(r,i-1);
+ const canMoveDown=i<r.stages.length-1&&canEdit&&stageChangeAllowed(r,i+1);
+ return `<div class="stage-item ${r.public.stageIndex===i?'active':r.public.stageIndex>i?'done':''}"><div class="row between"><div class="name">${i+1}. ${safe(st.name)}</div>${r.public.stageIndex===i?'<span class="pill gold">CURRENT</span>':r.public.stageIndex>i?'<span class="pill green">DONE</span>':''}</div><div class="soft">${safe(stageLabel(st))}</div>${prizeBadge(st)}<div class="row" style="margin-top:8px"><span class="pill">${st.limit===0?'Unlimited':st.limit+' max + ties'}</span><span class="pill">${safe(isStandingStage(st)?(LMS_SOURCES[st.lmsSource]||LMS_SOURCES.card):(({auto:'Auto mark',hybrid:'Tap + check',manual:'Manual mark'})[st.markMode]||st.markMode))}</span><span class="pill">${st.approval==='auto'?'Auto announce':'Host review'}</span></div><div class="stage-actions"><button class="btn ghost mini" data-act="editstage" data-index="${i}" ${canEdit?'':'disabled'}>Edit</button>${i>r.public.stageIndex?`<button class="btn secondary mini" data-act="selectstage" data-index="${i}">Select</button>`:''}<button class="btn secondary mini" data-act="move-stage" data-id="${safe(st.id)}" data-step="-1" title="Move stage up" aria-label="Move ${safe(st.name)} up" ${canMoveUp?'':'disabled'}>↑</button><button class="btn secondary mini" data-act="move-stage" data-id="${safe(st.id)}" data-step="1" title="Move stage down" aria-label="Move ${safe(st.name)} down" ${canMoveDown?'':'disabled'}>↓</button><button class="btn mini stage-action-delete" data-act="delete-stage" data-id="${safe(st.id)}" title="Delete stage" aria-label="Delete ${safe(st.name)}" ${canDelete?'':'disabled'}>✕ Delete</button></div></div>`;
+ }).join('')}
+
 function qrPanel(){const url=joinLink();const hint=location.protocol==='file:'?'To invite guests on their phones, first open the game using your public website link.':S.mode==='demo'?'This practice room can only be joined from this browser.':'Let your guests scan to join the game.';return `<div class="card pad stack"><div class="row between"><div><div class="eyebrow">Room Code</div><div class="room-code">${safe(S.roomId)}</div></div><span class="pill ${S.room?.public.status==='playing'?'green':'gold'}">${safe(S.room?.public.status||'lobby').toUpperCase()}</span></div><div class="row" style="align-items:flex-start"><div class="qr" id="qr-container"><span style="color:#162137">Loading QR…</span></div><div class="grow" style="min-width:140px"><div class="soft">${safe(hint)}</div><div style="overflow-wrap:anywhere;font-size:11px;margin:10px 0;color:#99afcb">${safe(url)}</div><div class="row"><button class="btn mini secondary" data-act="copylink">Copy Invite Link</button><button class="btn mini" data-act="showqr">▦ Enlarge QR</button></div></div></div></div>`}
 // Animated draw machine is decorative. Real numbers are still selected once, by hostAction.
 function drawMachineHTML(){
@@ -1435,7 +1787,13 @@ function drawMachineHTML(){
  const spheres=colors.map((color,i)=>`<span class="machine-mini mini-${i+1}" style="--mc:${color};--order:${i}" aria-hidden="true"></span>`).join('');
  return `<div class="draw-machine" aria-hidden="true"><div class="machine-dome"><div class="machine-spoke"></div>${spheres}<div class="machine-glass"></div></div><div class="machine-funnel"><span class="machine-travel-ball">★</span></div><div class="machine-base"><span class="machine-base-light"></span><span class="machine-base-name">BINGO DRAW</span><span class="machine-base-light"></span></div></div>`;
 }
-function drawPanel(r){const pub=r.public;return `<section class="card pad host-draw-panel" aria-label="Game draw screen"><div class="draw-toolbar"><div class="draw-label"><div class="draw-stage-name">${safe(currentStage(r)?.name||'Bingo')}</div>${prizeBadge(currentStage(r))}</div><div class="draw-tools"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Rules (I)">ⓘ</button><button class="icon-button qr-quick" data-act="showqr" aria-label="Show join QR code (Q)" title="Show join QR code (Q)">▦ QR <kbd>Q</kbd></button><button class="icon-button focus-start" data-act="start" ${pub.status!=='lobby'?'disabled':''} aria-label="Start drawing" title="Start drawing numbers">▶ Start</button><button class="icon-button focus-theme" data-act="themes" aria-label="Choose theme (T)" title="Choose theme (T)">◒ Theme</button><button class="icon-button focus-next" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''} title="Next Prize (N / Right Arrow)">→ Prize</button><button class="icon-button focus-reset" data-act="resetdraws" title="Reset to zero (R)">↻ Reset</button><button class="icon-button standing-roster-btn" data-act="standing-roster" id="host-standing-btn" style="${isStandingStage(currentStage(r))?'':'display:none'}" title="See who is still standing">🧍 <span id="standing-count">${isStandingStage(currentStage(r))?standingSurvivors(r).length:0}</span> standing</button><span class="draw-count" id="host-draw-count">${(pub.called||[]).length-(S.drawSuspenseActive&&S.drawAwaitedNumber?1:0)}<small> / 75 CALLED</small></span><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle draw sound" title="Toggle sound">${S.soundOn?'♫ Sound on':'♪ Sound off'}</button><button class="icon-button voice-toggle" data-act="voice" aria-pressed="${S.voiceOn}" title="Announce numbers aloud">${S.voiceOn?'🗣 Voice on':'🗣 Voice off'}</button><button class="icon-button focus-enter" data-act="focus-host">⛶ Full screen</button><button class="icon-button focus-exit" data-act="focus-host">✕ Exit</button></div></div><div class="board-layout"><div class="ball-stage"><div class="ball-caption">THE LUCKY NUMBER</div><div class="ball-orbit ${S.drawSuspenseActive?'draw-machine-active':''}">${drawMachineHTML()}<div class="big-ball" id="host-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="ball-name" id="ball-nickname">${S.drawSuspenseActive?'MIXING THE BALLS…':pub.last?ball(pub.last):'READY TO ROLL'}</div><div class="draw-actions"><button class="btn draw-cta" data-act="draw" id="draw-next" ${pub.status!=='playing'||(pub.called||[]).length>=75?'disabled':''}><span>✦</span> DRAW NEXT BALL <span>→</span></button><button class="btn secondary pause-btn" data-act="togglepause" id="pause-next" ${!['playing','paused'].includes(pub.status)?'disabled':''}>${pub.status==='paused'?'▶ Resume':'Ⅱ Pause'}</button></div><div class="keyboard-tip">Space: Draw · Q: QR · I: Rules · T: Theme · N / →: Prize · R: Reset</div></div><div class="board-section"><div class="board-head"><div><div class="eyebrow number-board-title">THE NUMBER BOARD</div><div class="board-subtitle">Every call, in one place</div></div></div><div class="letter-guide">${'BINGO'.split('').map(ch=>`<div>${ch}</div>`).join('')}</div><div id="host-num-board">${numBoard(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div><div class="history-head"><span>RECENT DRAWS</span><span class="muted">Latest first</span></div><div id="host-history">${recentHistory(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></div></div></section>`}
+function recentFiveHTML(pub){
+ const recent=(pub.called||[]).slice(-5).reverse(),balls=Array.from({length:5},(_,i)=>{
+  const n=recent[i];return `<div class="recent-mini-ball ${i===0&&n?'latest':''} ${n?'':'empty'}" ${n?`aria-label="${ball(n)}"`:''}>${n?ball(n):'—'}</div>`;
+ }).join('');
+ return `<div class="recent-five-heading">LAST 5 BALLS</div><div class="recent-five-balls">${balls}</div>`;
+}
+function drawPanel(r){const pub=r.public;return `<section class="card pad host-draw-panel" aria-label="Game draw screen"><div class="draw-toolbar"><div class="draw-label"><div class="draw-stage-name">${safe(currentStage(r)?.name||'Bingo')}</div>${prizeBadge(currentStage(r))}</div><div class="draw-tools"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Rules (I)">ⓘ</button><button class="icon-button qr-quick" data-act="showqr" aria-label="Show join QR code (Q)" title="Show join QR code (Q)">▦ QR <kbd>Q</kbd></button><button class="icon-button focus-start" data-act="start" ${pub.status!=='lobby'?'disabled':''} aria-label="Start drawing" title="Start drawing numbers">▶ Start</button><button class="icon-button focus-theme" data-act="themes" aria-label="Choose theme (T)" title="Choose theme (T)">◒ Theme</button><button class="icon-button focus-next" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''} title="Next Prize (N / Right Arrow)">→ Prize</button><button class="icon-button focus-reset" data-act="resetdraws" title="Reset to zero (R)">↻ Reset</button><button class="icon-button standing-roster-btn" data-act="standing-roster" id="host-standing-btn" style="${isStandingStage(currentStage(r))?'':'display:none'}" title="See who is still standing">🧍 <span id="standing-count">${isStandingStage(currentStage(r))?standingSurvivors(r).length:0}</span> standing</button><button type="button" class="players-joined-btn" data-act="joined-players" title="View all players joined" aria-label="View players who joined"><span aria-hidden="true">👥</span><strong class="joined-value" id="host-joined-count" aria-live="polite">${joinedPlayerCount(r)}</strong><span class="joined-word">joined</span></button><span class="draw-count" id="host-draw-count">${(pub.called||[]).length-(S.drawSuspenseActive&&S.drawAwaitedNumber?1:0)}<small> / 75 CALLED</small></span><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle draw sound" title="Toggle sound">${S.soundOn?'♫ Sound on':'♪ Sound off'}</button><button class="icon-button voice-style-button" data-act="voice-picker" title="Choose an announcer voice and preview">🎙 Voices</button><button class="icon-button voice-toggle" data-act="voice" aria-pressed="${S.voiceOn}" title="Announce numbers aloud">${S.voiceOn?'🗣 Voice on':'🗣 Voice off'}</button><button class="icon-button focus-enter" data-act="focus-host">⛶ Full screen</button><button class="icon-button focus-exit" data-act="focus-host">✕ Exit</button></div></div><div class="board-layout"><div class="ball-stage"><div class="ball-caption">THE LUCKY NUMBER</div><div class="ball-orbit ${S.drawSuspenseActive?'draw-machine-active':''}">${drawMachineHTML()}<div class="big-ball" id="host-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="ball-name" id="ball-nickname">${S.drawSuspenseActive?'MIXING THE BALLS…':pub.last?ball(pub.last):'READY TO ROLL'}</div><div class="draw-actions"><button class="btn draw-cta" data-act="draw" id="draw-next" ${pub.status!=='playing'||(pub.called||[]).length>=75?'disabled':''}><span>✦</span> DRAW NEXT BALL <span>→</span></button><button class="btn secondary pause-btn" data-act="togglepause" id="pause-next" ${!['playing','paused'].includes(pub.status)?'disabled':''}>${pub.status==='paused'?'▶ Resume':'Ⅱ Pause'}</button></div><div class="keyboard-tip">Space: Draw · V: Board view · Q: QR · I: Rules · T: Theme · N / →: Prize · R: Reset</div></div><div class="board-section"><div class="board-head"><div><div class="eyebrow number-board-title">THE NUMBER BOARD</div><div class="board-subtitle">Every call, in one place</div></div>${boardViewButtons()}</div><div class="letter-guide">${'BINGO'.split('').map(ch=>`<div>${ch}</div>`).join('')}</div><div id="host-num-board">${numBoard(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div><div class="history-head"><span>RECENT DRAWS</span><span class="muted">Latest first</span></div><div id="host-history">${recentHistory(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></div></div><div class="host-recent-five" id="host-recent-five" aria-label="Five recent called numbers">${recentFiveHTML(S.drawSuspenseActive&&S.drawAwaitedNumber?{...pub,called:pub.called.slice(0,-1),last:pub.called.at(-2)||null}:pub)}</div></section>`}
 
 // Screen-only appearance: host can change its look without changing game results.
 const HOST_PALETTES={royal:{name:'Royal Gala',emoji:'✦',detail:'Velvet, gold trim & elegant round balls'},ocean:{name:'Neon Arcade',emoji:'◈',detail:'Digital grid, sharp edges & bright displays'},emerald:{name:'Classic Bingo Hall',emoji:'♣',detail:'Printed ticket style & traditional marks'},sunset:{name:'Pop Carnival',emoji:'☀',detail:'Bold comic outlines & playful tiles'}};
@@ -1473,7 +1831,28 @@ function showThemePicker(){
 
 function showStageManager(){
  if(S.role!=='host'||!S.room)return;
- el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="stages"><div class="modal stage-manager-modal" role="dialog" aria-modal="true" aria-label="Prize stages"><div class="row between"><div><div class="eyebrow">YOUR GAME</div><h2>Prize Stages</h2></div><button class="icon-button" data-act="closemodal" aria-label="Close stage manager">✕</button></div><p class="soft">Edit an upcoming stage here. Cards and called numbers stay untouched.</p><div class="stage-manager-list">${stageEntries(S.room)}</div><button class="btn block" data-act="addstage">+ Add Prize Stage</button></div></div>`;
+ el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="stages"><div class="modal stage-manager-modal" role="dialog" aria-modal="true" aria-label="Prize stages"><div class="row between"><div><div class="eyebrow">YOUR GAME</div><h2>Prize Stages</h2></div><button class="icon-button" data-act="closemodal" aria-label="Close stage manager">✕</button></div><p class="stage-manager-hint">Before Start, edit, move or delete any stage. During play, only future stages can be changed. Keep at least one stage.</p><div class="stage-manager-count">${S.room.stages.length} ${S.room.stages.length===1?'prize stage':'prize stages'}</div><div class="stage-manager-list">${stageEntries(S.room)}</div><button class="btn block" data-act="addstage">+ Add Prize Stage</button></div></div>`;
+}
+function confirmStageRemoval(id){
+ const r=S.room,i=r?.stages?.findIndex(st=>st.id===id);
+ if(!r||i<0||!stageChangeAllowed(r,i)||r.stages.length<2)return toast('That stage cannot be deleted right now.',true);
+ const st=r.stages[i];
+ el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="delete-stage"><div class="modal" role="dialog" aria-modal="true" aria-label="Delete prize stage"><div class="eyebrow">PLEASE CONFIRM</div><h2>Delete ${safe(st.name)}?</h2><p>This prize stage will be removed. Other stages, Bingo cards, called numbers and past winners will stay unchanged.</p><div class="row"><button class="btn danger" data-act="confirm-delete-stage" data-id="${safe(id)}">Delete Stage</button><button class="btn secondary" data-act="stagemanager">Cancel</button></div></div></div>`;
+}
+async function changeStages(kind,id,step=0){
+ const r=S.room;if(!r||S.role!=='host'||S.actionBusy)return;
+ const stages=clone(r.stages||[]),i=stages.findIndex(st=>st.id===id);
+ if(i<0||!stageChangeAllowed(r,i)||r.public.drawing)return toast('You can only change upcoming stages.',true);
+ if(kind==='delete'&&stages.length<=1)return toast('Keep at least one prize stage.',true);
+ if(kind==='move'&&(![-1,1].includes(step)||i+step<0||i+step>=stages.length||!stageChangeAllowed(r,i+step)))return toast('Current and finished stages are locked.',true);
+ if(kind==='delete')stages.splice(i,1);else [stages[i],stages[i+step]]=[stages[i+step],stages[i]];
+ const changes={stages};
+ // Before drawing begins, the first item in the list is always the initial stage.
+ if(stagePlanEditable(r))changes.public=modifiedPub(r,{stageIndex:0,stage:stages[0],stageStartDrawCount:0,winnerList:[]});
+ S.actionBusy=true;
+ try{await patchHost(changes);S.room=applyPaths(r,changes);render();showStageManager();toast(kind==='delete'?'Stage deleted successfully.':'Stage order updated.');}
+ catch(e){toast('Could not update stages: '+(e?.message||'Please try again.'),true);showStageManager();}
+ finally{S.actionBusy=false}
 }
 function showStageEditor(){
  el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="stage-editor"><div class="modal stage-editor-modal" role="dialog" aria-modal="true" aria-label="Edit prize stage"><div class="row between"><div><div class="eyebrow">GAME RULES</div><h2>${Number.isInteger(S.stageDraft?.editIndex)?'Edit Prize Stage':'Add Prize Stage'}</h2></div><button class="icon-button" data-act="cancelstage" aria-label="Close stage editor">✕</button></div>${stageForm()}</div></div>`;syncStageEditorFields();
@@ -1490,6 +1869,31 @@ function showJoinQR(){
 }
 function toggleJoinQR(){if(el('modal-root')?.querySelector('[data-overlay-type="qr"]')){el('modal-root').innerHTML='';return}if(el('modal-root')?.querySelector('.overlay'))return;showJoinQR()}
 
+function showJoinedPlayers(){
+ if(S.role!=='host'||!S.room)return;
+ const entries=joinedPlayerEntries(S.room),ready=entries.filter(([,p])=>Array.isArray(p.card)&&p.card.length===25).length;
+ const list=entries.length?entries.map(([uid,p],i)=>`<button type="button" class="joined-roster-row joined-selectable" data-act="joined-card" data-uid="${safe(uid)}" ${!Array.isArray(p.card)||p.card.length!==25?'disabled':''}><span class="joined-roster-position">${i+1}.</span><strong>${safe(p.name||'Guest')}</strong><small>${Array.isArray(p.card)&&p.card.length===25?'Card #'+safe(String(p.slot||i+1).padStart(3,'0')):'Card preparing…'}</small><span class="joined-view-label">View card ›</span></button>`).join(''):'<div class="alert">No guests have joined yet. Share the QR code to invite players.</div>';
+ el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="joined-roster"><div class="modal joined-players-modal" role="dialog" aria-modal="true" aria-label="Players joined"><div class="row between"><div><div class="eyebrow">YOUR GAME</div><h2>Players Joined</h2></div><button class="icon-button" data-act="closemodal" aria-label="Close player list">✕</button></div><div class="joined-roster-summary"><strong>${entries.length} / 100</strong><span>${ready} cards ready</span></div><div class="joined-roster-list">${list}</div><button class="btn block" data-act="closemodal">Back to Game</button></div></div>`;
+}
+function hostCardPreviewHTML(uid){
+ const r=S.room,p=r?.players?.[uid],pub=r?.public,stage=pub?.stage;
+ if(!p||!Array.isArray(p.card)||p.card.length!==25)return '<div class="alert">Card is not ready yet.</div>';
+ const called=new Set(pub.called||[]),manual=!isStandingStage(stage)&&['manual','hybrid'].includes(stage?.markMode);
+ const saved=r.marks?.[uid],sameRound=Number(saved?.resetVersion)===roundVersion(pub);
+ const marks=new Set(sameRound&&Array.isArray(saved?.marks)?saved.marks.map(Number).filter(i=>Number.isInteger(i)&&i>=0&&i<25):[]);
+ const squares=p.card.map((n,i)=>{
+  const official=i!==12&&called.has(n),stamped=i===12||(manual?marks.has(i):official);
+  return `<div class="host-preview-cell ${i===12?'free':''} ${official?'official':''} ${stamped?'stamped':''}" aria-label="${i===12?'Free space':n+(official?', called':'')+(stamped?', marked':'')}"><span>${i===12?'FREE':n}</span></div>`;
+ }).join('');
+ const guestMarks=manual?`${marks.size} guest marks`:'Auto-marked from called numbers';
+ const status=isStandingStage(stage)?standingGuestState(pub,p):manual?'Manual / Tap to mark':'Automatic marking';
+ return `<div class="host-card-preview"><div class="joined-roster-summary"><strong>Card #${safe(String(p.slot||'—').padStart(3,'0'))}</strong><span>${safe(guestMarks)}</span></div><div class="host-preview-card"><div class="host-preview-head">${'BINGO'.split('').map(ch=>`<span>${ch}</span>`).join('')}</div><div class="host-preview-grid">${squares}</div></div><div class="host-card-legend"><span><i></i> Marked</span><span class="official-key"><i></i> Called</span></div><p class="host-card-note">${safe(status)} · ${called.size}/75 officially called. ${manual?'Shows the guest’s latest synced marks. Host view is read-only.':'Card marks are based on official drawn numbers.'}</p></div>`;
+}
+function showJoinedPlayerCard(uid){
+ if(S.role!=='host'||!S.room)return;
+ const p=S.room.players?.[uid];if(!p)return;
+ el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="joined-card" data-uid="${safe(uid)}"><div class="modal joined-card-modal" role="dialog" aria-modal="true" aria-label="Player Bingo card"><div class="row between"><div><div class="eyebrow">GUEST CARD</div><h2>${safe(p.name||'Guest')}</h2></div><button class="icon-button" data-act="joined-players">‹ Players</button></div><div id="host-card-preview">${hostCardPreviewHTML(uid)}</div><button class="btn block" data-act="joined-players">Back to Players</button></div></div>`;
+}
 function showStandingRoster(){
  if(S.role!=='host'||!S.room||!isStandingStage(S.room.public.stage))return;
  const r=S.room,alive=standingSurvivors(r),eligible=players(r).filter(p=>isEligible(r,p,r.public.stage)),out=eligible.filter(p=>!alive.some(a=>a.uid===p.uid));
@@ -1517,29 +1921,48 @@ function syncStageEditorFields(){
  const form=el('stage-form');if(!form)return;
  form.classList.toggle('editing-standing',form.elements.gameType?.value==='laststanding');
 }
-function renderHost(){document.body.classList.remove('on-landing');const r=S.room;if(!r){el('app').innerHTML=topBarHtml()+'<div class="card pad">Opening your game…</div>';return}const pub=r.public,st=currentStage(r),plist=players(r),candidates=Object.values(r.candidates||{}).filter(c=>c.stageId===st?.id);el('app').innerHTML=topBarHtml()+`<div class="host-meta"><div><div class="eyebrow">GAME NIGHT / HOST</div><h1>Let's play <span>BIG!</span></h1><div class="host-subtitle">${safe(stageLabel(st))}</div></div><div class="host-badges"><span class="pill">◎ ${plist.length} / 100 players</span><span class="pill ${pub.status==='playing'?'green':'gold'}">${safe(pub.status==='playing'?'● Drawing':pub.status==='lobby'?'Lobby open':pub.status==='paused'?'Ⅱ Paused':'Game ended')}</span></div></div><div class="quickbar"><div class="quickbar-stage"><span class="eyebrow">CURRENT PRIZE · ${pub.stageIndex+1} / ${r.stages.length}</span><strong>${safe(st?.name||'BINGO')}</strong>${prizeBadge(st)}</div><div class="quickbar-actions">${pub.status==='lobby'?'<button class="btn" data-act="start">▶ Start game</button>':''}<button class="btn secondary" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''}>Next prize <span aria-hidden="true">→</span></button><button class="btn ghost" data-act="showqr">▦ Show QR</button><button class="btn ghost" data-act="stagemanager">☷ Stages</button><button class="btn ghost" data-act="themes">◒ Themes</button>${isStandingStage(st)?`<button class="btn secondary" data-act="standing-roster">🧍 ${standingSurvivors(r).length} Still Standing</button>`:""}</div></div><div class="dashboard"><div class="stack">${drawPanel(r)}<div class="card pad winners-panel"><div class="row between"><h2 class="section-title">🏆 Prize winners</h2>${prizeBadge(st)}<span class="pill green">${awardList(r,st?.id).length} winners</span></div>${winnerHTML(r)}${candidates.length?`<div class="alert warning"><strong>${candidates.length} waiting for your approval</strong><p>${candidates.map(c=>safe(c.name)).join(', ')}</p><button class="btn mini" data-act="approve">Confirm winners</button></div>`:''}</div><details class="card management-panel"><summary>⚙ Game controls <span>Reset draws · End game · Reopen</span></summary><div class="management-body"><button class="btn secondary mini" data-act="resetdraws">↻ Reset draws, keep all cards</button><button class="btn danger mini" data-act="end">End game</button>${pub.status==='ended'?'<button class="btn secondary mini" data-act="reopen">Reopen game</button>':''}<p class="soft">Resetting a draw never changes a player's card numbers.</p></div></details></div><aside class="stack">${qrPanel()}<div class="card pad stack"><div class="row between"><h2 class="section-title">Prize stages</h2><button class="btn mini secondary" data-act="addstage">+ Add stage</button></div><div class="stage-list">${stageEntries(r)}</div></div><details class="card side-details" ${S.mode==='demo'?'open':''}><summary>Players <span>${plist.length} joined</span></summary><div class="players">${S.mode==='demo'?'<button class="btn ghost mini" data-act="adddemo">+ Add 12 guests</button>':''}${Object.entries(r.players||{}).length?Object.entries(r.players||{}).sort((a,b)=>(a[1].joinedAt||0)-(b[1].joinedAt||0)).map(([uid,p])=>`<div class="player-row"><div><strong>${safe(p.name)}</strong><div class="tiny muted">${p.card?'Card ready':p.rejected?'Room full':'Getting card…'}</div></div><span class="pill ${p.card?'green':'gold'}">${p.card?'✓':'…'}</span></div>`).join(''):'<div class="soft">Invite guests to start the fun.</div>'}</div></details><details class="card side-details"><summary>Past winners</summary><div class="past-winners">${r.stages.slice(0,r.public.stageIndex).map(ps=>`<div><strong>${safe(ps.name)}</strong><p>${awardList(r,ps.id).map(w=>safe(w.name)).join(', ')||'No winners recorded'}</p></div>`).join('')}${(r.public.pastRoundResults||[]).slice().reverse().map(h=>`<div class="past-round"><strong>Past game · ${new Date(h.at).toLocaleDateString()}</strong><p>${(h.awards||[]).map(w=>safe(w.name)+' — '+safe(w.stageName||'Prize')).join(', ')||'No winners'}</p></div>`).join('')}${!r.public.stageIndex&&!(r.public.pastRoundResults||[]).length?'<span class="soft">Your previous winners will appear here.</span>':''}</div></details></aside></div>`;setTimeout(renderQR,0);syncFocusMode()}
+function renderHost(){document.body.classList.remove('on-landing');const r=S.room;if(!r){el('app').innerHTML=topBarHtml()+'<div class="card pad">Opening your game…</div>';return}const pub=r.public,st=currentStage(r),plist=players(r),candidates=Object.values(r.candidates||{}).filter(c=>c.stageId===st?.id);el('app').innerHTML=topBarHtml()+`<div class="host-meta"><div><div class="eyebrow">GAME NIGHT / HOST</div><h1>Let's play <span>BIG!</span></h1><div class="host-subtitle">${safe(stageLabel(st))}</div></div><div class="host-badges"><span class="pill">◎ ${joinedPlayerCount(r)} / 100 players</span><span class="pill ${pub.status==='playing'?'green':'gold'}">${safe(pub.status==='playing'?'● Drawing':pub.status==='lobby'?'Lobby open':pub.status==='paused'?'Ⅱ Paused':'Game ended')}</span></div></div><div class="quickbar"><div class="quickbar-stage"><span class="eyebrow">CURRENT PRIZE · ${pub.stageIndex+1} / ${r.stages.length}</span><strong>${safe(st?.name||'BINGO')}</strong>${prizeBadge(st)}</div><div class="quickbar-actions">${pub.status==='lobby'?'<button class="btn" data-act="start">▶ Start game</button>':''}<button class="btn secondary" data-act="nextstage" ${pub.stageIndex>=r.stages.length-1||pub.status==='ended'?'disabled':''}>Next prize <span aria-hidden="true">→</span></button><button class="btn ghost" data-act="showqr">▦ Show QR</button><button class="btn ghost" data-act="stagemanager">☷ Stages</button><button class="btn ghost" data-act="themes">◒ Themes</button>${isStandingStage(st)?`<button class="btn secondary" data-act="standing-roster">🧍 ${standingSurvivors(r).length} Still Standing</button>`:""}</div></div><div class="dashboard"><div class="stack">${drawPanel(r)}<div class="card pad winners-panel"><div class="row between"><h2 class="section-title">🏆 Prize winners</h2>${prizeBadge(st)}<span class="pill green">${awardList(r,st?.id).length} winners</span></div>${winnerHTML(r)}${candidates.length?`<div class="alert warning"><strong>${candidates.length} waiting for your approval</strong><p>${candidates.map(c=>safe(c.name)).join(', ')}</p><button class="btn mini" data-act="approve">Confirm winners</button></div>`:''}</div><details class="card management-panel"><summary>⚙ Game controls <span>Reset draws · End game · Reopen</span></summary><div class="management-body"><button class="btn secondary mini" data-act="resetdraws">↻ Reset draws, keep all cards</button><button class="btn danger mini" data-act="end">End game</button>${pub.status==='ended'?'<button class="btn secondary mini" data-act="reopen">Reopen game</button>':''}<p class="soft">Resetting a draw never changes a player's card numbers.</p></div></details></div><aside class="stack">${qrPanel()}<div class="card pad stack"><div class="row between"><h2 class="section-title">Prize stages</h2><button class="btn mini secondary" data-act="addstage">+ Add stage</button></div><div class="stage-list">${stageEntries(r)}</div></div><details class="card side-details" ${S.mode==='demo'?'open':''}><summary>Players <span>${joinedPlayerCount(r)} joined</span></summary><div class="players">${S.mode==='demo'?'<button class="btn ghost mini" data-act="adddemo">+ Add 12 guests</button>':''}${Object.entries(r.players||{}).length?Object.entries(r.players||{}).sort((a,b)=>(a[1].joinedAt||0)-(b[1].joinedAt||0)).map(([uid,p])=>`<div class="player-row"><div><strong>${safe(p.name)}</strong><div class="tiny muted">${p.card?'Card ready':p.rejected?'Room full':'Getting card…'}</div></div><span class="pill ${p.card?'green':'gold'}">${p.card?'✓':'…'}</span></div>`).join(''):'<div class="soft">Invite guests to start the fun.</div>'}</div></details><details class="card side-details"><summary>Past winners</summary><div class="past-winners">${r.stages.slice(0,r.public.stageIndex).map(ps=>`<div><strong>${safe(ps.name)}</strong><p>${awardList(r,ps.id).map(w=>safe(w.name)).join(', ')||'No winners recorded'}</p></div>`).join('')}${(r.public.pastRoundResults||[]).slice().reverse().map(h=>`<div class="past-round"><strong>Past game · ${new Date(h.at).toLocaleDateString()}</strong><p>${(h.awards||[]).map(w=>safe(w.name)+' — '+safe(w.stageName||'Prize')).join(', ')||'No winners'}</p></div>`).join('')}${!r.public.stageIndex&&!(r.public.pastRoundResults||[]).length?'<span class="soft">Your previous winners will appear here.</span>':''}</div></details></aside></div>`;setTimeout(renderQR,0);syncFocusMode()}
 function renderQR(){const target=el('qr-container');if(!target)return;const url=joinLink();if(S.lastQrUrl===url&&target.querySelector('canvas'))return;S.lastQrUrl=url;target.innerHTML='';if(window.QRCode){try{new QRCode(target,{text:url,width:165,height:165,colorDark:'#101a2d',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});return}catch(e){}}target.innerHTML='<span style="color:#17213c;font-weight:700;text-align:center;font-size:12px">QR not available.<br>Use the invite link.</span>'}
 function renderGuest(){document.body.classList.remove('on-landing');const r=S.room;if(!r){el('app').innerHTML=topBarHtml()+'<div class="card pad">Joining your game…</div>';return}const p=S.player||r.players?.[S.uid],pub=r.public,st=pub.stage||currentStage(r),called=new Set(pub.called||[]);S.guestSignature=JSON.stringify([p?.card?.join(','),st?.id,st?.gameType,st?.lmsRule,st?.lmsSource,st?.prizeAmount,st?.prizeDistribution,S.uid]);const selfWinner=(pub.winnerList||[]).some(w=>w.uid===S.uid&&validRoundAward(w,pub));const drawing=!!pub.drawing;const statusText=selfWinner?'🏆 WINNER':isStandingStage(st)?standingGuestState(pub,p):safe(pub.status);const playHint=isStandingStage(st)?'Follow the rule for each draw.':st?.markMode==='auto'?'Your card marks itself.':st?.markMode==='manual'?'Tap only the called numbers.':'Tap to mark. Winners are checked automatically.';const footHint=isStandingStage(st)?'Watch every draw carefully. If your rule says sit, you are out for this stage.':st?.markMode==='manual'?'Tap called numbers, then press BINGO! when complete.':st?.markMode==='hybrid'?'Tap to mark · winners checked automatically':'Marked automatically as numbers are called';el('app').innerHTML=topBarHtml()+`<section class="guest-meta guest-meta-card"><div><div class="eyebrow">YOUR LUCKY CARD</div><div class="guest-name-row"><h1>${safe(p?.name||'Welcome!')} ✦</h1><span class="guest-roomline">Room ${safe(S.roomId)} · ${safe(st?.name||'Bingo')}</span></div></div><div class="guest-mini-tags"><span class="pill" id="guest-count">${(pub.called||[]).length}/75 called</span><span class="pill ${selfWinner?'green':isStandingStage(st)&&statusText.includes('SIT DOWN')?'red':'gold'}" id="guest-status">${safe(statusText)}</span></div></section>${!p?.card?`<div class="alert warning">${p?.rejected?'The room is full.':'You are in! Your card will be ready soon…'}</div>`:`<div class="guest-layout"><div class="guest-main"><div class="guest-card-panel"><div class="focus-stage-header"><div class="focus-stage-details"><span class="focus-label">STAGE ${(pub.stageIndex||0)+1}</span><strong id="guest-focus-stage-name">${safe(st?.name||'Bingo')}</strong></div><button class="focus-stage-info" data-act="pattern-info" aria-label="See winning pattern and instructions" title="Game instructions">ⓘ</button></div><div class="guest-card-head compact"><div class="guest-card-caption guest-card-title"><span class="eyebrow">PLAY YOUR CARD</span><strong>${safe(st?.name||'BINGO')}</strong><div class="soft">${playHint}</div></div><div class="guest-card-tools compact"><button class="icon-button pattern-info" data-act="pattern-info" aria-label="Winning pattern and rules" title="Winning pattern and rules">ⓘ Info</button><button class="icon-button sound-toggle" data-act="sound" aria-pressed="${S.soundOn}" aria-label="Toggle game sound" title="Toggle sound"><span aria-hidden="true">${S.soundOn?'♫':'♪'}</span><span class="guest-action-word">${S.soundOn?'Sound on':'Sound off'}</span></button><button class="icon-button card-style-toggle" data-act="card-styles" title="Customize the look of your card" aria-label="Customize card"><span aria-hidden="true">🎨</span><span class="guest-action-word">Card</span></button><button class="icon-button focus-enter" data-act="focus-guest">⛶ Card only</button>${!isStandingStage(st)&&st?.markMode==='manual'?'<button class="icon-button focus-claim" data-act="claim" aria-label="Claim Bingo"><span aria-hidden="true">🏆</span><span class="guest-action-word">BINGO!</span></button>':''}<button class="icon-button focus-exit" data-act="focus-guest" aria-label="Exit card only" title="Exit Card Only"><span aria-hidden="true">✕</span><span class="guest-action-word">Exit</span></button></div></div>${isStandingStage(st)?standingGuestHTML(pub,p).replace('standing-guest-status ','standing-guest-status compact '):''}<div class="latest-strip compact ${drawing?'guest-drawing-active':''}"><span id="guest-draw-label"><i></i> ${drawing?'DRAWING…':'NOW CALLED'}</span><strong id="guest-focus-latest">${drawing?'DRAWING…':ball(pub.last)}</strong><span class="right" id="guest-count-strip">${(pub.called||[]).length} of 75</span></div><div class="guest-card-wrap" id="guest-board"><div class="paper-card"><div class="paper-card-top"><span>OFFICIAL BINGO CARD</span><span>#${safe(String(p.slot||'001').padStart(3,'0'))}</span></div><div class="bingo-head">${'BINGO'.split('').map((ch,i)=>`<span class="head-${i}">${ch}</span>`).join('')}</div><div class="bingo-card">${p.card.map((n,i)=>{const marked=i===12||((isStandingStage(st)||st?.markMode==='auto')?called.has(n):S.marks.has(i));return `<button class="square ${i===12?'free':''} ${called.has(n)&&i!==12?'called':''} ${marked?'marked':''}" data-act="mark" data-index="${i}" ${i===12||isStandingStage(st)||st?.markMode==='auto'||!called.has(n)||pub.status==='ended'?'disabled':''}><span>${i===12?'FREE':n}</span></button>`}).join('')}</div><div class="paper-card-bottom"><span>★ GOOD LUCK! ★</span><span>KEEP THIS CARD</span></div></div></div><div class="focus-prize-footer" id="guest-focus-prize"><span>${st?.prizeDistribution==='pool'?'TOTAL PRIZE POOL':'PRIZE PER WINNER'}</span><strong>${safe(prizeLine(st)||'No amount set')}</strong></div><div class="guest-footnote">${footHint}</div><div id="guest-win-message">${selfWinner?('<div class="alert success">🏆 You won this prize! '+(prizeLine(st)?'Prize: '+safe(prizeLine(st))+' ':'')+'Keep playing.</div>'):''}</div></div><details class="guest-mobile-history"><summary id="guest-mobile-history-label">Called numbers · ${(pub.called||[]).length}</summary><div id="guest-mobile-history">${recentHistory(pub)}</div></details></div><aside class="guest-side"><div class="card pad latest-card"><div class="latest-card-label"><div><div class="eyebrow">LAST DRAWN</div><strong id="guest-prize-name">${safe(st?.name||'Bingo')}</strong>${prizeBadge(st)}</div><div class="big-ball compact-ball" id="guest-last-ball" data-ball="${pub.last||0}"><div class="letter">${pub.last?'BINGO'[Math.floor((pub.last-1)/15)]:'★'}</div><div class="digit">${pub.last||'—'}</div></div></div><div class="history-head"><span>DRAW HISTORY</span><span class="muted">Latest first</span></div><div id="guest-history">${recentHistory(pub)}</div></div><div class="card pad stack guest-winners-panel"><div class="eyebrow">PRIZE WINNERS</div><div id="guest-winners">${renderGuestWinners(pub)}</div></div></aside></div>`}`;syncFocusMode()}
 function renderGuestWinners(pub){const awards=(pub.winnerList||[]).filter(w=>validRoundAward(w,pub));return awards.length?awards.map(w=>`<div class="winner-entry"><strong>🏆 ${safe(w.name)}</strong><span class="tiny">Draw #${w.drawCount}</span></div>`).join(''):'<div class="soft">Good luck, everyone!</div>'}
 function updateBall(node,number){if(!node)return;const now=Number(number)||0;const old=Number(node.dataset.ball)||0;if(old===now)return;node.dataset.ball=String(now);node.innerHTML=`<div class="letter">${now?'BINGO'[Math.floor((now-1)/15)]:'✦'}</div><div class="digit">${now||'—'}</div>`;if(now){node.classList.remove('draw-pop');void node.offsetWidth;node.classList.add('draw-pop','v11-ball-reveal');setTimeout(()=>node.classList.remove('v11-ball-reveal'),1100)} }
 function updateGuestUI(){const r=S.room,p=S.player,pub=r.public,st=pub.stage,called=new Set(pub.called||[]),won=(pub.winnerList||[]).some(w=>w.uid===S.uid&&validRoundAward(w,pub));const drawing=!!pub.drawing;const strip=el('guest-focus-latest')?.closest('.latest-strip');strip?.classList.toggle('guest-drawing-active',drawing);const drawingLabel=el('guest-draw-label');if(drawingLabel)drawingLabel.innerHTML='<i></i> '+(drawing?'DRAWING…':'NOW CALLED');const count=el('guest-count');if(count)count.textContent=`${(pub.called||[]).length}/75 called`;const countStrip=el('guest-count-strip');if(countStrip)countStrip.textContent=`${(pub.called||[]).length} of 75`;const standingNote=el('standing-guest-status');if(standingNote){const statusText=standingGuestState(pub,p);standingNote.className='standing-guest-status '+(statusText.includes('SIT DOWN')?'eliminated':'active');standingNote.querySelector('strong').textContent=statusText}const status=el('guest-status');if(status){status.textContent=won?'🏆 WINNER':isStandingStage(st)?standingGuestState(pub,p):pub.status;status.className='pill '+(won?'green':'gold')}if(!drawing)updateBall(el('guest-last-ball'),pub.last);const latest=el('guest-focus-latest');const latestText=drawing?'DRAWING…':ball(pub.last);if(latest&&latest.textContent!==latestText){latest.textContent=latestText;latest.classList.remove('latest-pop');void latest.offsetWidth;latest.classList.add('latest-pop')}const history=el('guest-history');if(history)history.innerHTML=recentHistory(pub);const mobileHist=el('guest-mobile-history');if(mobileHist)mobileHist.innerHTML=recentHistory(pub);const mobileLabel=el('guest-mobile-history-label');if(mobileLabel)mobileLabel.textContent=`Called numbers · ${(pub.called||[]).length}`;const winners=el('guest-winners');if(winners)winners.innerHTML=renderGuestWinners(pub);const message=el('guest-win-message');if(message)message.innerHTML=won?('<div class="alert success">🏆 You won this prize! '+(prizeLine(st)?'Prize: '+safe(prizeLine(st))+' ':'')+'Keep playing.</div>'):'';document.querySelectorAll('#guest-board .square').forEach((square,i)=>{const n=p?.card?.[i]||0,active=n&&called.has(n),marked=i===12||((isStandingStage(st)||st?.markMode==='auto')?active:S.marks.has(i)),wasMarked=square.classList.contains('marked');square.classList.toggle('called',!!active);square.classList.toggle('marked',!!marked);if(marked&&!wasMarked){square.classList.remove('daub-pop');void square.offsetWidth;square.classList.add('daub-pop')}square.disabled=i===12||isStandingStage(st)||st?.markMode==='auto'||!active||pub.status==='ended'})}
-function updateHostUI(){const pub=S.room.public,preview=Number(S.hostPreviewNumber)||0,previewPending=preview>0&&!(pub.called||[]).includes(preview),viewNumbers=previewPending?[...(pub.called||[]),preview]:(pub.called||[]),viewBall=previewPending?preview:pub.last;const standingBtn=el('host-standing-btn');if(standingBtn){standingBtn.style.display=isStandingStage(pub.stage)?'inline-flex':'none';const standingCounter=el('standing-count');if(standingCounter)standingCounter.textContent=standingSurvivors(S.room).length}const quickRoster=document.querySelector('.quickbar [data-act=standing-roster]');if(quickRoster)quickRoster.textContent='🧍 '+standingSurvivors(S.room).length+' Still Standing';const count=el('host-draw-count');if(count)count.innerHTML=`${viewNumbers.length-(S.drawSuspenseActive&&S.drawAwaitedNumber?1:0)}<small> / 75 CALLED</small>`;if(!S.drawSuspenseActive){updateBall(el('host-last-ball'),viewBall);const nickname=el('ball-nickname');if(nickname)nickname.textContent=viewBall?ball(viewBall):'READY TO ROLL';}const viewCalled=S.drawSuspenseActive&&S.drawAwaitedNumber?viewNumbers.slice(0,-1):viewNumbers;const viewLast=S.drawSuspenseActive&&S.drawAwaitedNumber?viewCalled.at(-1)||0:viewBall;const called=new Set(viewCalled);const board=el('host-num-board');if(board){const numbers=board.querySelectorAll('.number');if(numbers.length===75)numbers.forEach((node,i)=>{const n=i+1;node.classList.toggle('hit',called.has(n));node.classList.toggle('recent',n===viewLast)});else board.innerHTML=numBoard({...pub,called:viewCalled,last:viewLast})}const hist=el('host-history');if(hist)hist.innerHTML=recentHistory({...pub,called:viewCalled,last:viewLast});const draw=el('draw-next');if(draw)draw.disabled=S.drawSuspenseActive||S.drawBusy||!!pub.drawing||pub.status!=='playing'||(pub.called||[]).length>=75;const pause=el('pause-next');if(pause){pause.disabled=!['playing','paused'].includes(pub.status);pause.textContent=pub.status==='paused'?'▶ Resume':'Ⅱ Pause'}}
+function updateHostUI(){const joinedCounter=el('host-joined-count');if(joinedCounter)joinedCounter.textContent=String(joinedPlayerCount(S.room));const pub=S.room.public,preview=Number(S.hostPreviewNumber)||0,previewPending=preview>0&&!(pub.called||[]).includes(preview),viewNumbers=previewPending?[...(pub.called||[]),preview]:(pub.called||[]),viewBall=previewPending?preview:pub.last;const standingBtn=el('host-standing-btn');if(standingBtn){standingBtn.style.display=isStandingStage(pub.stage)?'inline-flex':'none';const standingCounter=el('standing-count');if(standingCounter)standingCounter.textContent=standingSurvivors(S.room).length}const quickRoster=document.querySelector('.quickbar [data-act=standing-roster]');if(quickRoster)quickRoster.textContent='🧍 '+standingSurvivors(S.room).length+' Still Standing';const count=el('host-draw-count');if(count)count.innerHTML=`${viewNumbers.length-(S.drawSuspenseActive&&S.drawAwaitedNumber?1:0)}<small> / 75 CALLED</small>`;if(!S.drawSuspenseActive){updateBall(el('host-last-ball'),viewBall);const nickname=el('ball-nickname');if(nickname)nickname.textContent=viewBall?ball(viewBall):'READY TO ROLL';}const viewCalled=S.drawSuspenseActive&&S.drawAwaitedNumber?viewNumbers.slice(0,-1):viewNumbers;const viewLast=S.drawSuspenseActive&&S.drawAwaitedNumber?viewCalled.at(-1)||0:viewBall;const called=new Set(viewCalled);const board=el('host-num-board');if(board){const numbers=board.querySelectorAll('.number');if(numbers.length===75)numbers.forEach((node,i)=>{const n=Number(node.dataset.n)||i+1;node.classList.toggle('hit',called.has(n));node.classList.toggle('recent',n===viewLast)});else board.innerHTML=numBoard({...pub,called:viewCalled,last:viewLast})}const hist=el('host-history');if(hist)hist.innerHTML=recentHistory({...pub,called:viewCalled,last:viewLast});const five=el('host-recent-five');if(five)five.innerHTML=recentFiveHTML({...pub,called:viewCalled,last:viewLast});const draw=el('draw-next');if(draw)draw.disabled=S.drawSuspenseActive||S.drawBusy||!!pub.drawing||pub.status!=='playing'||(pub.called||[]).length>=75;const pause=el('pause-next');if(pause){pause.disabled=!['playing','paused'].includes(pub.status);pause.textContent=pub.status==='paused'?'▶ Resume':'Ⅱ Pause'}}
 function syncFocusMode(){document.body.classList.toggle('host-focus',S.role==='host'&&S.focusMode==='host');document.body.classList.toggle('guest-focus',S.role==='player'&&S.focusMode==='guest')}
-document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&S.focusMode){S.focusMode='';syncFocusMode()}});
-function toggleFocus(kind){if(S.focusMode===kind){S.focusMode='';document.exitFullscreen?.().catch(()=>{});}else{S.focusMode=kind;const target=document.documentElement;target.requestFullscreen?.().catch(()=>{});}syncFocusMode();try{localStorage.setItem('bingolive_focus_'+kind,S.focusMode===kind?'1':'0')}catch(e){}}
+function leaveHostFullscreenBoard(){
+ if(S.role!=='host')return;
+ // Grouped/called layouts are fullscreen-only: normal dashboard always shows All 75.
+ if(S.boardView!=='classic')setBoardView('classic');
+}
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&S.focusMode){const wasHost=S.focusMode==='host';S.focusMode='';syncFocusMode();if(wasHost)leaveHostFullscreenBoard()}});
+function toggleFocus(kind){if(S.focusMode===kind){S.focusMode='';syncFocusMode();if(kind==='host')leaveHostFullscreenBoard();document.exitFullscreen?.().catch(()=>{});}else{if(kind==='host')leaveHostFullscreenBoard();S.focusMode=kind;const target=document.documentElement;target.requestFullscreen?.().catch(()=>{});syncFocusMode()}try{localStorage.setItem('bingolive_focus_'+kind,S.focusMode===kind?'1':'0')}catch(e){}}
 
 
 // Original, synthesized game sounds. Audio starts only after a user gesture.
 function audioReady(){try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return null;if(!S.audioContext)S.audioContext=new AC();if(S.audioContext.state==='suspended')S.audioContext.resume().catch(()=>{});return S.audioContext}catch(e){return null}}
 function ping(frequency,delay=0,duration=.13,kind='sine',volume=.13){const ctx=S.audioContext;if(!ctx||ctx.state!=='running')return;const t=ctx.currentTime+delay,osc=ctx.createOscillator(),gain=ctx.createGain();osc.type=kind;osc.frequency.setValueAtTime(frequency,t);gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime(Math.max(.001,volume),t+.012);gain.gain.exponentialRampToValueAtTime(.0001,t+duration);osc.connect(gain);gain.connect(ctx.destination);osc.start(t);osc.stop(t+duration+.018)}
 function playDrawSound(){if(!S.soundOn||!audioReady())return;ping(196,0,.20,'triangle',.09);ping(523.25,.06,.23,'sine',.10);ping(783.99,.18,.3,'sine',.13);ping(1046.5,.29,.35,'triangle',.12)}
-function playDrawAnticipation(){
+function playSynthDrawAnticipation(){
  if(!S.soundOn||!audioReady())return;
  // Quick machine rattle and rising game-show suspense; all notes are original synthesized sounds.
  [160,193,235,273,320,376,440,510].forEach((n,i)=>{
   ping(n,i*.13,.095,i%2?'triangle':'square',.024+i*.002);
   if(i%2===0)ping(66+i*7,i*.13+.045,.065,'sine',.032);
  });
+}
+const MIX_SOUND_URL='https://audio.jukehost.co.uk/01a1dee6-6f9e-73f3-b242-9747bfaefb0c';
+function stopMixTrack(){
+ const a=S.mixAudio;if(!a)return;
+ try{a.pause();a.currentTime=0}catch(_e){}
+}
+function playDrawAnticipation(){
+ if(!S.soundOn)return;
+ try{
+  if(!S.mixAudio){S.mixAudio=new Audio(MIX_SOUND_URL);S.mixAudio.preload='auto';S.mixAudio.loop=true;S.mixAudio.volume=.72}
+  const a=S.mixAudio;a.currentTime=0;
+  const response=a.play();
+  if(response&&response.catch)response.catch(()=>{if(S.drawSuspenseActive&&S.soundOn)playSynthDrawAnticipation()});
+ }catch(_e){playSynthDrawAnticipation()}
 }
 const DRAW_REVEAL_MS=1320;
 function beginDrawAnimation(){
@@ -1558,6 +1981,7 @@ function beginDrawAnimation(){
  },8000);
 }
 function cancelDrawAnimation(){
+ stopMixTrack();
  clearTimeout(S.drawAnimTimer);clearTimeout(S.drawRecoveryTimer);
   S.drawSuspenseActive=false;S.drawRevealReady=false;S.drawAwaitedNumber=0;S.hostPreviewNumber=0;
  document.querySelector('.host-draw-panel')?.classList.remove('is-drawing');
@@ -1569,6 +1993,7 @@ function cancelDrawAnimation(){
 }
 function finishDrawAnimation(){
  if(!S.drawSuspenseActive||!S.drawRevealReady||!S.drawAwaitedNumber)return;
+ stopMixTrack();
   const n=S.drawAwaitedNumber;S.hostPreviewNumber=n;
  clearTimeout(S.drawAnimTimer);clearTimeout(S.drawRecoveryTimer);
  S.drawSuspenseActive=false;S.drawRevealReady=false;S.drawAwaitedNumber=0;
@@ -1584,8 +2009,43 @@ function finishDrawAnimation(){
 }
 function playWinnerSound(){if(!S.soundOn||!audioReady())return;[523,659,784,1047].forEach((f,i)=>ping(f,i*.12,.32,'sine',.12))}
 function playClickSound(){if(!S.soundOn||!audioReady())return;ping(530,0,.075,'sine',.055)}
-function announceNumber(n){if(!S.voiceOn||S.role!=='host'||!n||!('speechSynthesis'in window))return;try{speechSynthesis.cancel();const letter='BINGO'[Math.floor((n-1)/15)];const word={B:'B',I:'I',N:'N',G:'G',O:'O'}[letter];const utterance=new SpeechSynthesisUtterance(`${word}, ${n}`);utterance.lang='en-US';utterance.rate=.92;utterance.pitch=1.04;utterance.volume=.92;speechSynthesis.speak(utterance)}catch(e){}}
-function soundAction(act){audioReady();if(act==='sound'){S.soundOn=!S.soundOn;store('bingolive_sound_'+S.role,S.soundOn);if(S.soundOn)playClickSound()}else{S.voiceOn=!S.voiceOn;store('bingolive_voice',S.voiceOn);if(S.voiceOn){const n=S.room?.public?.last;announceNumber(n||0)}}document.querySelectorAll('[data-act="sound"]').forEach(b=>{const icon=b.querySelector('[aria-hidden="true"]'),word=b.querySelector('.guest-action-word');if(icon&&word){icon.textContent=S.soundOn?'♫':'♪';word.textContent=S.soundOn?'Sound on':'Sound off'}else b.textContent=S.soundOn?'♫ Sound on':'♪ Sound off';b.setAttribute('aria-pressed',S.soundOn)});document.querySelectorAll('[data-act="voice"]').forEach(b=>{b.textContent=S.voiceOn?'🗣 Voice on':'🗣 Voice off';b.setAttribute('aria-pressed',S.voiceOn)})}
+
+// Ten speaking styles work without downloads. Real voice quality/identity is supplied by the browser.
+const VOICE_PRESETS={
+ host:{label:'Classic Host',note:'Clear & balanced',rate:.94,pitch:1.03},
+ party:{label:'Party Energy',note:'Masigla & upbeat',rate:1.20,pitch:1.23},
+ cheerful:{label:'Cheerful',note:'Bright & friendly',rate:1.10,pitch:1.33},
+ bright:{label:'Feminine Bright',note:'Higher, lively tone',rate:1.08,pitch:1.48},
+ gentle:{label:'Feminine Gentle',note:'Soft and warm',rate:.86,pitch:1.28},
+ deep:{label:'Masculine Deep',note:'Lower, resonant tone',rate:.90,pitch:.72},
+ bold:{label:'Masculine Bold',note:'Strong & commanding',rate:.96,pitch:.84},
+ calm:{label:'Calm',note:'Relaxed and steady',rate:.82,pitch:.98},
+ showtime:{label:'Showtime',note:'Big reveal energy',rate:1.04,pitch:1.17},
+ quick:{label:'Speed Round',note:'Fast, clear calls',rate:1.32,pitch:1.05}
+};
+function getSystemVoices(){try{return 'speechSynthesis' in window?speechSynthesis.getVoices():[]}catch(e){return []}}
+function rememberVoiceOptions(){store('bingolive_voice_preset',S.voicePreset);store('bingolive_voice_uri',S.voiceURI)}
+function voiceInfo(){const preset=VOICE_PRESETS[S.voicePreset]||VOICE_PRESETS.host;const voices=getSystemVoices();const wanted=voices.find(v=>v.voiceURI===S.voiceURI);const english=voices.find(v=>/^en(-|$)/i.test(v.lang))||voices[0];return {preset,voice:wanted||english||null}}
+function speakBall(n,{preview=false}={}){
+ if(S.role!=='host'||(!preview&&!S.voiceOn)||!n||!('speechSynthesis' in window))return false;
+ try{
+  speechSynthesis.cancel();const {preset,voice}=voiceInfo();const b=ball(n);
+  const msg=new SpeechSynthesisUtterance(b.replace('-',', '));
+  if(voice){msg.voice=voice;msg.lang=voice.lang}else msg.lang='en-US';
+  msg.pitch=preset.pitch;msg.rate=preset.rate;msg.volume=1;
+  speechSynthesis.speak(msg);return true;
+ }catch(e){return false}
+}
+function showVoicePicker(){
+ if(S.role!=='host')return;
+ const supported='speechSynthesis' in window,voices=getSystemVoices();
+ const presets=Object.entries(VOICE_PRESETS).map(([id,v])=>`<button class="voice-preset ${S.voicePreset===id?'active':''}" data-act="set-voice-preset" data-preset="${id}" aria-pressed="${S.voicePreset===id}"><strong>${safe(v.label)}</strong><span>${safe(v.note)}</span></button>`).join('');
+ const select=voices.map(v=>`<option value="${safe(v.voiceURI)}" ${S.voiceURI===v.voiceURI?'selected':''}>${safe(v.name)} (${safe(v.lang)})</option>`).join('');
+ el('modal-root').innerHTML=`<div class="overlay settings-overlay" data-overlay-type="voice-picker"><div class="modal voice-style-modal" role="dialog" aria-modal="true" aria-label="Choose number announcer"><div class="row between"><div><div class="eyebrow">NUMBER ANNOUNCER</div><h2>Choose a voice</h2></div><button class="icon-button" data-act="closemodal" aria-label="Close voice settings">✕</button></div><p class="voice-intro">Try 10 voice styles and choose the actual voice installed on this device. Press Preview to hear B-12.</p><div class="row" style="align-items:center;justify-content:space-between;gap:10px"><strong>${S.voiceOn?'🗣 Voice is ON':'🔇 Voice is OFF'}</strong><button class="btn mini secondary" data-act="voice-toggle-picker">${S.voiceOn?'Turn Voice Off':'Turn Voice On'}</button></div><div class="voice-presets">${presets}</div><div class="voice-system-picker"><label for="system-voice-select">Voice available on this device</label><select id="system-voice-select" ${supported?'':'disabled'}><option value="auto" ${S.voiceURI==='auto'?'selected':''}>Automatic device voice</option>${select}</select></div><p class="voice-preset-note">Voice styles change speed and pitch. Available voices (including male- or female-sounding voices) depend on your phone or computer. Not all devices have 10 distinct voices.</p><div class="voice-modal-actions"><button class="btn secondary" data-act="voice-preview">▶ Preview B-12</button><button class="btn" data-act="closemodal">Use This Voice</button></div><div class="voice-option-feedback" id="voice-option-feedback">${supported?voices.length+' system voice(s) available':'Voice announcements are not supported by this browser.'}</div></div></div>`;
+}
+
+function announceNumber(n){return speakBall(n)}
+function soundAction(act,announceLatest=true){audioReady();if(act==='sound'){S.soundOn=!S.soundOn;store('bingolive_sound_'+S.role,S.soundOn);if(!S.soundOn)stopMixTrack();if(S.soundOn)playClickSound()}else{S.voiceOn=!S.voiceOn;store('bingolive_voice',S.voiceOn);if(S.voiceOn&&announceLatest){const n=S.room?.public?.last;announceNumber(n||0)}}document.querySelectorAll('[data-act="sound"]').forEach(b=>{const icon=b.querySelector('[aria-hidden="true"]'),word=b.querySelector('.guest-action-word');if(icon&&word){icon.textContent=S.soundOn?'♫':'♪';word.textContent=S.soundOn?'Sound on':'Sound off'}else b.textContent=S.soundOn?'♫ Sound on':'♪ Sound off';b.setAttribute('aria-pressed',S.soundOn)});document.querySelectorAll('[data-act="voice"]').forEach(b=>{b.textContent=S.voiceOn?'🗣 Voice on':'🗣 Voice off';b.setAttribute('aria-pressed',S.voiceOn)})}
 
 function clearWinnerScreen(){clearTimeout(S.winnerTimer);document.body.classList.remove('winner-open');el('winner-root').innerHTML=''}
 function celebrateHost(list,stage){
@@ -1623,6 +2083,7 @@ function receiveRoom(r){
   if(fresh.length){if(S.drawSuspenseActive)S.pendingCelebration={list:fresh,stage:r.public?.stage};else celebrateHost(fresh,r.public?.stage)}
  }
  S.room=r;S.stageDraft=S.stageDraft||null;
+ if(S.role==='host'){const opened=document.querySelector('[data-overlay-type="joined-card"]');if(opened){const target=el('host-card-preview');if(target)target.innerHTML=hostCardPreviewHTML(opened.dataset.uid)}}
   if(S.role==='player')applyTheme();
  if(S.role==='player'&&S.mode==='demo')S.player=r.players?.[S.uid]||null;
  syncMarks();
@@ -1761,6 +2222,22 @@ function guestPublicUpdate(pub){if(!S.room||S.role!=='player')return;S.fetchErro
 async function fetchGuestCard(){if(S.fetchCardBusy||S.player?.card)return;S.fetchCardBusy=true;try{const p=await rest('rooms/'+S.roomId+'/players/'+S.uid);if(p){S.player=p;receiveRoom({...S.room,players:{[S.uid]:p}});if(S.syncType==='poll'&&p.slot<=90){stopGuestSync();chooseGuestSync()}}}catch(e){}finally{S.fetchCardBusy=false}}
 async function refreshGuest(){if(S.mode!=='firebase'||S.role!=='player'||S.fetchBusy)return;S.fetchBusy=true;try{const pub=await rest('rooms/'+S.roomId+'/public');if(!pub)throw Error('Room not available.');if(!S.player?.card){const p=await rest('rooms/'+S.roomId+'/players/'+S.uid);if(p)S.player=p}S.fetchErrors=0;receiveRoom({public:pub,players:{[S.uid]:S.player}});if(S.syncType==='poll'&&S.player?.slot>0&&S.player.slot<=90){stopGuestSync();chooseGuestSync()}}catch(e){if(++S.fetchErrors===3)toast('Connection interrupted. Reconnecting…',true)}finally{S.fetchBusy=false}}
 
+function publishGuestMarks(){
+ if(S.role!=='player'||!S.room?.public||!S.player?.card)return;
+ const stage=S.room.public.stage;if(!stage||isStandingStage(stage)||stage.markMode==='auto')return;
+ clearTimeout(S.markSyncTimer);
+ S.markSyncTimer=setTimeout(async()=>{
+  if(S.role!=='player'||!S.room?.public||!S.player?.card)return;
+  const pub=S.room.public,called=new Set(pub.called||[]);
+  const doc={resetVersion:roundVersion(pub),marks:[...S.marks].filter(i=>Number.isInteger(i)&&i>=0&&i<25&&called.has(S.player.card[i])),updatedAt:Date.now()};
+  try{
+   if(S.mode==='demo')patchDemo({['marks/'+S.uid]:doc});
+   else await rest('rooms/'+S.roomId+'/marks/'+S.uid,'PUT',doc);
+  }catch(_e){
+   if(!S.markSyncWarning){S.markSyncWarning=true;toast('Your marks are saved on this phone, but the host card view could not update.',true)}
+  }
+ },150);
+}
 async function submitClaim(){const r=S.room,st=r.public.stage;if(!S.player?.card||isStandingStage(st)||st?.markMode!=='manual'||r.public.status!=='playing')return toast('Manual BINGO is not enabled right now.',true);const called=new Set(r.public.called||[]);if(!isPattern(S.player.card,called,st.pattern,S.marks))return toast('Not BINGO yet. Check your called and marked numbers!',true);const claim={stageId:st.id,resetVersion:roundVersion(r.public),drawCount:r.public.called.length,marks:[...S.marks],at:Date.now()};try{if(S.mode==='demo')patchDemo({['claims/'+S.uid]:claim});else await rest('rooms/'+S.roomId+'/claims/'+S.uid,'PUT',claim);toast('BINGO claim submitted! Waiting for host verification.')}catch(e){toast('Could not send BINGO: '+friendlyError(e),true)}}
 function findNewAwards(r){
  const st=currentStage(r),drawn=r.public.called||[];
@@ -1838,7 +2315,7 @@ case 'resetdraws':{
  const history=[...(pub.pastRoundResults||[])];
  const previous=allWinners(r);
  if((pub.called||[]).length||previous.length){history.push({at:Date.now(),drawCount:(pub.called||[]).length,awards:previous.map(w=>({name:w.name,stageName:w.stageName||r.stages.find(st=>st.id===w.stageId)?.name||'Bingo',prizeAmount:w.prizeAmount||0,prizeDistribution:w.prizeDistribution||'each'}))});}
- changes={winners:null,candidates:null,claims:null,public:modifiedPub(r,{called:[],last:null,stageIndex:0,stage:r.stages[0],stageStartDrawCount:0,winnerList:[],status:'lobby',drawing:null,resetVersion:roundVersion(pub)+1,pastRoundResults:history.slice(-12)})};break;
+ changes={winners:null,candidates:null,claims:null,marks:null,public:modifiedPub(r,{called:[],last:null,stageIndex:0,stage:r.stages[0],stageStartDrawCount:0,winnerList:[],status:'lobby',drawing:null,resetVersion:roundVersion(pub)+1,pastRoundResults:history.slice(-12)})};break;
 }
 case 'approve':{const proposed=Object.values(r.candidates||{}).filter(c=>c.stageId===st?.id&&validRoundAward(c,r.public)).sort((a,b)=>a.drawCount-b.drawCount);if(!proposed.length)return toast('No pending candidates.');const existing=awardList(r,st.id);if(st.limit>0&&existing.length>=st.limit)return toast('Winner limit already reached.');const firstDraw=proposed[0].drawCount;let winners=proposed.filter(w=>w.drawCount===firstDraw);if(st.limit===0){winners=proposed}for(const w of winners){changes[`winners/${st.id}/${w.uid}`]=w;changes['candidates/'+w.uid]=null}changes['public/winnerList']=[...existing,...winners];break}
 case 'adddemo':{if(S.mode!=='demo')return;const names=['Alex','Bea','Carlo','Dani','Ella','Francis','Gina','Hugo','Ivy','Jules','Kai','Luna'];let idx=0;for(const name of names){const uid='sim_'+code()+'_'+idx;changes['players/'+uid]={name:`${name} (Demo)`,uid,joinedAt:Date.now()+idx++}}break}
@@ -1884,13 +2361,20 @@ function showStageSaveError(message){
  if(feedback){feedback.className='stage-save-feedback error';feedback.textContent=message}
  else toast(message,true);
 }
-async function leave(){stopGuestSync();S.focusMode='';syncFocusMode();if(S.ref){S.ref.off();S.ref=null}window.removeEventListener('storage',onDemoStorage);S.role='';S.room=null;S.roomId='';S.stageDraft=null;S.player=null;S.marks=new Set();try{sessionStorage.removeItem('bingolive_session')}catch(e){}if(location.search){history.replaceState(null,'',location.pathname)}render()}
-async function runAct(act,btn){if(act==='closemodal'){el('modal-root').innerHTML='';return}if(act==='showqr')return toggleJoinQR();if(act==='themes')return showThemePicker();if(act==='stagemanager')return showStageManager();if(act==='standing-roster')return showStandingRoster();if(act==='card-styles')return showCardStyles();if(act==='set-card-style')return selectCardStyle(btn.dataset.style);if(act==='picktheme'){if(HOST_PALETTES[btn.dataset.theme]){S.palette=btn.dataset.theme;store('bingolive_palette',S.palette);applyTheme();showThemePicker();await publishHostTheme()}return}if(act==='pickappearance'){if(['dark','light'].includes(btn.dataset.appearance)){S.appearance=btn.dataset.appearance;store('bingolive_appearance',S.appearance);applyTheme();showThemePicker();await publishHostTheme()}return}if(act==='closewinner'||act==='winner-keep'){clearWinnerScreen();return}
+async function leave(){stopMixTrack();clearTimeout(S.markSyncTimer);stopGuestSync();S.focusMode='';syncFocusMode();if(S.ref){S.ref.off();S.ref=null}window.removeEventListener('storage',onDemoStorage);S.role='';S.room=null;S.roomId='';S.stageDraft=null;S.player=null;S.marks=new Set();try{sessionStorage.removeItem('bingolive_session')}catch(e){}if(location.search){history.replaceState(null,'',location.pathname)}render()}
+async function runAct(act,btn){if(act==='closemodal'){el('modal-root').innerHTML='';return}if(act==='showqr')return toggleJoinQR();if(act==='board-view')return setBoardView(btn?.dataset?.view);if(act==='themes')return showThemePicker();if(act==='stagemanager')return showStageManager();if(act==='standing-roster')return showStandingRoster();if(act==='joined-players')return showJoinedPlayers();if(act==='joined-card')return showJoinedPlayerCard(btn?.dataset?.uid);if(act==='card-styles')return showCardStyles();if(act==='set-card-style')return selectCardStyle(btn.dataset.style);if(act==='picktheme'){if(HOST_PALETTES[btn.dataset.theme]){S.palette=btn.dataset.theme;store('bingolive_palette',S.palette);applyTheme();showThemePicker();await publishHostTheme()}return}if(act==='pickappearance'){if(['dark','light'].includes(btn.dataset.appearance)){S.appearance=btn.dataset.appearance;store('bingolive_appearance',S.appearance);applyTheme();showThemePicker();await publishHostTheme()}return}if(act==='closewinner'||act==='winner-keep'){clearWinnerScreen();return}
 if(act==='winner-next'){clearWinnerScreen();return hostAction('nextstage')}
-if(act==='winner-reset'){return confirmDialog('Reset everything to ZERO?','All called numbers, current winners, and ALL guest marks will be cleared. Every guest keeps the SAME card. Drawing will NOT restart until you press Start.','Reset to zero',async()=>{clearWinnerScreen();await hostAction('resetdraws')})}if(act==='leave')return leave();if(act==='pattern-info')return showPatternGuide();if(act==='guide-prev')return showPatternGuide((S.guidePage||0)-1);if(act==='guide-next')return showPatternGuide((S.guidePage||0)+1);if(act==='sound'||act==='voice')return soundAction(act);if(act==='focus-host')return toggleFocus('host');if(act==='focus-guest')return toggleFocus('guest');if(act==='create-live'||act==='retry-live')return createRoom('firebase');if(act==='create-demo'){el('modal-root').innerHTML='';return createRoom('demo')};if(act==='copylink'){try{await navigator.clipboard.writeText(joinLink());toast('Join link copied!')}catch(e){prompt('Copy this link:',joinLink())}return}if(S.role==='player'){if(act==='mark'){const idx=Number(btn.dataset.index),n=S.player?.card?.[idx];if(!n||!S.room?.public.called?.includes(n))return;if(S.marks.has(idx))S.marks.delete(idx);else S.marks.add(idx);store(`bingolive_marks_${S.roomId}_${S.uid}`,{version:S.room.public.resetVersion,marks:[...S.marks]});updateGuestUI();return}if(act==='claim')return submitClaim();return}
+if(act==='winner-reset'){return confirmDialog('Reset everything to ZERO?','All called numbers, current winners, and ALL guest marks will be cleared. Every guest keeps the SAME card. Drawing will NOT restart until you press Start.','Reset to zero',async()=>{clearWinnerScreen();await hostAction('resetdraws')})}if(act==='leave')return leave();if(act==='pattern-info')return showPatternGuide();if(act==='guide-prev')return showPatternGuide((S.guidePage||0)-1);if(act==='guide-next')return showPatternGuide((S.guidePage||0)+1);if(act==='voice-picker')return showVoicePicker();
+if(act==='set-voice-preset'){if(VOICE_PRESETS[btn?.dataset?.preset]){S.voicePreset=btn.dataset.preset;rememberVoiceOptions();showVoicePicker()}return}
+if(act==='voice-preview'){if(!speakBall(12,{preview:true}))toast('Voice preview is not available in this browser.',true);return}
+if(act==='voice-toggle-picker'){soundAction('voice',false);showVoicePicker();return}
+if(act==='sound'||act==='voice')return soundAction(act);if(act==='focus-host')return toggleFocus('host');if(act==='focus-guest')return toggleFocus('guest');if(act==='create-live'||act==='retry-live')return createRoom('firebase');if(act==='create-demo'){el('modal-root').innerHTML='';return createRoom('demo')};if(act==='copylink'){try{await navigator.clipboard.writeText(joinLink());toast('Join link copied!')}catch(e){prompt('Copy this link:',joinLink())}return}if(S.role==='player'){if(act==='mark'){const idx=Number(btn.dataset.index),n=S.player?.card?.[idx];if(!n||!S.room?.public.called?.includes(n))return;if(S.marks.has(idx))S.marks.delete(idx);else S.marks.add(idx);store(`bingolive_marks_${S.roomId}_${S.uid}`,{version:S.room.public.resetVersion,marks:[...S.marks]});updateGuestUI();publishGuestMarks();return}if(act==='claim')return submitClaim();return}
 if(S.role!=='host')return;
 if(act==='addstage'){S.stageDraft={name:'New Prize Stage',gameType:'bingo',lmsRule:'hit',lmsSource:'card',pattern:'blackout',eligibility:'all',limit:1,markMode:'auto',approval:'auto',prizeAmount:0,prizeDistribution:'each'};showStageEditor();return}
 if(act==='editstage'){const i=Number(btn.dataset.index);if(!S.room.stages[i])return;S.stageDraft={...S.room.stages[i],editIndex:i};showStageEditor();return}
+if(act==='move-stage')return changeStages('move',btn?.dataset.id,Number(btn?.dataset.step));
+if(act==='delete-stage')return confirmStageRemoval(btn?.dataset.id);
+if(act==='confirm-delete-stage')return changeStages('delete',btn?.dataset.id);
 if(act==='cancelstage'){S.stageDraft=null;el('modal-root').innerHTML='';return}
 if(act==='resetdraws')return confirmDialog('Reset Draws?','Clear ALL called numbers and ALL guest marks (including manual marks), then return to Stage 1. Everyone keeps the SAME Bingo card numbers. Previous prize results are saved in Past Winners.','Reset to zero',async()=>{clearWinnerScreen();await hostAction('resetdraws')});
 if(act==='end')return confirmDialog('End Event?','The event will stop. Player cards, drawn numbers and winner history will remain saved.','End Event',()=>hostAction('end'));
@@ -1898,6 +2382,8 @@ if(act==='selectstage'){const n=Number(btn.dataset.index);return confirmDialog('
 if(act==='nextstage')return confirmDialog('Continue to next prize?','Use existing drawn numbers and the same cards. All eligible cards will be checked against the next pattern.','Continue',()=>hostAction('nextstage'));
 if(act==='draw')return performDraw();return hostAction(act)
 }
+S.voicePreset=VOICE_PRESETS[load('bingolive_voice_preset','host')]?load('bingolive_voice_preset','host'):'host';
+S.voiceURI=String(load('bingolive_voice_uri','auto')||'auto');
 applyTheme();
 document.addEventListener('keydown',e=>{
  if(e.code==='Escape'&&el('modal-root')?.querySelector('.overlay')){e.preventDefault();el('modal-root').innerHTML='';return}
@@ -1909,11 +2395,13 @@ document.addEventListener('keydown',e=>{
  else if(e.code==='KeyP'){e.preventDefault();if(['playing','paused'].includes(S.room.public.status))runAct('togglepause',null)}
  else if(e.code==='KeyR'){e.preventDefault();runAct('resetdraws',null)}
  else if(e.code==='KeyN'||e.code==='ArrowRight'){e.preventDefault();if(S.room.public.stageIndex<S.room.stages.length-1)runAct('nextstage',null)}
+ else if(e.code==='KeyV'&&S.focusMode==='host'){e.preventDefault();const views=Object.keys(BOARD_VIEWS);setBoardView(views[(views.indexOf(S.boardView)+1)%views.length])}
  else if(e.code==='KeyT'){e.preventDefault();runAct('themes',null)}
  else if(e.code==='KeyI'){e.preventDefault();runAct('pattern-info',null)}
 });
+if('speechSynthesis' in window){speechSynthesis.addEventListener?.('voiceschanged',()=>{if(el('modal-root')?.querySelector('[data-overlay-type=voice-picker]')&&!document.activeElement?.matches('#system-voice-select'))showVoicePicker()})}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(b){e.preventDefault();runAct(b.dataset.act,b).catch(err=>toast(err.message,true))}});
-document.addEventListener('change',e=>{if(e.target?.name==='gameType')syncStageEditorFields();if(e.target?.id==='card-accent-picker'){S.cardAccent=e.target.value;store('bingolive_card_accent',S.cardAccent);S.cardStyle='custom';store('bingolive_card_style','custom');applyTheme();showCardStyles()}});
+document.addEventListener('change',e=>{if(e.target?.id==='system-voice-select'){S.voiceURI=e.target.value;rememberVoiceOptions();const feedback=el('voice-option-feedback');if(feedback)feedback.textContent='Voice selected. Press Preview to hear it.'}if(e.target?.name==='gameType')syncStageEditorFields();if(e.target?.id==='card-accent-picker'){S.cardAccent=e.target.value;store('bingolive_card_accent',S.cardAccent);S.cardStyle='custom';store('bingolive_card_style','custom');applyTheme();showCardStyles()}});
 document.addEventListener('submit',e=>{if(e.target.id==='join-form'){e.preventDefault();const f=new FormData(e.target);const name=trimName(f.get('name')),id=String(f.get('room')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8);if(!id||!name)return toast('Enter your room code and name.',true);joinRoom(id,name,detectJoinMode(id))}if(e.target.id==='stage-form'){e.preventDefault();saveStage(e.target)}});
 (async function boot(){const params=new URLSearchParams(location.search);const session=(()=>{try{return JSON.parse(sessionStorage.getItem('bingolive_session'))}catch(e){return null}})();if(session?.role==='host'&&session?.roomId){S.mode=session.mode;S.role='host';S.soundOn=load('bingolive_sound_host',true);S.voiceOn=load('bingolive_voice',false);S.roomId=session.roomId;try{if(S.mode==='demo'){S.uid=demoRead(S.roomId)?.hostUid;watchDemo()}else{await authorize();S.db=firebase.database();watchHost()}return}catch(e){toast('Could not restore your game. Please try again.',true);S.role=''}}if(session?.role==='player'&&session?.roomId){S.mode=session.mode;S.role='player';S.soundOn=load('bingolive_sound_player',false);S.roomId=session.roomId;try{if(S.mode==='demo'){const room=demoRead(S.roomId);if(!room)throw Error('Demo room missing');S.uid=session.uid;if(!S.uid)throw Error('Missing guest identity');S.player=room.players[S.uid];watchDemo()}else{await authorize();S.player=await rest('rooms/'+S.roomId+'/players/'+S.uid);startPolling()}return}catch(e){S.role=''}}render();if(params.has('room'))setTimeout(()=>el('name-input')?.focus(),150)})();
 </script>
